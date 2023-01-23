@@ -540,4 +540,4 @@
 </main> <!-- main -->
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('layouts.template', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\webaba\resources\views/index.blade.php ENDPATH**/ ?>
+<?= $__env->make('layouts.template', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\webaba\resources\views/index.blade.php ENDPATH**/ ?>
