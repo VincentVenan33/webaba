@@ -33,6 +33,7 @@
     <script src="js/apps.js"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-56159088-1"></script>
+    <script src="https://kit.fontawesome.com/c3e62f3962.js" crossorigin="anonymous"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
 

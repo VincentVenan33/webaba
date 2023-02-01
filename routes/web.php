@@ -32,3 +32,7 @@ Route::get('confirm', function () {
 Route::get('register', function () {
     return view('auth-register');
 });
+
+Route::get('user_data', function () {
+    return view('user_data');
+});

@@ -184,7 +184,7 @@
                             <span class="ml-3 item-text">User</span>
                         </a>
                         <ul class="collapse list-unstyled pl-4 w-100" id="profile">
-                            <a class="nav-link pl-3" href="./profile.html"><span class="ml-1">Overview</span></a>
+                            <a class="nav-link pl-3" href="user_data"><span class="ml-1">Add User</span></a>
                             <a class="nav-link pl-3" href="./profile-settings.html"><span
                                     class="ml-1">Settings</span></a>
                             <a class="nav-link pl-3" href="./profile-security.html"><span
