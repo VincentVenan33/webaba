@@ -199,6 +199,7 @@
         <?php echo $__env->yieldContent('main'); ?>
 
     </div> <!-- .wrapper -->
+    <script src="https://kit.fontawesome.com/c3e62f3962.js" crossorigin="anonymous"></script>
     <script src="js/jquery.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/moment.min.js"></script>

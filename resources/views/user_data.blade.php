@@ -2,31 +2,31 @@
 @section('main')
 <div class="wrapper vh-100">
     <div class="row align-items-center h-100">
-      <form class="col-lg-6 col-md-8 col-10 mx-auto">
+      <form method="post" action="{{route('simpanuser_data')}}" class="col-lg-6 col-md-8 col-10 mx-auto">
         <div class="mx-auto text-center">
           <h2 class="my-3">ADD USER</h2>
         </div>
         <div class="form-group">
           <label for="inputname">Nama Lengkap</label>
-          <input type="text" class="form-control" id="inputname" required>
+          <input type="text" nama="nama" class="form-control" id="inputname" required>
         </div>
         <div class="form-group">
             <label for="inputusername">Username</label>
-            <input type="text" class="form-control" id="inputusername" required>
+            <input type="text" nama="usernama" class="form-control" id="inputusername" required>
         </div>
         <div class="form-group">
             <label for="inputPassword5">Password</label>
-            <input type="password" class="form-control" id="inputPassword5" required>
+            <input type="password" nama="password" class="form-control" id="inputPassword5" required>
         </div>
         <div class="form-group">
             <label for="inputEmail4">Email</label>
-            <input type="email" class="form-control" id="inputEmail4" required>
+            <input type="email" nama="email" class="form-control" id="inputEmail4" required>
         </div>
         <div class="form-group">
             <label for="selection">Permission</label>
             <select class="form-control" name='permission' required>
-                <option value='islam'>-</option>
-                <option value='kristen'>-</option>
+                <option value='-'>-</option>
+                <option value='-'>-</option>
             </select>
         </div>
         <div class="container form-group">
@@ -38,7 +38,7 @@
                 </div>
                 <div class="col col-lg-1">
                     <label class="form-control switch">
-                        <input type="checkbox">
+                        <input name="status" type="checkbox">
                         <span class="slider round"></span>
                     </label>
                 </div>

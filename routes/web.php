@@ -1,6 +1,8 @@
 <?php
 
+use App\Models\User_dataController;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -36,3 +38,7 @@ Route::get('register', function () {
 Route::get('user_data', function () {
     return view('user_data');
 });
+
+Route::get('user_data/tampil', [User_dataController::class, 'tampiluser_data'])->name('tampiluser_data')->middleware('auth');
+Route::get('user_data/tambah', [User_dataController::class, 'tambahuser_data'])->name('tambahuser_data')->middleware('auth');
+Route::post('user_data/simpan', [User_dataController::class, 'simpanuser_data'])->name('simpanuser_data')->middleware('auth');
