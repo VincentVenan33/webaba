@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\User_dataController;
+use App\Http\Controllers\UserdataController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -35,10 +35,10 @@ Route::get('register', function () {
     return view('auth-register');
 });
 
-Route::get('user_data', function () {
-    return view('user_data');
-});
+// Route::get('user_data', function () {
+//     return view('user_data');
+// });
 
-Route::get('user_data/tampil', [User_dataController::class, 'tampiluser_data'])->name('tampiluser_data')->middleware('auth');
-Route::get('user_data/tambah', [User_dataController::class, 'tambahuser_data'])->name('tambahuser_data')->middleware('auth');
-Route::post('user_data/simpan', [User_dataController::class, 'simpanuser_data'])->name('simpanuser_data')->middleware('auth');
+Route::get('user_data/tampil', [UserdataController::class, 'tampiluser'])->name('tampiluser');
+Route::get('user_data/tambah', [UserdataController::class, 'tambahuser'])->name('tambahuser');
+Route::post('user_data/simpan', [UserdataController::class, 'simpanuser'])->name('simpanuser');
