@@ -33,4 +33,11 @@ class UserdataController extends Controller
 
         return redirect()->route('viewuserdata');
     }
+
+    public function deleteuser($id){
+    $user_data = UserdataModel::where('id', $id)
+              ->delete();
+
+    return redirect()->route('viewuserdata');
+    }
 }

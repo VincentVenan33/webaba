@@ -23,8 +23,8 @@
         <td>{{$usr->permission}}</td>
         <td>{{$usr->status}}</td>
         <td>
-        <a href="/userdata/ubah/{{$usr->id}}" class="btn btn-warning btn-sm"><i class="fa fa-pencil"></i></a>
-        <a href="/userdata/hapus/{{$usr->id}}" onclick="return confirm('Apakah Anda Yakin Menghapus Data?');" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+        <a href="update/{{$usr->id}}" class="btn btn-warning btn-sm"><i class="fa fa-pencil"></i></a>
+        <a href="delete/{{$usr->id}}" onclick="return confirm('Apakah Anda Yakin Menghapus Data?');" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
         </td>
     </tr>
     <?php $no++ ;?>
