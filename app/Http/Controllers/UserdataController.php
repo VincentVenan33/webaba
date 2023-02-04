@@ -7,17 +7,19 @@ use Illuminate\Http\Request;
 
 class UserdataController extends Controller
 {
-    public function tampiluser()
+    public function viewuserdata()
     {
-        return view('userdata');
+        $user_data = UserdataModel::select('*')
+             ->get();
+        return view('viewuserdata', ['user' => $user_data]);
     }
 
-    public function tambahuser()
+    public function adduser()
     {
-        return view('userdata');
+        return view('adduserdata');
     }
 
-    public function simpanuser(Request $request)
+    public function saveuser(Request $request)
     {
         $user_data = UserdataModel::create([
             'nama' => $request->nama,
@@ -29,6 +31,6 @@ class UserdataController extends Controller
             'status' => $request->status,
         ]);
 
-        return redirect()->route('tampiluser');
+        return redirect()->route('viewuserdata');
     }
 }

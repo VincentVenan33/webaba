@@ -2,7 +2,7 @@
 @section('main')
 <div class="wrapper vh-100">
     <div class="row align-items-center h-100">
-        <form method="post" action="{{route('simpanuser')}}" class="col-lg-6 col-md-8 col-10 mx-auto">
+        <form method="post" action="{{route('saveuser')}}" class="col-lg-6 col-md-8 col-10 mx-auto">
             @csrf
             <div class="mx-auto text-center">
                 <h2 class="my-3">ADD USER</h2>
@@ -51,10 +51,10 @@
                     <div class="col col-4">
                     </div>
                     <div class="col col-2">
-                        <button class="btn btn-lg btn-primary btn-block" type="submit"><i class="fa-solid fa-floppy-disk"></i> Simpan</button>
+                        <button class="btn btn-lg btn-primary btn-block" type="submit"><i class="fa-solid fa-floppy-disk"></i> Save</button>
                     </div>
                     <div class="col col-2">
-                        <button class="btn btn-lg btn-primary btn-block" type="submit"><i class="fa-solid fa-angles-left"></i> Kembali</button>
+                        <a class="btn btn-lg btn-primary btn-block" href="{{route('viewuserdata')}}"><i class="fa-solid fa-angles-left"></i> Back</a><br><br>
                     </div>
                     <div class="col col-4">
                     </div>

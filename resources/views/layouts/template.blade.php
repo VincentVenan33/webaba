@@ -71,7 +71,7 @@
             <nav class="vertnav navbar navbar-light">
                 <!-- nav bar -->
                 <div class="w-100 mb-4 d-flex">
-                    <a class="navbar-brand mx-auto mt-2 flex-fill text-center" href="./index.html">
+                    <a class="navbar-brand mx-auto mt-2 flex-fill text-center" href="/">
                         <img class="logo" src="{{  url('') }}/assets/images/logo.png" alt="asiabangunabadi" />
                     </a>
                 </div>
@@ -83,7 +83,7 @@
                         </a>
                         <ul class="collapse list-unstyled pl-4 w-100" id="dashboard">
                             <li class="nav-item active">
-                                <a class="nav-link pl-3" href="./index.html"><span class="ml-1 item-text">Default</span></a>
+                                <a class="nav-link pl-3" href="/"><span class="ml-1 item-text">Default</span></a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link pl-3" href="./dashboard-analytics.html"><span class="ml-1 item-text">Analytics</span></a>
@@ -173,7 +173,7 @@
                             <span class="ml-3 item-text">User</span>
                         </a>
                         <ul class="collapse list-unstyled pl-4 w-100" id="profile">
-                            <a class="nav-link pl-3" href="{{route('tampiluser')}}"><span class="ml-1">Add User</span></a>
+                            <a class="nav-link pl-3" href="{{route('viewuserdata')}}"><span class="ml-1">User Data</span></a>
                             <a class="nav-link pl-3" href="./profile-settings.html"><span class="ml-1">Settings</span></a>
                             <a class="nav-link pl-3" href="./profile-security.html"><span class="ml-1">Security</span></a>
                             <a class="nav-link pl-3" href="./profile-notification.html"><span class="ml-1">Notifications</span></a>

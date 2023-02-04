@@ -39,6 +39,6 @@ Route::get('register', function () {
 //     return view('user_data');
 // });
 
-Route::get('user_data/tampil', [UserdataController::class, 'tampiluser'])->name('tampiluser');
-Route::get('user_data/tambah', [UserdataController::class, 'tambahuser'])->name('tambahuser');
-Route::post('user_data/simpan', [UserdataController::class, 'simpanuser'])->name('simpanuser');
+Route::get('view', [UserdataController::class, 'viewuserdata'])->name('viewuserdata');
+Route::get('add', [UserdataController::class, 'adduser'])->name('adduser');
+Route::post('save', [UserdataController::class, 'saveuser'])->name('saveuser');
