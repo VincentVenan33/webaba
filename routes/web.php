@@ -42,4 +42,6 @@ Route::get('register', function () {
 Route::get('view', [UserdataController::class, 'viewuserdata'])->name('viewuserdata');
 Route::get('add', [UserdataController::class, 'adduser'])->name('adduser');
 Route::post('save', [UserdataController::class, 'saveuser'])->name('saveuser');
+Route::get('change/{id}', [UserdataController::class, 'changeuser'])->name('changeuser');
+Route::post('update', [UserdataController::class, 'updateuser'])->name('updateuser');
 Route::get('delete/{id}', [UserdataController::class, 'deleteuser'])->name('deleteuser');

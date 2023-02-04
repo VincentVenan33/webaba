@@ -1,6 +1,6 @@
 @extends('layouts.template')
 @section('main')
-<div class="wrapper vh-100">
+<div class="wrapper vh-100 main-content">
     <div class="row align-items-center h-100">
         <form method="post" action="{{route('saveuser')}}" class="col-lg-6 col-md-8 col-10 mx-auto">
             @csrf
