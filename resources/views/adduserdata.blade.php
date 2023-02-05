@@ -7,42 +7,47 @@
             <div class="mx-auto text-center">
                 <h2 class="my-3">ADD USER</h2>
             </div>
-            <div class="form-group">
-                <label for="inputname">Nama Lengkap</label>
-                <input type="text" name="nama" class="form-control" required>
-            </div>
-            <div class="form-group">
-                <label for="inputusername">Username</label>
-                <input type="text" name="username" class="form-control" required>
-            </div>
-            <div class="form-group">
-                <label for="inputPassword5">Password</label>
-                <input type="password" name="password" class="form-control" required>
-            </div>
-            <div class="form-group">
-                <label for="inputEmail4">Email</label>
-                <input type="email" name="email" class="form-control" required>
-            </div>
-            <div class="form-group">
-                <label for="selection">Permission</label>
-                <select class="form-control" name='permission' required>
-                    <option value=''>-</option>
-                    <option value='administrator'>administrator</option>
-                    <option value='operator'>operator</option>
-                </select>
-            </div>
-            <div class="container form-group">
                 <div class="row">
-                    <div class="col">
-                        <label for="status">Status</label>
+                    <div class="form-group col">
+                        <label for="inputname">Nama Lengkap</label>
+                        <input type="text" name="nama" class="form-control" required>
                     </div>
-                    <div class="col-md-auto">
+                    <div class="form-group col">
+                        <label for="inputusername">Username</label>
+                        <input type="text" name="username" class="form-control" required>
                     </div>
-                    <div class="col col-lg-1">
-                        <label class="form-control switch">
-                            <input name="status" type="checkbox">
-                            <span class="slider round"></span>
-                        </label>
+                </div>
+            <div class="row">
+                <div class="form-group col">
+                    <label for="inputEmail4">Email</label>
+                    <input type="email" name="email" class="form-control" required>
+                </div>
+                <div class="form-group col">
+                    <label for="inputPassword5">Password</label>
+                    <input type="password" name="password" class="form-control" required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col">
+                    <label for="selection">Permission</label>
+                    <select class="form-control" name='permission' required>
+                        <option value=''>-</option>
+                        <option value='administrator'>administrator</option>
+                        <option value='operator'>operator</option>
+                    </select>
+                </div>
+                <div class="form-group col">
+                    <div class="row mt-4">
+                        <div class="col">
+                            <label for="status">Status</label>
+                        </div>
+                        <div class="col col-xl"></div>
+                        <div class="col text-end">
+                            <label class="form-control switch ml-5">
+                                <input name="status" type="checkbox">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
                     </div>
                 </div>
             </div>
