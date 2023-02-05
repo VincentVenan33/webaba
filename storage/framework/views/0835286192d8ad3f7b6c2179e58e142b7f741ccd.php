@@ -218,6 +218,7 @@
     <script src="<?php echo e(url('')); ?>/js/dropzone.min.js"></script>
     <script src="<?php echo e(url('')); ?>/js/uppy.min.js"></script>
     <script src="<?php echo e(url('')); ?>/js/quill.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js" integrity="sha512-F636MAkMAhtTplahL9F6KmTfxTmYcAcjcCkyu0f0voT3N/6vzAuJ4Num55a0gEJ+hRLHhdz3vDvZpf6kqgEa5w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
         $('.select2').select2({
             theme: 'bootstrap4',
@@ -401,6 +402,7 @@
         gtag('js', new Date());
         gtag('config', 'UA-56159088-1');
     </script>
+    
 </body>
 
 </html>

@@ -42,11 +42,12 @@
                             <label for="status">Status</label>
                         </div>
                         <div class="col col-xl"></div>
-                        <div class="col text-end">
+                        <div class="col">
                             <label class="form-control switch ml-5">
                                 <input name="status" type="checkbox">
                                 <span class="slider round"></span>
                             </label>
+                            {{-- <td> <input data-id="{{$s->id}}" class="toggle-class" type="checkbox" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-on="Active" data-off="InActive" {{ $s->status ? 'checked' : '' }}> --}}
                         </div>
                     </div>
                 </div>
