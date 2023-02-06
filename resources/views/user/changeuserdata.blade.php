@@ -20,7 +20,7 @@
                 </div>
                 <div class="form-group">
                     <label for="inputPassword5">Password</label>
-                    <input type="password" name="password" class="form-control" required>
+                    <input type="password" name="password" value="{{$user->password}}" class="form-control" required>
                 </div>
                 <div class="form-group">
                     <label for="inputEmail4">Email</label>
@@ -29,6 +29,7 @@
                 <div class="form-group">
                     <label for="selection">Permission</label>
                     <select class="form-control" name='permission' value="{{$user->permission}}" required>
+                        <option value='{{$user->permission}}'>{{$user->permission}}</option>
                         <option value=''>-</option>
                         <option value='administrator'>administrator</option>
                         <option value='operator'>operator</option>
@@ -43,7 +44,7 @@
                         </div>
                         <div class="col col-lg-1">
                             <label class="form-control switch">
-                                <input name="status" value="{{$user->status}}" type="checkbox">
+                                <input name="status" value="{{$user->status}}" type="checkbox" {{ ($user->status == 1 ? 'checked' : '') }}>
                                 <span class="slider round"></span>
                             </label>
                         </div>
