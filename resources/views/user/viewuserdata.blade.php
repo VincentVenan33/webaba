@@ -22,9 +22,9 @@
             <td>{{$usr->username}}</td>
             <td>{{$usr->email}}</td>
             <td>{{$usr->permission}}</td>
-            <td>{{$usr->status}}</td>
+            <td>{{($usr->status ==1 ? "AKTIF" : "NON AKTIF")}}</td>
             <td>
-            <a href="changeuser/{{$usr->id}}" class="btn btn-warning btn-sm"><i class="fa fa-pencil"></i></a>
+            <a href="change/{{$usr->id}}" class="btn btn-warning btn-sm"><i class="fa fa-pencil"></i></a>
             <a href="delete/{{$usr->id}}" onclick="return confirm('Apakah Anda Yakin Menghapus Data?');" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
             </td>
         </tr>

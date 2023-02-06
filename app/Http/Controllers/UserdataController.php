@@ -11,12 +11,12 @@ class UserdataController extends Controller
     {
         $user_data = UserdataModel::select('*')
              ->get();
-        return view('viewuserdata', ['user' => $user_data]);
+        return view('user/viewuserdata', ['user' => $user_data]);
     }
 
     public function adduser()
     {
-        return view('adduserdata');
+        return view('user/adduserdata');
     }
 
     public function saveuser(Request $request)
@@ -25,10 +25,9 @@ class UserdataController extends Controller
             'nama' => $request->nama,
             'username' => $request->username,
             'password' => $request->password,
-            'alamat' => $request->alamat,
             'email' => $request->email,
             'permission' => $request->permission,
-            'status' => $request->status,
+            'status' => ($request->status != "" ? "1" : "0"),
         ]);
 
         return redirect()->route('viewuserdata');
@@ -38,9 +37,8 @@ class UserdataController extends Controller
     {
         $user_data = UserdataModel::select('*')
                     ->where('id', $id)
-                    ->get();
-
-        return view('changeuser', ['user' => $user_data]);
+                    ->first();
+        return view('user/changeuserdata', ['user' => $user_data]);
     }
 
     public function updateuser(Request $request)
@@ -50,10 +48,9 @@ class UserdataController extends Controller
                         'nama' => $request->nama,
                         'username' => $request->username,
                         'password' => $request->password,
-                        'alamat' => $request->alamat,
                         'email' => $request->email,
                         'permission' => $request->permission,
-                        'status' => $request->status,
+                        'status' => ($request->status != "" ? "1" : "0"),
                     ]);
 
         return redirect()->route('viewuserdata');

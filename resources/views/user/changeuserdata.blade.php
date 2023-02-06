@@ -2,22 +2,21 @@
 @section('main')
 <div class="wrapper vh-100 main-content">
     <div class="row align-items-center h-100">
-        @foreach($user_data as $usr)
-            <form method="post" action="{{route('saveuser')}}" class="col-lg-6 col-md-8 col-10 mx-auto">
+            <form method="post" action="{{route('updateuser')}}" class="col-lg-6 col-md-8 col-10 mx-auto">
                 @csrf
                 <div class="mx-auto text-center">
                     <h2 class="my-3">Update User Data</h2>
                 </div>
                 <div class="form-group">
-                    <input type="hidden" name="id" value="{{$usr->id}}">
+                    <input type="hidden" name="id" value="{{$user->id}}">
                 </div>
                 <div class="form-group">
                     <label for="inputname">Nama Lengkap</label>
-                    <input type="text" name="nama" value="{{$usr->nama}}" class="form-control" required>
+                    <input type="text" name="nama" value="{{$user->nama}}" class="form-control" required>
                 </div>
                 <div class="form-group">
                     <label for="inputusername">Username</label>
-                    <input type="text" name="username" value="{{$usr->username}}" class="form-control" required>
+                    <input type="text" name="username" value="{{$user->username}}" class="form-control" required>
                 </div>
                 <div class="form-group">
                     <label for="inputPassword5">Password</label>
@@ -25,11 +24,11 @@
                 </div>
                 <div class="form-group">
                     <label for="inputEmail4">Email</label>
-                    <input type="email" name="email" value="{{$usr->email}}" class="form-control" required>
+                    <input type="email" name="email" value="{{$user->email}}" class="form-control" required>
                 </div>
                 <div class="form-group">
                     <label for="selection">Permission</label>
-                    <select class="form-control" name='permission' value="{{$usr->permission}}" required>
+                    <select class="form-control" name='permission' value="{{$user->permission}}" required>
                         <option value=''>-</option>
                         <option value='administrator'>administrator</option>
                         <option value='operator'>operator</option>
@@ -44,7 +43,7 @@
                         </div>
                         <div class="col col-lg-1">
                             <label class="form-control switch">
-                                <input name="status" value="{{$usr->status}}" type="checkbox">
+                                <input name="status" value="{{$user->status}}" type="checkbox">
                                 <span class="slider round"></span>
                             </label>
                         </div>
@@ -68,3 +67,4 @@
     </div>
 </div>
 @endsection
+
