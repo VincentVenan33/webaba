@@ -10,27 +10,39 @@
                 <div class="row">
                     <div class="form-group col">
                         <label for="inputname">Nama Lengkap</label>
-                        <input type="text" name="nama" class="form-control" required>
+                        <input type="text" name="nama" class="form-control @error('nama')is-invalid @enderror" value="{{old('nama')}}">
+                        @error("nama")
+                        <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="form-group col">
                         <label for="inputusername">Username</label>
-                        <input type="text" name="username" class="form-control" required>
+                        <input type="text" name="username" class="form-control @error('username')is-invalid @enderror" value="{{old('username')}}">
+                        @error("username")
+                        <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
                     </div>
                 </div>
             <div class="row">
                 <div class="form-group col">
                     <label for="inputEmail4">Email</label>
-                    <input type="email" name="email" class="form-control" required>
+                    <input type="email" name="email" class="form-control @error('email')is-invalid @enderror" value="{{old('email')}}">
+                    @error("email")
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
                 </div>
                 <div class="form-group col">
                     <label for="inputPassword5">Password</label>
-                    <input type="password" name="password" class="form-control" required>
+                    <input type="password" name="password" class="form-control @error('password')is-invalid @enderror" value="{{old('password')}}">
+                    @error("password")
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
                 </div>
             </div>
             <div class="row">
                 <div class="form-group col">
                     <label for="selection">Permission</label>
-                    <select class="form-control" name='permission' required>
+                    <select class="form-control" name='permission'>
                         <option value=''>-</option>
                         <option value='administrator'>administrator</option>
                         <option value='operator'>operator</option>

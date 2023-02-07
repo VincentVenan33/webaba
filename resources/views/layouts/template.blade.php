@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="{{  url('') }}/css/jquery.steps.css">
     <link rel="stylesheet" href="{{  url('') }}/css/jquery.timepicker.css">
     <link rel="stylesheet" href="{{  url('') }}/css/quill.snow.css">
+    <link rel="stylesheet" href="{{  url('') }}/css/dataTables.bootstrap4.css">
     <!-- Date Range Picker CSS -->
     <link rel="stylesheet" href="{{  url('') }}/css/daterangepicker.css">
     <!-- App CSS -->
@@ -34,22 +35,7 @@
                 <i class="fe fe-menu navbar-toggler-icon"></i>
             </button>
             <ul class="nav">
-                <li class="nav-item">
-                    <a class="nav-link text-muted my-2" href="#" id="modeSwitcher" data-mode="light">
-                        <i class="fe fe-sun fe-16"></i>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-muted my-2" href="./#" data-toggle="modal" data-target=".modal-shortcut">
-                        <span class="fe fe-grid fe-16"></span>
-                    </a>
-                </li>
-                <li class="nav-item nav-notif">
-                    <a class="nav-link text-muted my-2" href="./#" data-toggle="modal" data-target=".modal-notif">
-                        <span class="fe fe-bell fe-16"></span>
-                        <span class="dot dot-md bg-success"></span>
-                    </a>
-                </li>
+
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle text-muted pr-0" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <span class="avatar avatar-sm mt-2">
@@ -218,6 +204,17 @@
     <script src="{{  url('') }}/js/dropzone.min.js"></script>
     <script src="{{  url('') }}/js/uppy.min.js"></script>
     <script src="{{  url('') }}/js/quill.min.js"></script>
+    <script src="{{  url('') }}/js/jquery.min.js"></script>
+    <script src="{{  url('') }}/js/popper.min.js"></script>
+    <script src="{{  url('') }}/js/moment.min.js"></script>
+    <script src="{{  url('') }}/js/bootstrap.min.js"></script>
+    <script src="{{  url('') }}/js/simplebar.min.js"></script>
+    <script src='{{  url('') }}/js/daterangepicker.js'></script>
+    <script src='{{  url('') }}/js/jquery.stickOnScroll.js'></script>
+    <script src="{{  url('') }}/js/tinycolor-min.js"></script>
+    <script src="{{  url('') }}/js/config.js"></script>
+    <script src='{{  url('') }}/js/jquery.dataTables.min.js'></script>
+    <script src='{{  url('') }}/js/dataTables.bootstrap4.min.js'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js" integrity="sha512-F636MAkMAhtTplahL9F6KmTfxTmYcAcjcCkyu0f0voT3N/6vzAuJ4Num55a0gEJ+hRLHhdz3vDvZpf6kqgEa5w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
         $('.select2').select2({
@@ -402,6 +399,29 @@
         gtag('js', new Date());
         gtag('config', 'UA-56159088-1');
     </script>
+    <script>
+        $('#dataTable-1').DataTable(
+        {
+          autoWidth: true,
+          "lengthMenu": [
+            [16, 32, 64, -1],
+            [16, 32, 64, "All"]
+          ]
+        });
+      </script>
+      <script src="js/apps.js"></script>
+      <!-- Global site tag (gtag.js) - Google Analytics -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-56159088-1"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag()
+        {
+          dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'UA-56159088-1');
+      </script>
     {{-- <script>
         $(function(){
             $('.toogle-class').change(function() {
