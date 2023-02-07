@@ -12,23 +12,35 @@
                 </div>
                 <div class="form-group">
                     <label for="inputname">Nama Lengkap</label>
-                    <input type="text" name="nama" value="{{$user->nama}}" class="form-control" required>
+                    <input type="text" name="nama" value="{{$user->nama}}" class="form-control @error('nama')is-invalid @enderror" value="{{old('nama')}}">
+                    @error("nama")
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
                 </div>
                 <div class="form-group">
                     <label for="inputusername">Username</label>
-                    <input type="text" name="username" value="{{$user->username}}" class="form-control" required>
-                </div>
-                <div class="form-group">
-                    <label for="inputPassword5">Password</label>
-                    <input type="password" name="password" value="{{$user->password}}" class="form-control" required>
+                    <input type="text" name="username" value="{{$user->username}}" class="form-control @error('username')is-invalid @enderror" value="{{old('username')}}">
+                    @error("username")
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
                 </div>
                 <div class="form-group">
                     <label for="inputEmail4">Email</label>
-                    <input type="email" name="email" value="{{$user->email}}" class="form-control" required>
+                    <input type="email" name="email" value="{{$user->email}}" class="form-control @error('email')is-invalid @enderror" value="{{old('email')}}">
+                    @error("email")
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+                <div class="form-group">
+                    <label for="inputPassword5">Password</label>
+                    <input type="password" name="password" value="{{$user->password}}" class="form-control @error('password')is-invalid @enderror" value="{{old('password')}}">
+                    @error("password")
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
                 </div>
                 <div class="form-group">
                     <label for="selection">Permission</label>
-                    <select class="form-control" name='permission' value="{{$user->permission}}" required>
+                    <select class="form-control" name='permission' value="{{$user->permission}}">
                         <option value='{{$user->permission}}'>{{$user->permission}}</option>
                         <option value=''>-</option>
                         <option value='administrator'>administrator</option>

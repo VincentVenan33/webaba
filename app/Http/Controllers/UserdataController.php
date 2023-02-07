@@ -29,6 +29,7 @@ class UserdataController extends Controller
             "email" => "required"
 
         ]);
+
         $user_data = UserdataModel::create([
             'nama' => $request->nama,
             'username' => $request->username,
@@ -51,6 +52,15 @@ class UserdataController extends Controller
 
     public function updateuser(Request $request)
     {
+        $request->validate([
+            "nama" => "required|min:5",
+            "username" => "required|min:5",
+            "password" => "required|min:5",
+            "email" => "required",
+            "email" => "required"
+
+        ]);
+        
         $user_data = UserdataModel::where('id', $request->id)
                     ->update([
                         'nama' => $request->nama,

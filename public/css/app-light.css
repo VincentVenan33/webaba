@@ -12116,3 +12116,7 @@ input:checked + .slider:before {
     background-color: #fff;
     padding: 20px;
 }
+
+.status-swith{
+    text-align: end;
+}
