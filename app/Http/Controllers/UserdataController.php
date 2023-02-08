@@ -26,7 +26,7 @@ class UserdataController extends Controller
             "username" => "required|min:5",
             "password" => "required|min:5",
             "email" => "required",
-            "email" => "required"
+            "permission" => 'required|in:"administrator","operator"'
 
         ]);
 
@@ -60,7 +60,7 @@ class UserdataController extends Controller
             "email" => "required"
 
         ]);
-        
+
         $user_data = UserdataModel::where('id', $request->id)
                     ->update([
                         'nama' => $request->nama,
