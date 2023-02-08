@@ -180,7 +180,7 @@
     <script src="<?php echo e(url('')); ?>/js/daterangepicker.js"></script>
     <script src="<?php echo e(url('')); ?>/js/jquery.stickOnScroll.js"></script>
     <script src="<?php echo e(url('')); ?>/js/tinycolor-min.js"></script>
-    
+    <script src="<?php echo e(url('')); ?>/js/config.js"></script>
     <script src="<?php echo e(url('')); ?>/js/d3.min.js"></script>
     <script src="<?php echo e(url('')); ?>/js/topojson.min.js"></script>
     <script src="<?php echo e(url('')); ?>/js/datamaps.all.min.js"></script>
@@ -230,7 +230,7 @@
             });
         }
     </script>
-    
+    <script src="<?php echo e(url('')); ?>/js/apps.js"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-56159088-1"></script>
     <script>

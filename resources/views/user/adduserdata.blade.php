@@ -76,7 +76,6 @@
             <div class="col-md-6">
               <div class="card shadow mb-4">
                 <div class="card-body">
-                  <p class="mb-3"><strong>Input User</strong></p>
                   <form method="post" action="{{route('saveuser')}}" class="col-lg-12">
                     @csrf
                     <div class="form-group">

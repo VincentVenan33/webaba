@@ -180,7 +180,7 @@
     <script src="{{  url('') }}/js/daterangepicker.js"></script>
     <script src="{{  url('') }}/js/jquery.stickOnScroll.js"></script>
     <script src="{{  url('') }}/js/tinycolor-min.js"></script>
-    {{-- <script src="{{  url('') }}/js/config.js"></script> --}}
+    <script src="{{  url('') }}/js/config.js"></script>
     <script src="{{  url('') }}/js/d3.min.js"></script>
     <script src="{{  url('') }}/js/topojson.min.js"></script>
     <script src="{{  url('') }}/js/datamaps.all.min.js"></script>
@@ -235,7 +235,7 @@
             });
         }
     </script>
-    {{-- <script src="{{  url('') }}/js/apps.js"></script> --}}
+    <script src="{{  url('') }}/js/apps.js"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-56159088-1"></script>
     <script>
