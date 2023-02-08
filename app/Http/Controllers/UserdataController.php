@@ -57,7 +57,7 @@ class UserdataController extends Controller
             "username" => "required|min:5",
             "password" => "required|min:5",
             "email" => "required",
-            "email" => "required"
+            "permission" => 'required|in:"administrator","operator"'
 
         ]);
 
