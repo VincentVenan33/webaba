@@ -57,8 +57,9 @@
                       </tr>
                     </thead>
                     @php $no = 1; @endphp
-                    @foreach($user as $usr)
+
                     <tbody>
+                        @foreach($user as $usr)
                       <tr>
                         <th>{{ $no++ }}</th>
                         <td>{{$usr->nama}}</td>
@@ -70,9 +71,9 @@
                         <a href="change/{{$usr->id}}" class="btn btn-warning btn-sm"><i class="fa fa-pencil"></i></a>
                         <a href="delete/{{$usr->id}}" onclick="return confirm('Apakah Anda Yakin Menghapus Data?');" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
                         </td>
-                      </tr>
-                    </tbody>
+                    </tr>
                     @endforeach
+                    </tbody>
                   </table>
                 </div>
               </div>
