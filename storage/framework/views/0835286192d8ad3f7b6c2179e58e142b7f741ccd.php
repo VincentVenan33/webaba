@@ -21,6 +21,8 @@
     <link rel="stylesheet" href="<?php echo e(url('')); ?>/css/jquery.timepicker.css">
     <link rel="stylesheet" href="<?php echo e(url('')); ?>/css/quill.snow.css">
     <link rel="stylesheet" href="<?php echo e(url('')); ?>/css/dataTables.bootstrap4.css">
+    <link rel="stylesheet" type="text/css"
+     href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <!-- Date Range Picker CSS -->
     <link rel="stylesheet" href="<?php echo e(url('')); ?>/css/daterangepicker.css">
     <!-- App CSS -->
@@ -207,6 +209,7 @@
     <script src='<?php echo e(url('')); ?>/js/daterangepicker.js'></script>
     <script src='<?php echo e(url('')); ?>/js/jquery.stickOnScroll.js'></script>
     <script src="<?php echo e(url('')); ?>/js/tinycolor-min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.0/js/toastr.js"></script>
     
     <script src='<?php echo e(url('')); ?>/js/jquery.dataTables.min.js'></script>
     <script src='<?php echo e(url('')); ?>/js/dataTables.bootstrap4.min.js'></script>
@@ -264,6 +267,43 @@
         }
         gtag('js', new Date());
         gtag('config', 'UA-56159088-1');
+      </script>
+      <script>
+        <?php if(Session::has('message')): ?>
+        toastr.options =
+        {
+            "closeButton" : true,
+            "progressBar" : true
+        }
+                toastr.success("<?php echo e(session('message')); ?>");
+        <?php endif; ?>
+
+        <?php if(Session::has('error')): ?>
+        toastr.options =
+        {
+            "closeButton" : true,
+            "progressBar" : true
+        }
+                toastr.error("<?php echo e(session('error')); ?>");
+        <?php endif; ?>
+
+        <?php if(Session::has('info')): ?>
+        toastr.options =
+        {
+            "closeButton" : true,
+            "progressBar" : true
+        }
+                toastr.info("<?php echo e(session('info')); ?>");
+        <?php endif; ?>
+
+        <?php if(Session::has('warning')): ?>
+        toastr.options =
+        {
+            "closeButton" : true,
+            "progressBar" : true
+        }
+                toastr.warning("<?php echo e(session('warning')); ?>");
+        <?php endif; ?>
       </script>
     
 </body>

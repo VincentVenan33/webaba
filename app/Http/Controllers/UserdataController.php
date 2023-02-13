@@ -39,7 +39,7 @@ class UserdataController extends Controller
             'status' => ($request->status != "" ? "1" : "0"),
         ]);
 
-        return redirect()->route('viewuserdata');
+        return redirect()->route('viewuserdata')->with('message','Data added Successfully');
     }
 
     public function changeuser($id)
@@ -71,13 +71,12 @@ class UserdataController extends Controller
                         'status' => ($request->status != "" ? "1" : "0"),
                     ]);
 
-        return redirect()->route('viewuserdata');
+        return redirect()->route('viewuserdata')->with('Message','Data update succeesfully');
     }
 
     public function deleteuser($id){
     $user_data = UserdataModel::where('id', $id)
               ->delete();
-
-    return redirect()->route('viewuserdata');
-    }
+              return redirect()->route('viewuserdata')->with('error','Data Deleted');
+            }
 }
