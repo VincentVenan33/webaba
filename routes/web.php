@@ -45,4 +45,3 @@ Route::post('user/save', [UserdataController::class, 'saveuser'])->name('saveuse
 Route::get('user/change/{id}', [UserdataController::class, 'changeuser'])->name('changeuser');
 Route::post('user/update', [UserdataController::class, 'updateuser'])->name('updateuser');
 Route::get('user/delete/{id}', [UserdataController::class, 'deleteuser'])->name('deleteuser');
-Route::get("enc","EncController");

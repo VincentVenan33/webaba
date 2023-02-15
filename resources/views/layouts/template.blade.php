@@ -21,13 +21,13 @@
     <link rel="stylesheet" href="{{  url('') }}/css/jquery.timepicker.css">
     <link rel="stylesheet" href="{{  url('') }}/css/quill.snow.css">
     <link rel="stylesheet" href="{{  url('') }}/css/dataTables.bootstrap4.css">
-    <link rel="stylesheet" type="text/css"
-     href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <!-- Date Range Picker CSS -->
     <link rel="stylesheet" href="{{  url('') }}/css/daterangepicker.css">
     <!-- App CSS -->
     <link rel="stylesheet" href="{{  url('') }}/css/app-light.css" id="lightTheme">
     <link rel="stylesheet" href="{{  url('') }}/css/app-dark.css" id="darkTheme" disabled>
+    <link rel="stylesheet" type="text/css"
+     href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 </head>
 
 <body class="vertical  light  ">
