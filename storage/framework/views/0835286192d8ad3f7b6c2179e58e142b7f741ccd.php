@@ -182,22 +182,17 @@
     <script src="<?php echo e(url('')); ?>/js/daterangepicker.js"></script>
     <script src="<?php echo e(url('')); ?>/js/jquery.stickOnScroll.js"></script>
     <script src="<?php echo e(url('')); ?>/js/tinycolor-min.js"></script>
-    <script src="<?php echo e(url('')); ?>/js/config.js"></script>
+    
     <script src="<?php echo e(url('')); ?>/js/d3.min.js"></script>
     <script src="<?php echo e(url('')); ?>/js/topojson.min.js"></script>
     <script src="<?php echo e(url('')); ?>/js/datamaps.all.min.js"></script>
     <script src="<?php echo e(url('')); ?>/js/datamaps-zoomto.js"></script>
     <script src="<?php echo e(url('')); ?>/js/datamaps.custom.js"></script>
-    <script src="<?php echo e(url('')); ?>/js/Chart.min.js"></script>
-    <script>
-        /* defind global options */
-        Chart.defaults.global.defaultFontFamily = base.defaultFontFamily;
-        Chart.defaults.global.defaultFontColor = colors.mutedColor;
-    </script>
+    
     <script src="<?php echo e(url('')); ?>/js/gauge.min.js"></script>
     <script src="<?php echo e(url('')); ?>/js/jquery.sparkline.min.js"></script>
     <script src="<?php echo e(url('')); ?>/js/apexcharts.min.js"></script>
-    <script src="<?php echo e(url('')); ?>/js/apexcharts.custom.js"></script>
+    
     <script src="<?php echo e(url('')); ?>/js/jquery.mask.min.js"></script>
     <script src="<?php echo e(url('')); ?>/js/select2.min.js"></script>
     <script src="<?php echo e(url('')); ?>/js/jquery.steps.min.js"></script>
@@ -215,11 +210,10 @@
     <script src='<?php echo e(url('')); ?>/js/jquery.stickOnScroll.js'></script>
     <script src="<?php echo e(url('')); ?>/js/tinycolor-min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.0/js/toastr.js"></script>
-    <script src="<?php echo e(url('')); ?>/js/config.js"></script>
+    
     <script src='<?php echo e(url('')); ?>/js/jquery.dataTables.min.js'></script>
     <script src='<?php echo e(url('')); ?>/js/dataTables.bootstrap4.min.js'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js" integrity="sha512-F636MAkMAhtTplahL9F6KmTfxTmYcAcjcCkyu0f0voT3N/6vzAuJ4Num55a0gEJ+hRLHhdz3vDvZpf6kqgEa5w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="js/apps.js"></script>
     <script>
         var uptarg = document.getElementById('drag-drop-area');
         if (uptarg) {
