@@ -38,7 +38,9 @@ Route::get('register', function () {
 // Route::get('user_data', function () {
 //     return view('user_data');
 // });
-
+Route::post('actionlogin', [LoginController::class, 'actionlogin'])->name('actionlogin');
+Route::get('actionlogout', [LoginController::class, 'actionlogout'])->name('actionlogout');
+Route::post('/logout', [LoginController::class, 'logout']);
 Route::get('user/view', [UserdataController::class, 'viewuserdata'])->name('viewuserdata');
 Route::get('user/add', [UserdataController::class, 'adduser'])->name('adduser');
 Route::post('user/save', [UserdataController::class, 'saveuser'])->name('saveuser');

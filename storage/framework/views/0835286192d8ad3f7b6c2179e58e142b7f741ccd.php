@@ -34,24 +34,24 @@
     <div class="wrapper">
         <nav class="topnav navbar navbar-light">
             <button type="button" class="navbar-toggler text-muted mt-2 p-0 mr-3 collapseSidebar">
-                <i class="fe fe-menu navbar-toggler-icon"></i>
+              <i class="fe fe-menu navbar-toggler-icon"></i>
             </button>
             <ul class="nav">
-
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-muted pr-0" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <span class="avatar avatar-sm mt-2">
-                            <img src="<?php echo e(url('')); ?>/assets/avatars/face-9.jpg" alt="..." class="avatar-img rounded-circle">
-                        </span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Profile</a>
-                        <a class="dropdown-item" href="#">Settings</a>
-                        <a class="dropdown-item" href="#">Activities</a>
-                    </div>
-                </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-muted pr-0" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <span class="avatar avatar-sm mt-2">
+                    <img src="./assets/avatars/face-9.jpg" alt="..." class="avatar-img rounded-circle">
+                  </span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="#">Profile</a>
+                  <a class="dropdown-item" href="#">Settings</a>
+                  <a class="dropdown-item" href="#">Activities</a>
+                  <a class="dropdown-item" href="<?php echo e(route('actionlogout')); ?>">Log Out</a>
+                </div>
+              </li>
             </ul>
-        </nav>
+          </nav>
         <aside class="sidebar-left border-right bg-white shadow" id="leftSidebar" data-simplebar>
             <a href="#" class="btn collapseSidebar toggle-btn d-lg-none text-muted ml-2 mt-3" data-toggle="toggle">
                 <i class="fe fe-x"><span class="sr-only"></span></i>
@@ -188,11 +188,16 @@
     <script src="<?php echo e(url('')); ?>/js/datamaps.all.min.js"></script>
     <script src="<?php echo e(url('')); ?>/js/datamaps-zoomto.js"></script>
     <script src="<?php echo e(url('')); ?>/js/datamaps.custom.js"></script>
-    
+    <script src="<?php echo e(url('')); ?>/js/Chart.min.js"></script>
+    <script>
+        /* defind global options */
+        Chart.defaults.global.defaultFontFamily = base.defaultFontFamily;
+        Chart.defaults.global.defaultFontColor = colors.mutedColor;
+    </script>
     <script src="<?php echo e(url('')); ?>/js/gauge.min.js"></script>
     <script src="<?php echo e(url('')); ?>/js/jquery.sparkline.min.js"></script>
     <script src="<?php echo e(url('')); ?>/js/apexcharts.min.js"></script>
-    
+    <script src="<?php echo e(url('')); ?>/js/apexcharts.custom.js"></script>
     <script src="<?php echo e(url('')); ?>/js/jquery.mask.min.js"></script>
     <script src="<?php echo e(url('')); ?>/js/select2.min.js"></script>
     <script src="<?php echo e(url('')); ?>/js/jquery.steps.min.js"></script>
@@ -210,10 +215,11 @@
     <script src='<?php echo e(url('')); ?>/js/jquery.stickOnScroll.js'></script>
     <script src="<?php echo e(url('')); ?>/js/tinycolor-min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.0/js/toastr.js"></script>
-    
+    <script src="<?php echo e(url('')); ?>/js/config.js"></script>
     <script src='<?php echo e(url('')); ?>/js/jquery.dataTables.min.js'></script>
     <script src='<?php echo e(url('')); ?>/js/dataTables.bootstrap4.min.js'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js" integrity="sha512-F636MAkMAhtTplahL9F6KmTfxTmYcAcjcCkyu0f0voT3N/6vzAuJ4Num55a0gEJ+hRLHhdz3vDvZpf6kqgEa5w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="js/apps.js"></script>
     <script>
         var uptarg = document.getElementById('drag-drop-area');
         if (uptarg) {
@@ -233,7 +239,7 @@
             });
         }
     </script>
-    <script src="<?php echo e(url('')); ?>/js/apps.js"></script>
+
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-56159088-1"></script>
     <script>
@@ -255,7 +261,7 @@
           ]
         });
       </script>
-      
+      <script src="js/apps.js"></script>
       <!-- Global site tag (gtag.js) - Google Analytics -->
       <script async src="https://www.googletagmanager.com/gtag/js?id=UA-56159088-1"></script>
       <script>
