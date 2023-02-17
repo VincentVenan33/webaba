@@ -1,17 +1,17 @@
 <?php $__env->startSection('login'); ?>
 <div class="wrapper vh-100">
     <div class="row align-items-center h-100">
-        <?php if(session('error')): ?>
-            <div class="alert alert-danger">
-                <b>Opps!</b> <?php echo e(session('error')); ?>
-
-            </div>
-            <?php endif; ?>
-      <form class="col-lg-3 col-md-4 col-10 mx-auto text-center" action="/auth-login" method="POST">
+      <form class="col-lg-3 col-md-4 col-10 mx-auto text-center" action="<?php echo e(route('actionlogin')); ?>" method="POST">
         <?php echo csrf_field(); ?>
-        <a class="navbar-brand mx-auto mt-2 flex-fill text-center" href="/">
+        <a class="navbar-brand mx-auto mt-2 flex-fill text-center" href="#">
           <img class="logo logo-login mb-5" src="assets/images/logo.png" alt="asiabangunabadi"/>
         </a>
+        <?php if(session('error')): ?>
+        <div class="alert alert-danger">
+            <b>Opps!</b> <?php echo e(session('error')); ?>
+
+        </div>
+        <?php endif; ?>
         <h1 class="h6 mb-3">Sign in</h1>
         <div class="form-group">
           <label for="inputEmail" class="sr-only">Email address</label>

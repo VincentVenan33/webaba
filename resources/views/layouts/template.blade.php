@@ -174,7 +174,6 @@
 
     </div> <!-- .wrapper -->
     <script src="https://kit.fontawesome.com/c3e62f3962.js" crossorigin="anonymous"></script>
-    <script src="{{  url('') }}/js/jquery.min.js"></script>
     <script src="{{  url('') }}/js/popper.min.js"></script>
     <script src="{{  url('') }}/js/moment.min.js"></script>
     <script src="{{  url('') }}/js/bootstrap.min.js"></script>
@@ -218,6 +217,7 @@
     <script src='{{  url('') }}/js/jquery.dataTables.min.js'></script>
     <script src='{{  url('') }}/js/dataTables.bootstrap4.min.js'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js" integrity="sha512-F636MAkMAhtTplahL9F6KmTfxTmYcAcjcCkyu0f0voT3N/6vzAuJ4Num55a0gEJ+hRLHhdz3vDvZpf6kqgEa5w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src='{{  url('') }}/js/jquery.min.js'></script>
     <script>
         var uptarg = document.getElementById('drag-drop-area');
         if (uptarg) {

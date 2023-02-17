@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\UserdataController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -15,9 +17,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+// Route::get('/', function () {
+//     return view('index');
+// });
+Route::get('/', [HomeController::class, 'index'])->name('index');
 
 Route::get('login', function () {
     return view('auth-login');
@@ -40,7 +43,6 @@ Route::get('register', function () {
 // });
 Route::post('actionlogin', [LoginController::class, 'actionlogin'])->name('actionlogin');
 Route::get('actionlogout', [LoginController::class, 'actionlogout'])->name('actionlogout');
-Route::post('/logout', [LoginController::class, 'logout']);
 Route::get('user/view', [UserdataController::class, 'viewuserdata'])->name('viewuserdata');
 Route::get('user/add', [UserdataController::class, 'adduser'])->name('adduser');
 Route::post('user/save', [UserdataController::class, 'saveuser'])->name('saveuser');

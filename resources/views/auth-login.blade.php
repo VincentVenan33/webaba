@@ -2,16 +2,16 @@
 @section('login')
 <div class="wrapper vh-100">
     <div class="row align-items-center h-100">
-        @if(session('error'))
-            <div class="alert alert-danger">
-                <b>Opps!</b> {{session('error')}}
-            </div>
-            @endif
-      <form class="col-lg-3 col-md-4 col-10 mx-auto text-center" action="/auth-login" method="POST">
+      <form class="col-lg-3 col-md-4 col-10 mx-auto text-center" action="{{ route('actionlogin') }}" method="POST">
         @csrf
-        <a class="navbar-brand mx-auto mt-2 flex-fill text-center" href="/">
+        <a class="navbar-brand mx-auto mt-2 flex-fill text-center" href="#">
           <img class="logo logo-login mb-5" src="assets/images/logo.png" alt="asiabangunabadi"/>
         </a>
+        @if(session('error'))
+        <div class="alert alert-danger">
+            <b>Opps!</b> {{session('error')}}
+        </div>
+        @endif
         <h1 class="h6 mb-3">Sign in</h1>
         <div class="form-group">
           <label for="inputEmail" class="sr-only">Email address</label>
