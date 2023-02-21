@@ -9,15 +9,18 @@ use Illuminate\Support\Facades\Hash;
 class UserdataController extends Controller
 {
     public function viewuserdata()
-    {
+    {   $data = array();
         $user_data = UserdataModel::select('*')
              ->get();
-        return view('user/viewuserdata', ['user' => $user_data]);
+        $data['title'] = "List User";
+        $data['user'] = $user_data;
+        return view('user/viewuserdata', $data);
     }
 
     public function adduser()
-    {
-        return view('user/adduserdata');
+    {   $data = array();
+        $data['title'] = "Tambah User";
+        return view('user/adduserdata', $data);
     }
 
     public function saveuser(Request $request)
@@ -39,16 +42,21 @@ class UserdataController extends Controller
             'permission' => $request->permission,
             'status' => ($request->status != "" ? "1" : "0"),
         ]);
-
-        return redirect()->route('viewuserdata')->with('message','Data added Successfully');
+        if($user_data){
+            return redirect()->route('viewuserdata')->with('message','Data added Successfully');
+        }else{
+            return redirect()->route('viewuserdata')->with('error','Data added Error');
+        }
     }
 
     public function changeuser($id)
-    {
+    {   $data = array();
         $user_data = UserdataModel::select('*')
                     ->where('id', $id)
                     ->first();
-        return view('user/changeuserdata', ['user' => $user_data]);
+        $data['title'] = "Ubah User";
+        $data['user'] = $user_data;
+        return view('user/changeuserdata', $data);
     }
 
     public function updateuser(Request $request)
@@ -66,7 +74,7 @@ class UserdataController extends Controller
                     ->update([
                         'nama' => $request->nama,
                         'username' => $request->username,
-                        'password' => ($request->newPassword != "" ? Hash::make($request->newpassword) : $request->password),
+                        'password' => ($request->newpassword != "" ? Hash::make($request->newpassword) : $request->password),
                         'email' => $request->email,
                         'permission' => $request->permission,
                         'status' => ($request->status != "" ? "1" : "0"),

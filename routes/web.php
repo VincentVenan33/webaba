@@ -18,13 +18,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('index');
-});
+    $data = array();
+    $data['title'] = "Home";
+    return view('index', $data);
+})->middleware('auth');
 // Route::get('/', [HomeController::class, 'index'])->name('index');
 
 Route::get('login', function () {
     return view('auth-login');
-});
+})->name('login');
 
 Route::get('login-half', function () {
     return view('auth-login-half');
@@ -43,9 +45,9 @@ Route::get('register', function () {
 // });
 Route::post('actionlogin', [LoginController::class, 'actionlogin'])->name('actionlogin');
 Route::get('actionlogout', [LoginController::class, 'actionlogout'])->name('actionlogout');
-Route::get('user/view', [UserdataController::class, 'viewuserdata'])->name('viewuserdata');
-Route::get('user/add', [UserdataController::class, 'adduser'])->name('adduser');
-Route::post('user/save', [UserdataController::class, 'saveuser'])->name('saveuser');
-Route::get('user/change/{id}', [UserdataController::class, 'changeuser'])->name('changeuser');
-Route::post('user/update', [UserdataController::class, 'updateuser'])->name('updateuser');
-Route::get('user/delete/{id}', [UserdataController::class, 'deleteuser'])->name('deleteuser');
+Route::get('user/view', [UserdataController::class, 'viewuserdata'])->name('viewuserdata')->middleware('auth');
+Route::get('user/add', [UserdataController::class, 'adduser'])->name('adduser')->middleware('auth');
+Route::post('user/save', [UserdataController::class, 'saveuser'])->name('saveuser')->middleware('auth');
+Route::get('user/change/{id}', [UserdataController::class, 'changeuser'])->name('changeuser')->middleware('auth');
+Route::post('user/update', [UserdataController::class, 'updateuser'])->name('updateuser')->middleware('auth');
+Route::get('user/delete/{id}', [UserdataController::class, 'deleteuser'])->name('deleteuser')->middleware('auth');

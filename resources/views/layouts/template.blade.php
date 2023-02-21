@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico" />
-    <title>Tiny Dashboard - A Bootstrap Dashboard Template</title>
+    <title>WEB ABA | {{ $title }}</title>
     <!-- Simple bar CSS -->
     <link rel="stylesheet" href="{{  url('') }}/css/simplebar.css">
     <!-- Fonts CSS -->
