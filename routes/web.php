@@ -17,10 +17,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('index');
-// });
-Route::get('/', [HomeController::class, 'index'])->name('index');
+Route::get('/', function () {
+    return view('index');
+});
+// Route::get('/', [HomeController::class, 'index'])->name('index');
 
 Route::get('login', function () {
     return view('auth-login');

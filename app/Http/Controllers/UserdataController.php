@@ -34,7 +34,7 @@ class UserdataController extends Controller
         $user_data = UserdataModel::create([
             'nama' => $request->nama,
             'username' => $request->username,
-            'password' => Hash::make($request->newPassword),
+            'password' => Hash::make($request->password),
             'email' => $request->email,
             'permission' => $request->permission,
             'status' => ($request->status != "" ? "1" : "0"),
@@ -66,7 +66,7 @@ class UserdataController extends Controller
                     ->update([
                         'nama' => $request->nama,
                         'username' => $request->username,
-                        'password' => Hash::make($request->newPassword),
+                        'password' => Hash::make($request->password),
                         'email' => $request->email,
                         'permission' => $request->permission,
                         'status' => ($request->status != "" ? "1" : "0"),
@@ -80,4 +80,5 @@ class UserdataController extends Controller
               ->delete();
               return redirect()->route('viewuserdata')->with('error','Data Deleted');
             }
+
 }
