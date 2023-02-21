@@ -37,7 +37,8 @@
                     </div>
                     <div class="form-group">
                         <label for="inputPassword5">Password</label>
-                        <input type="password" name="password" value="{{$user->password}}" class="form-control @error('password')is-invalid @enderror" value="{{old('password')}}">
+                        <input type="password" name="newpassword" value="" class="form-control">
+                        <input type="hidden" name="password" value="{{$user->password}}" class="form-control @error('password')is-invalid @enderror" value="{{old('password')}}">
                         @error("password")
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror

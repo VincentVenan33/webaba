@@ -66,7 +66,7 @@ class UserdataController extends Controller
                     ->update([
                         'nama' => $request->nama,
                         'username' => $request->username,
-                        'password' => Hash::make($request->password),
+                        'password' => ($request->newPassword != "" ? Hash::make($request->newpassword) : $request->password),
                         'email' => $request->email,
                         'permission' => $request->permission,
                         'status' => ($request->status != "" ? "1" : "0"),
