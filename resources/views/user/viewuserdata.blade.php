@@ -37,7 +37,7 @@
                                 <td>{{($usr->status ==1 ? "AKTIF" : "NON AKTIF")}}</td>
                                 <td>
                                 <a href="{{route('changeuser', $usr->id)}}" class="btn btn-warning btn-sm"><i class="fa fa-pencil"></i></a>
-                                <a href="delete/{{$usr->id}}" onclick="return confirm('Apakah Anda Yakin Menghapus Data?');" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                                <a href="{{route('delete', $usr->id)}}" onclick="return confirm('Apakah Anda Yakin Menghapus Data?');" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
                                 </td>
                             </tr>
                         @endforeach
