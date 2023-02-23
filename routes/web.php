@@ -17,32 +17,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    $data = array();
-    $data['title'] = "Home";
-    return view('index', $data);
-})->middleware('auth');
-// Route::get('/', [HomeController::class, 'index'])->name('index');
+Route::get('index', [HomeController::class, 'index'])->name('index')->middleware('auth');
 
 Route::get('login', function () {
-    return view('auth-login');
+    $data = array();
+        $data['title'] = "Login";
+    return view('auth-login', $data);
 })->name('login');
 
-Route::get('login-half', function () {
-    return view('auth-login-half');
-});
-
-Route::get('confirm', function () {
-    return view('auth-confirm');
-});
-
-Route::get('register', function () {
-    return view('auth-register');
-});
-
-// Route::get('user_data', function () {
-//     return view('user_data');
-// });
 Route::post('actionlogin', [LoginController::class, 'actionlogin'])->name('actionlogin');
 Route::get('actionlogout', [LoginController::class, 'actionlogout'])->name('actionlogout');
 Route::get('user/view', [UserdataController::class, 'viewuserdata'])->name('viewuserdata')->middleware('auth');

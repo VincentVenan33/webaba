@@ -7,7 +7,8 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     public function index()
-    {
-        return view('/');
+    {$data = array();
+        $data['title'] = "Home";
+        return view('index', $data);
     }
 }
