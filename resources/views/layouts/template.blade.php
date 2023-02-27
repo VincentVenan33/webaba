@@ -64,47 +64,19 @@
                     </a>
                 </div>
                 <ul class="navbar-nav flex-fill w-100 mb-2">
-                    <a href="{{route('index')}}" class="nav-link"><i class="fe fe-home fe-16"></i> <span class="ml-3 item-text">Dashboard</span></a>
-
+                    <li class="nav-item dropdown">
+                        <a href="{{route('index')}}" class="nav-link">
+                            <i class="fe fe-home fe-16"></i>
+                            <span class="ml-3 item-text">Dashboard</span>
+                        </a>
+                    </li>
                 </ul>
                 <ul class="navbar-nav flex-fill w-100 mb-2">
                     <li class="nav-item dropdown">
-                        <a href="#pages" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
+                        <a href="#pages" data-toggle="collapse" aria-expanded="false" class="nav-link">
                             <i class="fe fe-file fe-16"></i>
                             <span class="ml-3 item-text">Home Pages</span>
                         </a>
-                        <ul class="collapse list-unstyled pl-4 w-100 w-100" id="pages">
-                            <li class="nav-item">
-                                <a class="nav-link pl-3" href="./page-orders.html">
-                                    <span class="ml-1 item-text">Orders</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link pl-3" href="./page-timeline.html">
-                                    <span class="ml-1 item-text">Timeline</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link pl-3" href="./page-invoice.html">
-                                    <span class="ml-1 item-text">Invoice</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link pl-3" href="./page-404.html">
-                                    <span class="ml-1 item-text">Page 404</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link pl-3" href="./page-500.html">
-                                    <span class="ml-1 item-text">Page 500</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link pl-3" href="./page-blank.html">
-                                    <span class="ml-1 item-text">Blank</span>
-                                </a>
-                            </li>
-                        </ul>
                     </li>
                     <li class="nav-item dropdown">
                         <a href="#support" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
