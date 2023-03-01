@@ -59,13 +59,13 @@
             <nav class="vertnav navbar navbar-light">
                 <!-- nav bar -->
                 <div class="w-100 mb-4 d-flex">
-                    <a class="navbar-brand mx-auto mt-2 flex-fill text-center" href="{{route('index')}}">
+                    <a class="navbar-brand mx-auto mt-2 flex-fill text-center" href="{{route('dashboard')}}">
                         <img class="logo" src="{{  url('') }}/assets/images/logo.png" alt="asiabangunabadi" />
                     </a>
                 </div>
                 <ul class="navbar-nav flex-fill w-100 mb-2">
                     <li class="nav-item dropdown">
-                        <a href="{{route('index')}}" class="nav-link">
+                        <a href="{{route('dashboard')}}" class="nav-link">
                             <i class="fe fe-home fe-16"></i>
                             <span class="ml-3 item-text">Dashboard</span>
                         </a>
@@ -73,51 +73,37 @@
                 </ul>
                 <ul class="navbar-nav flex-fill w-100 mb-2">
                     <li class="nav-item dropdown">
-                        <a href="#pages" data-toggle="collapse" aria-expanded="false" class="nav-link">
+                        <a href="{{route('dashboard')}}" class="nav-link">
                             <i class="fe fe-file fe-16"></i>
                             <span class="ml-3 item-text">Home Pages</span>
                         </a>
                     </li>
+                </ul>
+                <ul class="navbar-nav flex-fill w-100 mb-2">
                     <li class="nav-item dropdown">
-                        <a href="#support" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
+                        <a href="{{route('dashboard')}}" class="nav-link">
                             <i class="fe fe-compass fe-16"></i>
                             <span class="ml-3 item-text">Products</span>
                         </a>
-                        <ul class="collapse list-unstyled pl-4 w-100" id="support">
-                            <a class="nav-link pl-3" href="./support-center.html"><span class="ml-1">Home</span></a>
-                            <a class="nav-link pl-3" href="./support-tickets.html"><span class="ml-1">Tickets</span></a>
-                            <a class="nav-link pl-3" href="./support-ticket-detail.html"><span class="ml-1">Ticket
-                                    Detail</span></a>
-                            <a class="nav-link pl-3" href="./support-faqs.html"><span class="ml-1">FAQs</span></a>
-                        </ul>
                     </li>
+                </ul>
+                <ul class="navbar-nav flex-fill w-100 mb-2">
                     <li class="nav-item dropdown">
-                        <a href="#contact" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
+                        <a href="{{route('dashboard')}}" class="nav-link">
                             <i class="fe fe-book fe-16"></i>
                             <span class="ml-3 item-text">Contacts</span>
                         </a>
-                        <ul class="collapse list-unstyled pl-4 w-100" id="contact">
-                            <a class="nav-link pl-3" href="./contacts-list.html"><span class="ml-1">Contact
-                                    List</span></a>
-                            <a class="nav-link pl-3" href="./contacts-grid.html"><span class="ml-1">Contact
-                                    Grid</span></a>
-                            <a class="nav-link pl-3" href="./contacts-new.html"><span class="ml-1">New
-                                    Contact</span></a>
-                        </ul>
                     </li>
+                </ul>
+                <ul class="navbar-nav flex-fill w-100 mb-2">
                     <li class="nav-item dropdown">
-                        <a href="#profile" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
+                        <a href="{{route('viewuserdata')}}" class="nav-link">
                             <i class="fe fe-user fe-16"></i>
                             <span class="ml-3 item-text">User</span>
                         </a>
-                        <ul class="collapse list-unstyled pl-4 w-100" id="profile">
-                            <a class="nav-link pl-3" href="{{route('viewuserdata')}}"><span class="ml-1">User Data</span></a>
-                            <a class="nav-link pl-3" href="./profile-settings.html"><span class="ml-1">Settings</span></a>
-                            <a class="nav-link pl-3" href="./profile-security.html"><span class="ml-1">Security</span></a>
-                            <a class="nav-link pl-3" href="./profile-notification.html"><span class="ml-1">Notifications</span></a>
-                        </ul>
                     </li>
                 </ul>
+                
             </nav>
         </aside>
         @yield('main')

@@ -17,7 +17,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('index', [HomeController::class, 'index'])->name('index')->middleware('auth');
+Route::get('/', [HomeController::class, 'index'])->name('index')->middleware('auth');
+Route::get('dashboard', [HomeController::class, 'index'])->name('dashboard')->middleware('auth');
 
 Route::get('login', function () {
     $data = array();

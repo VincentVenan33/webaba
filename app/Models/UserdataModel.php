@@ -3,9 +3,10 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Foundation\Auth\User as Authenticatble;
 use Illuminate\Database\Eloquent\Model;
 
-class UserdataModel extends Model
+class UserdataModel extends Authenticatble
 {
     use HasFactory;
     protected $table = 'user';
