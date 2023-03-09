@@ -13,3 +13,4 @@ class UserdataModel extends Authenticatble
     protected $primaryKey = 'id';
     protected $fillable = ['nama', 'username', 'password', 'email', 'permission', 'status'];
 }
+?>
