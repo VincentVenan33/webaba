@@ -34,18 +34,25 @@ class KatalogController extends Controller
         ]);
         if($request->hasFile('image')){
             $image = $request->file('image');
-            $filename = time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('images'), $filename);
+            $imagename = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('images'), $imagename);
         }else{
+            $imagename = null;
+        }
+        if ($request->hasFile('file')) {
+            $file = $request->file('file');
+            $filename = time() . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path('files'), $filename);
+        } else {
             $filename = null;
         }
-        $fileName = time().'.'.$request->file->extension();
-        $request->file->storeAs('public/files', $fileName);
+
         $katalog_data = KatalogModel::create([
             'nama' => $request->nama,
             'keterangan' => $request->keterangan,
-            'image' => $filename,
+            'image' => $imagename,
             'file' => $filename,
+            'nama_file' => $request->file->getClientOriginalName(),
             'status' => ($request->status != "" ? "1" : "0"),
         ]);
         if($katalog_data){
@@ -108,11 +115,18 @@ class KatalogController extends Controller
 
         return redirect()->route('viewkatalog')->with('message','Data update succeesfully');
     }
-
     public function deletekatalog($id){
-    $katalog_data = KatalogModel::where('id', $id)
-              ->delete();
-              return redirect()->route('viewkatalog')->with('error','Data Deleted');
-            }
+        $katalog_data = KatalogModel::where('id', $id)->first();
+
+        if($katalog_data && file_exists(public_path('images/'.$katalog_data->image))){
+            unlink(public_path('images/'.$katalog_data->image));
+        }
+        if($katalog_data && file_exists(public_path('files/'.$katalog_data->file))){
+            unlink(public_path('files/'.$katalog_data->file));
+        }
+
+        $katalog_data->delete();
+        return redirect()->route('viewkatalog')->with('error','Data Deleted');
+    }
 }
 ?>

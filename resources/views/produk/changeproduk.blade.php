@@ -9,7 +9,7 @@
             <div class="col-md-6">
               <div class="card shadow mb-4">
                 <div class="card-body">
-                  <form method="post" action="{{route('updateproduk')}}" class="col-lg-12">
+                  <form method="post" action="{{route('updateproduk')}}" class="col-lg-12" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                         <input type="hidden" name="id" value="{{$produk->id}}">
