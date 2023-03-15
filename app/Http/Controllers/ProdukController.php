@@ -71,12 +71,12 @@ class ProdukController extends Controller
         $request->validate([
             "nama" => "required|min:5",
             "harga" => "required|min:5",
-            'image' => 'required|file|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
 
             "keterangan" => "required"
 
         ]);
-        
+
         $produk_data = ProdukModel::findOrFail($request->id);
 
     $filename = $produk_data->image; // default filename

@@ -14,7 +14,7 @@
                     <div class="form-group">
                         <input type="hidden" name="id" value="{{$produk->id}}">
                     </div>
-                    {{-- @if ($errors->any())
+                    @if ($errors->any())
     <div class="alert alert-danger">
         <ul>
             @foreach ($errors->all() as $error)
@@ -22,7 +22,7 @@
             @endforeach
         </ul>
     </div>
-@endif --}}
+@endif
 
                     <div class="form-group">
                         <label for="inputname">Nama Produk</label>
