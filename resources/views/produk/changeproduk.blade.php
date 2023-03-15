@@ -14,6 +14,16 @@
                     <div class="form-group">
                         <input type="hidden" name="id" value="{{$produk->id}}">
                     </div>
+                    {{-- @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif --}}
+
                     <div class="form-group">
                         <label for="inputname">Nama Produk</label>
                         <input type="text" name="nama" value="{{$produk->nama}}" class="form-control @error('nama')is-invalid @enderror" value="{{old('nama')}}">
@@ -63,7 +73,7 @@
                                 <button class="btn btn-lg btn-primary btn-block" type="submit"><i class="fa-solid fa-floppy-disk"></i> Save</button>
                             </div>
                             <div class="col col-6">
-                                <a class="btn btn-lg btn-primary btn-block" href="{{route('viewprodukdata')}}"><i class="fa-solid fa-angles-left"></i> Cancel</a><br><br>
+                                <a class="btn btn-lg btn-primary btn-block" href="{{route('viewproduk')}}"><i class="fa-solid fa-angles-left"></i> Cancel</a><br><br>
                             </div>
                         </div>
                     </div>

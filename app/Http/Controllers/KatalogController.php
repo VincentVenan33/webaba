@@ -29,7 +29,7 @@ class KatalogController extends Controller
             "nama" => "required|min:5",
             "keterangan" => "required|min:5",
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'file' => 'required|mimes:pdf,doc,docx,xls,xlsx,ppt,pptx|max:2048'
+            'file' => 'required|file|mimes:pdf,doc,docx,xls,xlsx,ppt,pptx|max:2048'
 
         ]);
         if($request->hasFile('image')){
@@ -51,8 +51,11 @@ class KatalogController extends Controller
         if($katalog_data){
             return redirect()->route('viewkatalog')->with('message','Data added Successfully');
         }else{
-            return redirect()->route('viewkatalog')->with('error','Data added Error');
+            // debug
+            dd('Failed to save data to database');
+            // return redirect()->route('viewkatalog')->with('error','Data added Error');
         }
+
     }
 
     public function changekatalog($id)

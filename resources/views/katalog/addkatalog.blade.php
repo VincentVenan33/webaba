@@ -9,7 +9,7 @@
             <div class="col-md-6">
               <div class="card shadow mb-4">
                 <div class="card-body">
-                  <form method="post" action="{{route('saveuser')}}" class="col-lg-12">
+                  <form method="post" action="{{route('savekatalog')}}" class="col-lg-12">
                     @csrf
                     <div class="form-group">
                         <label for="inputname">Nama Katalog</label>
@@ -18,6 +18,15 @@
                         <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
+                    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
                     <div class="form-group">
                         <label for="inputketerangan">Keterangan</label>
                         <input type="text" name="keterangan" class="form-control @error('keterangan')is-invalid @enderror" value="{{old('keterangan')}}">

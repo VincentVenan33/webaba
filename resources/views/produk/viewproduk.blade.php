@@ -32,7 +32,7 @@
                                 <th>{{ $no++ }}</th>
                                 <td>{{$pdk->nama}}</td>
                                 <td>{{$pdk->harga}}</td>
-                                <td><img src="{{$pdk->image}}" alt="{{$pdk->nama}}" width="50"></td>
+                                <td><img src="{{url('').'/images/'.$pdk->image}}" alt="{{$pdk->nama}}" width="50"></td>
                                 <td>{{$pdk->keterangan}}</td>
                                 <td>{{($pdk->status ==1 ? "AKTIF" : "NON AKTIF")}}</td>
                                 <td>

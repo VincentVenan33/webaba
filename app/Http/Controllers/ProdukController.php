@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\ProdukModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use illuminate\validation;
 use Illuminate\Http\UploadedFile;
 
 class ProdukController extends Controller
@@ -65,23 +66,38 @@ class ProdukController extends Controller
 
     public function updateproduk(Request $request)
     {
+
+
         $request->validate([
             "nama" => "required|min:5",
             "harga" => "required|min:5",
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'required|file|mimes:jpeg,png,jpg,gif,svg|max:2048',
+
             "keterangan" => "required"
 
         ]);
-        if ($request->hasFile('image')) {
-            // Menghapus gambar lama
-            Storage::delete('public/images/'.$filename);
+        
+        $produk_data = ProdukModel::findOrFail($request->id);
 
-            // Upload gambar baru
-            $file = $request->file('image');
-            $extension = $file->getClientOriginalExtension();
-            $filename = time().'.'.$extension;
-            $file->storeAs('public/images', $filename);
+    $filename = $produk_data->image; // default filename
+
+    if ($request->hasFile('image')) {
+        // delete old image
+        if ($filename && Storage::exists('public/images/'.$filename)) {
+            Storage::delete('public/images/'.$filename);
         }
+
+        // upload new image
+        $file = $request->file('image');
+        $extension = $file->getClientOriginalExtension();
+        $filename = time().'.'.$extension;
+        $file->storeAs('public/images', $filename);
+
+        if (!$file->isValid()) {
+            return redirect()->back()->withErrors(['error' => 'Upload failed: '.$file->getErrorMessage()]);
+        }
+    }
+
         $produk_data = ProdukModel::where('id', $request->id)
                     ->update([
                         'nama' => $request->nama,
@@ -95,9 +111,14 @@ class ProdukController extends Controller
     }
 
     public function deleteproduk($id){
-    $produk_data = ProdukModel::where('id', $id)
-              ->delete();
-              return redirect()->route('viewproduk')->with('error','Data Deleted');
-            }
+        $produk_data = ProdukModel::where('id', $id)->first();
+
+        if($produk_data && file_exists(public_path('images/'.$produk_data->image))){
+            unlink(public_path('images/'.$produk_data->image));
+        }
+
+        $produk_data->delete();
+        return redirect()->route('viewproduk')->with('error','Data Deleted');
+    }
 }
 ?>
