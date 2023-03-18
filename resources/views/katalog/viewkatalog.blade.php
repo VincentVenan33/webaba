@@ -33,8 +33,7 @@
                                 <td>{{$ktg->nama}}</td>
                                 <td>{{$ktg->keterangan}}</td>
                                 <td><img src="{{url('').'/images/'.$ktg->image}}" alt="{{$ktg->nama}}" width="50"></td>
-                                <td><a href="{{ url('').'/files/'.$ktg->file }}" download="{{ $ktg->filename }}">{{ $ktg->filename }}</a></td>
-
+                                <td><a href="{{url('').'/files/'.$ktg->file }}" download="{{ $ktg->file }}">{{ $ktg->file }}</a></td>
                                 <td>{{($ktg->status ==1 ? "AKTIF" : "NON AKTIF")}}</td>
                                 <td>
                                 <a href="{{route('changekatalog', $ktg->id)}}" class="btn btn-warning btn-sm"><i class="fa fa-pencil"></i></a>

@@ -81,23 +81,40 @@ class ProdukController extends Controller
 
     $filename = $produk_data->image; // default filename
 
-    if ($request->hasFile('image')) {
-        // delete old image
-        if ($filename && Storage::exists('public/images/'.$filename)) {
-            Storage::delete('public/images/'.$filename);
-        }
+    // if ($request->hasFile('image')) {
+    //     // delete old image
+    //     if ($filename && Storage::exists('public/images/'.$filename)) {
+    //         Storage::delete('public/images/'.$filename);
+    //     }
 
-        // upload new image
-        $file = $request->file('image');
-        $extension = $file->getClientOriginalExtension();
-        $filename = time().'.'.$extension;
-        $file->storeAs('public/images', $filename);
+    //     // upload new image
+    //     $file = $request->file('image');
+    //     $extension = $file->getClientOriginalExtension();
+    //     $filename = time().'.'.$extension;
+    //     $file->storeAs('public/images', $filename);
 
-        if (!$file->isValid()) {
-            return redirect()->back()->withErrors(['error' => 'Upload failed: '.$file->getErrorMessage()]);
-        }
-    }
+    //     if (!$file->isValid()) {
+    //         return redirect()->back()->withErrors(['error' => 'Upload failed: '.$file->getErrorMessage()]);
+    //     }
+    // }
+    // if ($request->hasFile('image')) {
+    //     // delete old image
+    //     if ($filename && Storage::exists('public/images/'.$filename)) {
+    //         Storage::delete('public/images/'.$filename);
+    //     }
 
+    //     // upload new image
+    //     $file = $request->file('image');
+    //     $extension = $file->getClientOriginalExtension();
+    //     $originalName = $file->getClientOriginalName(); // ambil nama file asli
+    //     $namaProduk = str_replace(' ', '-', strtolower($request->nama)); // ubah nama produk menjadi lowercase dan ubah spasi menjadi tanda '-'.
+    //     $filename = $namaProduk.'-'.time().'.'.$extension; // gabungkan nama produk dan timestamp untuk membuat nama file baru
+    //     $file->storeAs('public/images', $filename); // simpan file dengan nama baru
+
+    //     if (!$file->isValid()) {
+    //         return redirect()->back()->withErrors(['error' => 'Upload failed: '.$file->getErrorMessage()]);
+    //     }
+    // }
         $produk_data = ProdukModel::where('id', $request->id)
                     ->update([
                         'nama' => $request->nama,
