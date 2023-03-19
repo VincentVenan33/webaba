@@ -27,7 +27,7 @@
     <link rel="stylesheet" href="{{  url('') }}/css/app-light.css" id="lightTheme">
     {{-- <link rel="stylesheet" href="{{  url('') }}/css/app-dark.css" id="darkTheme" disabled> --}}
     <link rel="stylesheet" type="text/css"
-     href="{{  url('') }}https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+     href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 </head>
 
 <body class="vertical  light  ">
@@ -136,7 +136,7 @@
         /* defind global options */
         // Chart.defaults.global.defaultFontFamily = base.defaultFontFamily;
         Chart.defaults.global.defaultFontColor = colors.mutedColor;
-    </script>
+        </script>
     <script src="{{  url('') }}/js/gauge.min.js"></script>
     <script src="{{  url('') }}/js/jquery.sparkline.min.js"></script>
     <script src="{{  url('') }}/js/apexcharts.min.js"></script>
@@ -157,10 +157,10 @@
     <script src='{{  url('') }}/js/daterangepicker.js'></script>
     <script src='{{  url('') }}/js/jquery.stickOnScroll.js'></script>
     <script src="{{  url('') }}/js/tinycolor-min.js"></script>
-    <script src="{{  url('') }}https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.0/js/toastr.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.0/js/toastr.js"></script>
     <script src='{{  url('') }}/js/jquery.dataTables.min.js'></script>
     <script src='{{  url('') }}/js/dataTables.bootstrap4.min.js'></script>
-    <script src="{{  url('') }}https://cdnjs.cloudflare.com/ajax/libs/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js" integrity="sha512-F636MAkMAhtTplahL9F6KmTfxTmYcAcjcCkyu0f0voT3N/6vzAuJ4Num55a0gEJ+hRLHhdz3vDvZpf6kqgEa5w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js" integrity="sha512-F636MAkMAhtTplahL9F6KmTfxTmYcAcjcCkyu0f0voT3N/6vzAuJ4Num55a0gEJ+hRLHhdz3vDvZpf6kqgEa5w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src='{{  url('') }}/js/jquery.min.js'></script>
     <script>
         var uptarg = document.getElementById('drag-drop-area');

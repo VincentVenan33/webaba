@@ -9,7 +9,7 @@
             <div class="col-md-6">
               <div class="card shadow mb-4">
                 <div class="card-body">
-                  <form method="post" action="{{route('updatekatalog')}}" class="col-lg-12">
+                  <form method="post" action="{{route('updatekatalog')}}" class="col-lg-12" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                         <input type="hidden" name="id" value="{{$katalog->id}}">
@@ -30,14 +30,16 @@
                     </div>
                     <div class="form-group">
                         <label for="inputimage">Image</label>
-                        <input type="file" name="image" class="form-control @error('image')is-invalid @enderror" value="{{old('image')}}">
+                        <input type="file" name="newimage" value="" class="form-control">
+                        <input type="hidden" name="image" value="{{$katalog->image}}" class="form-control @error('image')is-invalid @enderror" value="{{old('image')}}">
                         @error("image")
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="form-group">
                         <label for="inputfile">File</label>
-                        <input type="file" name="file" class="form-control @error('file')is-invalid @enderror" value="{{old('file')}}">
+                        <input type="file" name="newfile" value="" class="form-control">
+                        <input type="hidden" name="file" value="{{$katalog->file}}" class="form-control @error('file')is-invalid @enderror" value="{{old('file')}}">
                         @error("file")
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror

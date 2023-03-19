@@ -79,36 +79,42 @@ class KatalogController extends Controller
     {
         $request->validate([
             "nama" => "required|min:5",
-            "keterangan" => "required|min:5",
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'file' => 'required|mimes:pdf,doc,docx,xls,xlsx,ppt,pptx|max:2048'
+            "keterangan" => "required",
+            'newimage' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'newfile' => 'file|mimes:pdf,doc,docx,xls,xlsx,ppt,pptx|max:2048'
 
         ]);
-        if ($request->hasFile('image')) {
-            // Menghapus gambar lama
-            Storage::delete('public/images/'.$filename);
-
-            // Upload gambar baru
-            $file = $request->file('image');
-            $extension = $file->getClientOriginalExtension();
-            $filename = time().'.'.$extension;
-            $file->storeAs('public/images', $filename);
+        //upload image
+        if ($request->hasFile('newimage')) {
+            $katalog_data = KatalogModel::findOrFail($request->id);
+        $imagename = $katalog_data->image;
+        if ($imagename && Storage::exists('public/images/'.$imagename)) {
+            Storage::delete('public/images/'.$imagename);
         }
-        if ($request->hasFile('file')) {
-            // Menghapus dokumen lama
+        $image = $request->file('newimage');
+        $imagename = time() . '.' . $image->getClientOriginalExtension();
+        $image->move(public_path('images'), $imagename);
+        }else{
+            $imagename = $request->image;
+        }
+        //upload file
+        if ($request->hasFile('newfile')) {
+            $katalog_data = KatalogModel::findOrFail($request->id);
+        $filename = $katalog_data->file;
+        if ($filename && Storage::exists('public/files/'.$filename)) {
             Storage::delete('public/files/'.$filename);
-
-            // Upload dokumen baru
-            $file = $request->file('file');
-            $extension = $file->getClientOriginalExtension();
-            $filename = time().'.'.$extension;
-            $file->storeAs('public/files', $filename);
+        }
+            $file = $request->file('newfile');
+            $filename = time() . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path('files'), $filename);
+        }else{
+            $filename = $request->file;
         }
         $katalog_data = KatalogModel::where('id', $request->id)
                     ->update([
                         'nama' => $request->nama,
                         'keterangan' => $request->keterangan,
-                        'image' => $filename,
+                        'image' => $imagename,
                         'file' => $filename,
                         'status' => ($request->status != "" ? "1" : "0"),
                     ]);
