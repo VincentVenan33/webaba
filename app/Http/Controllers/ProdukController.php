@@ -71,7 +71,7 @@ class ProdukController extends Controller
         $request->validate([
             "nama" => "required|min:5",
             "harga" => "required|min:5",
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'newimage' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
 
             "keterangan" => "required"
 
@@ -81,22 +81,23 @@ class ProdukController extends Controller
 
     $filename = $produk_data->image; // default filename
 
-    // if ($request->hasFile('image')) {
-    //     // delete old image
-    //     if ($filename && Storage::exists('public/images/'.$filename)) {
-    //         Storage::delete('public/images/'.$filename);
-    //     }
+    if ($request->hasFile('newimage')) {
+        if ($filename && Storage::exists('public/images/'.$filename)) {
+            Storage::delete('public/images/'.$filename);
+        }
 
-    //     // upload new image
-    //     $file = $request->file('image');
-    //     $extension = $file->getClientOriginalExtension();
-    //     $filename = time().'.'.$extension;
-    //     $file->storeAs('public/images', $filename);
+        // upload new image
+        $file = $request->file('newimage');
+        $extension = $file->getClientOriginalExtension();
+        $filename = time().'.'.$extension;
+        $file->storeAs('public/images', $filename);
 
-    //     if (!$file->isValid()) {
-    //         return redirect()->back()->withErrors(['error' => 'Upload failed: '.$file->getErrorMessage()]);
-    //     }
-    // }
+        if (!$file->isValid()) {
+            return redirect()->back()->withErrors(['error' => 'Upload failed: '.$file->getErrorMessage()]);
+        }
+    }else{
+        $filename = $request->image;
+    }
     // if ($request->hasFile('image')) {
     //     // delete old image
     //     if ($filename && Storage::exists('public/images/'.$filename)) {

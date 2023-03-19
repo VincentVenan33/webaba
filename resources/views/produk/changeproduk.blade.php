@@ -40,7 +40,8 @@
                     </div>
                     <div class="form-group">
                         <label for="inputimage">Image</label>
-                        <input type="file" name="image" class="form-control @error('image')is-invalid @enderror" value="{{old('image')}}">
+                        <input type="file" name="newimage" value="" class="form-control">
+                        <input type="hidden" name="image" value="{{$produk->image}} class="form-control @error('image')is-invalid @enderror" value="{{old('image')}}">
                         @error("image")
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
