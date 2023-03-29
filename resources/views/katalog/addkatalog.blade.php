@@ -36,7 +36,8 @@
                     </div>
                     <div class="form-group">
                         <label for="inputimage">Image</label>
-                        <input type="file" name="image" class="form-control @error('image')is-invalid @enderror">
+                        <img id="preview_image" width="20%" src="#" alt="Preview Image" style="display:none;"/>
+                        <input type="file" name="image" class="form-control @error('image')is-invalid @enderror" id="image" onchange="previewImage(this);">
                         @error("image")
                         <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
@@ -81,5 +82,18 @@
         </div> <!-- .col-12 -->
       </div> <!-- .row -->
     </div> <!-- .container-fluid -->
+    <script>
+        function previewImage(input){
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#preview_image')
+                        .attr('src', e.target.result)
+                        .show();
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+        </script>
 </main>
 @endsection
