@@ -29,18 +29,31 @@
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="inputimage">Image</label>
-                        <img id="preview_image" width="20%" src="#" alt="Preview Image" style="display:none;"/>
-                        <input type="file" name="newimage" value="" class="form-control" id="image" onchange="previewImage(this);">
-                        <input type="hidden" name="image" value="{{$katalog->image}}" class="form-control @error('image')is-invalid @enderror" value="{{old('image')}}" id="image" onchange="previewImage(this);">
+                        <label for="inputimage">Image</label><br>
+                        @if ($katalog->image)
+                            <img id="preview_image" width="20%" src="{{ asset('images/' . $katalog->image) }}" alt="Preview Image">
+                        @else
+                            <img id="preview_image" width="20%" src="#" alt="Preview Image" style="display:none;">
+                        @endif
+                        <div class="custom-file">
+                            <input type="file" name="newimage" value="" class="custom-file-input" id="image" onchange="previewImage(this);">
+                            <input type="hidden" name="image" value="{{$katalog->image}}" class="form-control @error('image')is-invalid @enderror" value="{{old('image')}}" id="image" onchange="previewImage(this);">
+                            <label class="custom-file-label" for="image">{{ $katalog->image ? $katalog->image : 'Choose file' }}</label>
+                        </div>
                         @error("image")
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="form-group">
                         <label for="inputfile">File</label>
-                        <input type="file" name="newfile" value="" class="form-control">
-                        <input type="hidden" name="file" value="{{$katalog->file}}" class="form-control @error('file')is-invalid @enderror" value="{{old('file')}}">
+                        <div class="custom-file">
+                            <input type="file" name="newfile" value="" class="custom-file-input" onchange="previewImage(this);" data-default="{{ $katalog->file ?: 'Choose file' }}">
+                            <input type="hidden" name="file" value="{{ $katalog->file }}" class="form-control @error('file')is-invalid @enderror" value="{{old('file')}}" id="file">
+                            <label class="custom-file-label" for="file">{{ $katalog->file ?: 'Choose file' }}</label>
+                            @if(!$katalog->file)
+                                <input type="text" class="form-control" value="No file selected" readonly>
+                            @endif
+                        </div>
                         @error("file")
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
@@ -80,18 +93,32 @@
       </div> <!-- .row -->
     </div> <!-- .container-fluid -->
     <script>
-        function previewImage(input){
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-                reader.onload = function (e) {
-                    $('#preview_image')
-                        .attr('src', e.target.result)
-                        .show();
-                };
-                reader.readAsDataURL(input.files[0]);
-            }
+    var old_image_url = '{{ $katalog->image ? asset($katalog->image) : "" }}';
+
+    function previewImage(input) {
+        var preview_id = $(input).attr('id') == 'image' ? 'preview_image' : 'preview_file';
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#'+preview_id)
+                    .attr('src', e.target.result)
+                    .show();
+            };
+            reader.readAsDataURL(input.files[0]);
+        } else {
+            $('#'+preview_id)
+                .attr('src', old_image_url)
+                .show();
         }
-        </script>
+
+        var file_name = $(input).val().split('\\').pop();
+        if(file_name){
+            $(input).siblings('.custom-file-label').html(file_name);
+        }else{
+            $(input).siblings('.custom-file-label').html($(input).data('default'));
+        }
+    }
+</script>
 </main>
 @endsection
 

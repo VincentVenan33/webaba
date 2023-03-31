@@ -26,13 +26,16 @@
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="inputimage">Image</label>
+                        <label for="inputimage">Image</label><br>
                         <img id="preview_image" width="20%" src="#" alt="Preview Image" style="display:none;"/>
-                        <input type="file" name="image" class="form-control @error('image')is-invalid @enderror" id="image" onchange="previewImage(this);">
-                        @error("image")
-                        <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
-                    </div>
+                        <div class="custom-file">
+                          <input type="file" name="image" class="custom-file-input @error('image') is-invalid @enderror" id="image" onchange="previewImage(this);">
+                          <label class="custom-file-label" for="image" id="image-label">Choose image</label>
+                          @error("image")
+                            <div class="invalid-feedback">{{ $message }}</div>
+                          @enderror
+                        </div>
+                      </div>
                     <div class="form-group">
                         <label for="inputketerangan">Keterangan</label>
                         <input type="text" name="keterangan" class="form-control @error('keterangan')is-invalid @enderror" value="{{old('keterangan')}}">
@@ -73,18 +76,17 @@
         </div> <!-- .col-12 -->
       </div> <!-- .row -->
     </div> <!-- .container-fluid -->
-    <script>
-        function previewImage(input){
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-                reader.onload = function (e) {
-                    $('#preview_image')
-                        .attr('src', e.target.result)
-                        .show();
-                };
-                reader.readAsDataURL(input.files[0]);
-            }
-        }
-        </script>
+    <<script>
+        // Membuat variabel imageInput yang menunjuk pada input file gambar
+        const imageInput = document.getElementById('image');
+
+        // Menambahkan event listener pada saat gambar dipilih
+        imageInput.addEventListener('change', function() {
+          // Mengambil nama file gambar yang dipilih
+          const imageName = imageInput.files[0].name;
+          // Mengubah teks pada label "Choose image" menjadi nama file gambar
+          document.getElementById('image-label').innerHTML = imageName;
+        });
+      </script>
 </main>
 @endsection

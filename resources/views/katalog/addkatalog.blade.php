@@ -36,19 +36,26 @@
                     </div>
                     <div class="form-group">
                         <label for="inputimage">Image</label>
+                        <br>
                         <img id="preview_image" width="20%" src="#" alt="Preview Image" style="display:none;"/>
-                        <input type="file" name="image" class="form-control @error('image')is-invalid @enderror" id="image" onchange="previewImage(this);">
-                        @error("image")
-                        <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
-                    </div>
-                    <div class="form-group">
+                        <div class="custom-file">
+                            <input type="file" name="image" class="custom-file-input @error('image') is-invalid @enderror" id="image" onchange="previewImage(this); showImageName(this);">
+                            <label class="custom-file-label" id="image-label" for="image">Choose image</label>
+                          @error("image")
+                          <div class="invalid-feedback">{{ $message }}</div>
+                          @enderror
+                        </div>
+                      </div>
+                      <div class="form-group">
                         <label for="inputfile">File</label>
-                        <input type="file" name="file" class="form-control @error('file')is-invalid @enderror">
-                        @error("file")
-                        <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
-                    </div>
+                        <div class="custom-file">
+                          <input type="file" name="file" class="custom-file-input @error('file') is-invalid @enderror" id="file" onchange="showFileName(this);">
+                          <label class="custom-file-label" for="file" id="file-label">Choose file</label>
+                          @error("file")
+                          <div class="invalid-feedback">{{ $message }}</div>
+                          @enderror
+                        </div>
+                      </div>
                     <div class="form-group col">
                         <div class="row mt-4">
                             <div class="col">
@@ -83,17 +90,25 @@
       </div> <!-- .row -->
     </div> <!-- .container-fluid -->
     <script>
-        function previewImage(input){
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-                reader.onload = function (e) {
-                    $('#preview_image')
-                        .attr('src', e.target.result)
-                        .show();
-                };
-                reader.readAsDataURL(input.files[0]);
-            }
+        function showFileName(input) {
+          var fileName = input.files[0].name;
+          document.getElementById("file-label").innerHTML = fileName;
         }
-        </script>
+        function showImageName(input) {
+    var imageName = input.files[0].name;
+    document.getElementById("image-label").innerHTML = imageName;
+}
+
+
+        function previewImage(input) {
+          if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+              $('#preview_image').attr('src', e.target.result).show();
+            }
+            reader.readAsDataURL(input.files[0]);
+          }
+        }
+      </script>
 </main>
 @endsection

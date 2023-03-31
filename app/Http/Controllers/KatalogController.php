@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\KatalogModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -9,16 +10,18 @@ use Illuminate\Http\UploadedFile;
 class KatalogController extends Controller
 {
     public function viewkatalog()
-    {   $data = array();
+    {
+        $data = array();
         $katalog_data = KatalogModel::select('*')
-             ->get();
+            ->get();
         $data['title'] = "List Katalog";
         $data['katalog'] = $katalog_data;
         return view('katalog/viewkatalog', $data);
     }
 
     public function addkatalog()
-    {   $data = array();
+    {
+        $data = array();
         $data['title'] = "Tambah Katalog";
         return view('katalog/addkatalog', $data);
     }
@@ -32,11 +35,11 @@ class KatalogController extends Controller
             'file' => 'required|file|mimes:pdf,doc,docx,xls,xlsx,ppt,pptx|max:2048'
 
         ]);
-        if($request->hasFile('image')){
+        if ($request->hasFile('image')) {
             $image = $request->file('image');
             $imagename = time() . '.' . $image->getClientOriginalExtension();
             $image->move(public_path('images'), $imagename);
-        }else{
+        } else {
             $imagename = null;
         }
         if ($request->hasFile('file')) {
@@ -55,21 +58,21 @@ class KatalogController extends Controller
             'nama_file' => $request->file->getClientOriginalName(),
             'status' => ($request->status != "" ? "1" : "0"),
         ]);
-        if($katalog_data){
-            return redirect()->route('viewkatalog')->with('message','Data added Successfully');
-        }else{
+        if ($katalog_data) {
+            return redirect()->route('viewkatalog')->with('message', 'Data added Successfully');
+        } else {
             // debug
             dd('Failed to save data to database');
             // return redirect()->route('viewkatalog')->with('error','Data added Error');
         }
-
     }
 
     public function changekatalog($id)
-    {   $data = array();
+    {
+        $data = array();
         $katalog_data = KatalogModel::select('*')
-                    ->where('id', $id)
-                    ->first();
+            ->where('id', $id)
+            ->first();
         $data['title'] = "Ubah Katalog";
         $data['katalog'] = $katalog_data;
         return view('katalog/changekatalog', $data);
@@ -84,55 +87,58 @@ class KatalogController extends Controller
             'newfile' => 'file|mimes:pdf,doc,docx,xls,xlsx,ppt,pptx|max:2048'
 
         ]);
-        //upload image
-        if ($request->hasFile('newimage')) {
-            $katalog_data = KatalogModel::findOrFail($request->id);
+        $katalog_data = KatalogModel::find($request->id);
+        if (!$katalog_data) {
+            return response()->json(['message' => 'Katalog tidak ditemukan'], 404);
+        }
+
         $imagename = $katalog_data->image;
-        if ($imagename && Storage::exists('public/images/'.$imagename)) {
-            Storage::delete('public/images/'.$imagename);
-        }
-        $image = $request->file('newimage');
-        $imagename = time() . '.' . $image->getClientOriginalExtension();
-        $image->move(public_path('images'), $imagename);
-        }else{
-            $imagename = $request->image;
-        }
-        //upload file
-        if ($request->hasFile('newfile')) {
-            $katalog_data = KatalogModel::findOrFail($request->id);
         $filename = $katalog_data->file;
-        if ($filename && Storage::exists('public/files/'.$filename)) {
-            Storage::delete('public/files/'.$filename);
+
+        // Menghapus gambar lama jika ada gambar baru yang diupload
+        if ($request->hasFile('newimage')) {
+            if ($imagename && file_exists(public_path('images/' . $imagename))) {
+                unlink(public_path('images/' . $imagename));
+            }
+            $image = $request->file('newimage');
+            $imagename = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('images'), $imagename);
         }
+        // Menghapus file lama jika ada file baru yang diupload
+        if ($request->hasFile('newfile')) {
+            if ($filename && file_exists(public_path('files/' . $filename))) {
+                unlink(public_path('files/' . $filename));
+            }
             $file = $request->file('newfile');
             $filename = time() . '.' . $file->getClientOriginalExtension();
             $file->move(public_path('files'), $filename);
-        }else{
+        } else {
             $filename = $request->file;
         }
-        $katalog_data = KatalogModel::where('id', $request->id)
-                    ->update([
-                        'nama' => $request->nama,
-                        'keterangan' => $request->keterangan,
-                        'image' => $imagename,
-                        'file' => $filename,
-                        'status' => ($request->status != "" ? "1" : "0"),
-                    ]);
 
-        return redirect()->route('viewkatalog')->with('message','Data update succeesfully');
+        $katalog_data = KatalogModel::where('id', $request->id)
+            ->update([
+                'nama' => $request->nama,
+                'keterangan' => $request->keterangan,
+                'image' => $imagename,
+                'file' => $filename,
+                'status' => ($request->status != "" ? "1" : "0"),
+            ]);
+
+        return redirect()->route('viewkatalog')->with('message', 'Data update succeesfully');
     }
-    public function deletekatalog($id){
+    public function deletekatalog($id)
+    {
         $katalog_data = KatalogModel::where('id', $id)->first();
 
-        if($katalog_data && file_exists(public_path('images/'.$katalog_data->image))){
-            unlink(public_path('images/'.$katalog_data->image));
+        if ($katalog_data && file_exists(public_path('images/' . $katalog_data->image))) {
+            unlink(public_path('images/' . $katalog_data->image));
         }
-        if($katalog_data && file_exists(public_path('files/'.$katalog_data->file))){
-            unlink(public_path('files/'.$katalog_data->file));
+        if ($katalog_data && file_exists(public_path('files/' . $katalog_data->file))) {
+            unlink(public_path('files/' . $katalog_data->file));
         }
 
         $katalog_data->delete();
-        return redirect()->route('viewkatalog')->with('error','Data Deleted');
+        return redirect()->route('viewkatalog')->with('error', 'Data Deleted');
     }
 }
-?>

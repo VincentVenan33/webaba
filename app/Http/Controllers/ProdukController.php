@@ -76,19 +76,22 @@ class ProdukController extends Controller
             "keterangan" => "required"
 
         ]);
-        // upload new image
-        if ($request->hasFile('newimage')) {
-        $produk_data = ProdukModel::findOrFail($request->id);
-        $filename = $produk_data->image;
-        if ($filename && Storage::exists('public/images/'.$filename)) {
-            Storage::delete('public/images/'.$filename);
+        $produk_data = ProdukModel::find($request->id);
+    if(!$produk_data) {
+        return response()->json(['message' => 'Produk tidak ditemukan'], 404);
+    }
+
+    $filename = $produk_data->image;
+
+    // Menghapus gambar lama jika ada gambar baru yang diupload
+    if ($request->hasFile('newimage')) {
+        if ($filename && file_exists(public_path('images/' . $filename))) {
+            unlink(public_path('images/' . $filename));
         }
         $image = $request->file('newimage');
         $filename = time() . '.' . $image->getClientOriginalExtension();
         $image->move(public_path('images'), $filename);
-        }else{
-        $filename = $request->image;
-        }
+    }
         $produk_data = ProdukModel::where('id', $request->id)
                     ->update([
                         'nama' => $request->nama,
