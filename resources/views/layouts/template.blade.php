@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="{{  url('') }}/assets/images/favicon.ico" />
     <title>WEB ABA | {{ $title }}</title>
     <!-- Simple bar CSS -->
     <link rel="stylesheet" href="{{  url('') }}/css/simplebar.css">
@@ -97,9 +97,9 @@
                 </ul>
                 <ul class="navbar-nav flex-fill w-100 mb-2">
                     <li class="nav-item dropdown">
-                        <a href="{{route('dashboard')}}" class="nav-link">
-                            <i class="fe fe-book fe-16"></i>
-                            <span class="ml-3 item-text">Contacts</span>
+                        <a href="{{route('viewteam')}}" class="nav-link">
+                            <i class="fe fe-users fe-16"></i>
+                            <span class="ml-3 item-text">Team</span>
                         </a>
                     </li>
                 </ul>
@@ -203,7 +203,7 @@
           ]
         });
       </script>
-      <script src="js/apps.js"></script>
+      <script src="{{  url('') }}/js/apps.js"></script>
       <!-- Global site tag (gtag.js) - Google Analytics -->
       <script async src="https://www.googletagmanager.com/gtag/js?id=UA-56159088-1"></script>
       <script>

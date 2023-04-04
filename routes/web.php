@@ -5,6 +5,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\KatalogController;
+use App\Http\Controllers\TeamController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -50,4 +51,11 @@ Route::post('katalog/save', [KatalogController::class, 'savekatalog'])->name('sa
 Route::get('katalog/change/{id}', [KatalogController::class, 'changekatalog'])->name('changekatalog')->middleware('auth');
 Route::post('katalog/update', [KatalogController::class, 'updatekatalog'])->name('updatekatalog')->middleware('auth');
 Route::get('katalog/delete/{id}', [KatalogController::class, 'deletekatalog'])->name('deletekatalog')->middleware('auth');
+//team
+Route::get('team/view', [TeamController::class, 'viewteam'])->name('viewteam')->middleware('auth');
+Route::get('team/add', [TeamController::class, 'addteam'])->name('addteam')->middleware('auth');
+Route::post('team/save', [TeamController::class, 'saveteam'])->name('saveteam')->middleware('auth');
+Route::get('team/change/{id}', [TeamController::class, 'changeteam'])->name('changeteam')->middleware('auth');
+Route::post('team/update', [TeamController::class, 'updateteam'])->name('updateteam')->middleware('auth');
+Route::get('team/delete/{id}', [TeamController::class, 'deleteteam'])->name('deleteteam')->middleware('auth');
 ?>
