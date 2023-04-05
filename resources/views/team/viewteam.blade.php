@@ -19,6 +19,7 @@
                         <th>Nama</th>
                         <th>Jabatan</th>
                         <th>Deskripsi</th>
+                        <th>Image</th>
                         <th>Linkedin</th>
                         <th>Facebook</th>
                         <th>Instagram</th>
@@ -36,6 +37,7 @@
                                 <td>{{$team->nama}}</td>
                                 <td>{{$team->jabatan}}</td>
                                 <td>{{$team->deskripsi}}</td>
+                                <td><img src="{{url('').'/images/'.$team->image}}" alt="{{$team->nama}}" width="50"></td>
                                 <td>{{$team->linkedin}}</td>
                                 <td>{{$team->facebook}}</td>
                                 <td>{{$team->instagram}}</td>

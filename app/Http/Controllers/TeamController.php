@@ -30,15 +30,24 @@ class TeamController extends Controller
             "nama" => "required|min:5",
             "jabatan" => "required|min:5",
             "deskripsi" => "required|min:5",
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             "linkedin" => "required|min:5",
             "facebook" => "required|min:5",
             "instagram" => "required|min:5",
 
         ]);
+        if($request->hasFile('image')){
+            $image = $request->file('image');
+            $filename = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('images'), $filename);
+        }else{
+            $filename = null;
+        }
         $team_data = TeamModel::create([
             'nama' => $request->nama,
             'jabatan' => $request->jabatan,
             'deskripsi' => $request->deskripsi,
+            'image' => $filename,
             'linkedin' => $request->linkedin,
             'facebook' => $request->facebook,
             'instagram' => $request->instagram,
@@ -70,6 +79,7 @@ class TeamController extends Controller
             "nama" => "required|min:5",
             "jabatan" => "required|min:5",
             "deskripsi" => "required|min:5",
+            'newimage' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             "linkedin" => "required|min:5",
             "facebook" => "required|min:5",
             "instagram" => "required|min:5",
@@ -79,11 +89,22 @@ class TeamController extends Controller
         if (!$team_data) {
             return response()->json(['message' => 'Team tidak ditemukan'], 404);
         }
+        $filename = $team_data->image;
+        // Menghapus gambar lama jika ada gambar baru yang diupload
+    if ($request->hasFile('newimage')) {
+        if ($filename && file_exists(public_path('images/' . $filename))) {
+            unlink(public_path('images/' . $filename));
+        }
+        $image = $request->file('newimage');
+        $filename = time() . '.' . $image->getClientOriginalExtension();
+        $image->move(public_path('images'), $filename);
+    }
         $team_data = TeamModel::where('id', $request->id)
             ->update([
                 'nama' => $request->nama,
                 'jabatan' => $request->jabatan,
                 'deskripsi' => $request->deskripsi,
+                'image' => $filename,
                 'linkedin' => $request->linkedin,
                 'facebook' => $request->facebook,
                 'instagram' => $request->instagram,
@@ -97,6 +118,10 @@ class TeamController extends Controller
     public function deleteteam($id)
     {
         $team_data = TeamModel::where('id', $id)->first();
+
+        if($team_data && file_exists(public_path('images/'.$team_data->image))){
+            unlink(public_path('images/'.$team_data->image));
+        }
 
         $team_data->delete();
         return redirect()->route('viewteam')->with('error', 'Data Deleted');

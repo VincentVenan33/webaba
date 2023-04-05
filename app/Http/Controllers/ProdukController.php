@@ -72,7 +72,6 @@ class ProdukController extends Controller
             "nama" => "required|min:5",
             "harga" => "required|min:5",
             'newimage' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-
             "keterangan" => "required"
 
         ]);

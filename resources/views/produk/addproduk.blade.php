@@ -75,7 +75,7 @@
         </div> <!-- .col-12 -->
       </div> <!-- .row -->
     </div> <!-- .container-fluid -->
-    <<script>
+    <script>
         // Membuat variabel imageInput yang menunjuk pada input file gambar
         const imageInput = document.getElementById('image');
 

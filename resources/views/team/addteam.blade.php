@@ -33,6 +33,17 @@
                         @enderror
                     </div>
                     <div class="form-group">
+                        <label for="inputimage">Image</label><br>
+                        <img id="preview_image" width="20%" src="#" alt="Preview Image" style="display:none;"/>
+                        <div class="custom-file">
+                          <input type="file" name="image" class="custom-file-input @error('image') is-invalid @enderror" id="image" onchange="previewImage(this);">
+                          <label class="custom-file-label" for="image" id="image-label">Choose image</label>
+                          @error("image")
+                            <div class="invalid-feedback">{{ $message }}</div>
+                          @enderror
+                        </div>
+                      </div>
+                    <div class="form-group">
                         <label for="inputname">Linkedin</label>
                         <input type="text" name="linkedin" class="form-control @error('linkedin')is-invalid @enderror" value="{{old('linkedin')}}">
                         @error("linkedin")
@@ -92,5 +103,17 @@
         </div> <!-- .col-12 -->
       </div> <!-- .row -->
     </div> <!-- .container-fluid -->
+    <script>
+        // Membuat variabel imageInput yang menunjuk pada input file gambar
+        const imageInput = document.getElementById('image');
+
+        // Menambahkan event listener pada saat gambar dipilih
+        imageInput.addEventListener('change', function() {
+          // Mengambil nama file gambar yang dipilih
+          const imageName = imageInput.files[0].name;
+          // Mengubah teks pada label "Choose image" menjadi nama file gambar
+          document.getElementById('image-label').innerHTML = imageName;
+        });
+      </script>
 </main>
 @endsection
