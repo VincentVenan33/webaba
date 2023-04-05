@@ -38,10 +38,6 @@
                                 <td>{{$team->jabatan}}</td>
                                 <td>{{$team->deskripsi}}</td>
                                 <td><img src="{{url('').'/images/'.$team->image}}" alt="{{$team->nama}}" width="50"></td>
-                                <td>{{$team->linkedin}}</td>
-                                <td>{{$team->facebook}}</td>
-                                <td>{{$team->instagram}}</td>
-                                <td>{{$team->keterangan}}</td>
                                 <td>{{($team->status ==1 ? "AKTIF" : "NON AKTIF")}}</td>
                                 <td>
                                 <a href="{{route('changeteam', $team->id)}}" class="btn btn-warning btn-sm"><i class="fa fa-pencil"></i></a>
