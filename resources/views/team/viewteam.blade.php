@@ -20,10 +20,6 @@
                         <th>Jabatan</th>
                         <th>Deskripsi</th>
                         <th>Image</th>
-                        <th>Linkedin</th>
-                        <th>Facebook</th>
-                        <th>Instagram</th>
-                        <th>Keterangan</th>
                         <th>Status</th>
                         <th>Action</th>
                       </tr>
