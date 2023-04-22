@@ -1,10 +1,8 @@
 <?php
 
-use App\Http\Controllers\Api\UserController;
-use App\Http\Controllers\Api\ProdukController;
-use App\Http\Controllers\Api\KatalogController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,8 +19,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-
-Route::apiResource('/user', App\Http\Controllers\Api\UserController::class);
-Route::apiResource('/produk', App\Http\Controllers\Api\ProdukController::class);
-Route::apiResource('/katalog', App\Http\Controllers\Api\KatalogController::class);
-Route::apiResource('/team', App\Http\Controllers\Api\TeamController::class);
+Route::get('user',[PostController::class,'getUser']);
+Route::get('product',[PostController::class,'getProduct']);
+Route::get('catalog',[PostController::class,'getCatalog']);
+Route::get('team',[PostController::class,'getTeam']);
+?>
