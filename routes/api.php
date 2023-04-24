@@ -19,7 +19,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('user',[PostController::class,'getUser']);
 Route::get('product',[PostController::class,'getProduct']);
 Route::get('catalog',[PostController::class,'getCatalog']);
 Route::get('team',[PostController::class,'getTeam']);

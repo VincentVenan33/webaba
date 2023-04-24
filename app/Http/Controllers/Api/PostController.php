@@ -15,11 +15,6 @@ use App\Http\Resources\PostResource;
 
 class PostController extends Controller
 {
-
-    public function getUser(){
-        $posts = UserdataModel::select('*')->get();
-        return new PostResource(true,'List Data User',$posts);
-    }
     public function getProduct(){
         $posts = ProdukModel::select('*')->get();
         foreach ($posts as $post) {
@@ -32,9 +27,6 @@ class PostController extends Controller
         $posts = KatalogModel::select('*')->get();
         foreach ($posts as $post) {
             $post->image = url('images/' . $post->image);
-        }
-        foreach ($posts as $post) {
-            $post->file = url('files/' . $post->file);
         }
         return new PostResource(true,'List Data Catalog',$posts);
     }
