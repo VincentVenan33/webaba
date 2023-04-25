@@ -33,7 +33,7 @@
                     </div>
                     <div class="form-group">
                         <label for="inputharga">Harga</label>
-                        <input type="text" name="harga" value="{{$produk->harga}}" class="form-control @error('harga')is-invalid @enderror" value="{{old('harga')}}">
+                        <input type="text" name="harga" value="{{$produk->harga}}" class="form-control @error('harga')is-invalid @enderror" id="inputharga">
                         @error("harga")
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
@@ -58,6 +58,13 @@
                         <label for="inputketerangan">Keterangan</label>
                         <input type="text" name="keterangan" value="{{$produk->keterangan}}" class="form-control @error('keterangan')is-invalid @enderror" value="{{old('keterangan')}}">
                         @error("keterangan")
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                        <label for="inputname">Whatsapp</label>
+                        <input type="text" name="whatsapp" value="{{$produk->whatsapp}}" class="form-control @error('whatsapp')is-invalid @enderror" value="{{old('whatsapp')}}">
+                        @error("whatsapp")
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>

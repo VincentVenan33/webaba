@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 05 Apr 2023 pada 03.39
+-- Waktu pembuatan: 25 Apr 2023 pada 14.49
 -- Versi server: 10.4.21-MariaDB
 -- Versi PHP: 8.0.10
 
@@ -42,6 +42,13 @@ CREATE TABLE `katalog` (
   `deleted_by` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data untuk tabel `katalog`
+--
+
+INSERT INTO `katalog` (`id`, `nama`, `keterangan`, `image`, `file`, `status`, `created_at`, `created_by`, `updated_at`, `updated_by`, `deleted_at`, `deleted_by`) VALUES
+(20, 'Antara Zenit', 'aaaaaaaaaaaaaaa', '1682246779.jpg', '1682246779.pdf', '1', '2023-04-23 10:46:19', NULL, '2023-04-23 10:46:19', NULL, NULL, NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -53,6 +60,7 @@ CREATE TABLE `produk` (
   `nama` varchar(255) DEFAULT NULL,
   `harga` varchar(255) DEFAULT NULL,
   `image` varchar(255) DEFAULT NULL,
+  `whatsapp` varchar(255) DEFAULT NULL,
   `keterangan` varchar(255) DEFAULT NULL,
   `status` char(1) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
@@ -62,6 +70,17 @@ CREATE TABLE `produk` (
   `deleted_at` datetime DEFAULT NULL,
   `deleted_by` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `produk`
+--
+
+INSERT INTO `produk` (`id`, `nama`, `harga`, `image`, `whatsapp`, `keterangan`, `status`, `created_at`, `created_by`, `updated_at`, `updated_by`, `deleted_at`, `deleted_by`) VALUES
+(14, 'Antara Zenit', '500000000000', '1682246740.png', 'https://www.whatsapp.com/', 'dead or alive', '1', '2023-04-23 10:45:40', NULL, '2023-04-25 12:42:05', NULL, NULL, NULL),
+(15, 'Antara Zenit', '500000000000', '1682424750.jpg', 'https://www.whatsapp.com/', 'dead or alive', '1', '2023-04-25 12:12:30', NULL, '2023-04-25 12:42:15', NULL, NULL, NULL),
+(16, 'cobaadw', '10.000', '1682424773.jpg', 'https://www.whatsapp.com/', 'aaaaaaaaaaaaa', '0', '2023-04-25 12:12:53', NULL, '2023-04-25 12:42:19', NULL, NULL, NULL),
+(17, 'coba3adwdd', '9.000', '1682424788.jpg', 'https://www.whatsapp.com/', 'adwwwwww', '1', '2023-04-25 12:13:08', NULL, '2023-04-25 12:42:24', NULL, NULL, NULL),
+(18, 'coba3', '500000000000', '1682424813.jpg', 'aaaaaaaaaaaaaaa', 'dddddddddddddddd', '1', '2023-04-25 12:13:33', NULL, '2023-04-25 12:42:29', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -173,13 +192,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT untuk tabel `katalog`
 --
 ALTER TABLE `katalog`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT untuk tabel `produk`
 --
 ALTER TABLE `produk`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT untuk tabel `team`

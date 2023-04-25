@@ -27,6 +27,7 @@ class PostController extends Controller
         $posts = KatalogModel::select('*')->get();
         foreach ($posts as $post) {
             $post->image = url('images/' . $post->image);
+            $post->file = url('file/' . $post->file);
         }
         return new PostResource(true,'List Data Catalog',$posts);
     }

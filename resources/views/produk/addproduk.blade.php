@@ -20,9 +20,9 @@
                     </div>
                     <div class="form-group">
                         <label for="inputharga">Harga</label>
-                        <input type="text" name="harga" class="form-control @error('harga')is-invalid @enderror" value="{{old('harga')}}">
+                        <input type="text" name="harga" id="inputharga" class="form-control @error('harga')is-invalid @enderror" value="{{old('harga')}}" pattern="[0-9]+(\.[0-9]+)?">
                         @error("harga")
-                        <div class="invalid-feedback">{{ $message }}</div>
+                            <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="form-group">
@@ -35,11 +35,18 @@
                             <div class="invalid-feedback">{{ $message }}</div>
                           @enderror
                         </div>
-                      </div>
+                    </div>
                     <div class="form-group">
                         <label for="inputketerangan">Keterangan</label>
                         <input type="text" name="keterangan" class="form-control @error('keterangan')is-invalid @enderror" value="{{old('keterangan')}}">
                         @error("keterangan")
+                        <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                        <label for="inputname">Whatsapp</label>
+                        <input type="text" name="whatsapp" class="form-control @error('whatsapp')is-invalid @enderror" value="{{old('whatsapp')}}">
+                        @error("whatsapp")
                         <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>

@@ -30,8 +30,8 @@ class ProdukController extends Controller
             "nama" => "required|min:5",
             "harga" => "required|min:5",
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            "keterangan" => "required"
-
+            "keterangan" => "required",
+            "whatsapp" => "required|min:5",
         ]);
         if($request->hasFile('image')){
             $image = $request->file('image');
@@ -45,6 +45,7 @@ class ProdukController extends Controller
             'harga' => $request->harga,
             'image' => $filename,
             'keterangan' => $request->keterangan,
+            'whatsapp' => $request->whatsapp,
             'status' => ($request->status != "" ? "1" : "0"),
         ]);
         if($produk_data){
@@ -72,7 +73,8 @@ class ProdukController extends Controller
             "nama" => "required|min:5",
             "harga" => "required|min:5",
             'newimage' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            "keterangan" => "required"
+            "keterangan" => "required",
+            "whatsapp" => "required|min:5",
 
         ]);
         $produk_data = ProdukModel::find($request->id);
@@ -97,6 +99,7 @@ class ProdukController extends Controller
                         'harga' => $request->harga,
                         'image' => $filename,
                         'keterangan' => $request->keterangan,
+                        'whatsapp' => $request->whatsapp,
                         'status' => ($request->status != "" ? "1" : "0"),
                     ]);
 

@@ -253,6 +253,29 @@
                 toastr.warning("<?php echo e(session('warning')); ?>");
         <?php endif; ?>
       </script>
+      
+      <script>
+        const inputharga = document.getElementById('inputharga');
+        inputharga.addEventListener('input', function (e) {
+            const regex = /^[0-9]+(\.[0-9]*)?$/g;
+            const input = e.target.value;
+            const result = regex.test(input);
+            if (!result) {
+                e.target.value = input.replace(/[^\d.]/g, '');
+            }
+        });
+    </script>
+    
+    <script>
+        // Mengambil input element
+        const inputharga = document.getElementById('inputharga');
+
+        // Menambahkan event listener pada saat pengguna mengetik
+        inputharga.addEventListener('input', function () {
+            // Membuang karakter selain angka dan tanda titik
+            inputharga.value = inputharga.value.replace(/[^0-9\.]/g, '');
+        });
+    </script>
     
 </body>
 
