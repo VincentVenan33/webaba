@@ -15,8 +15,8 @@ use App\Http\Resources\PostResource;
 
 class PostController extends Controller
 {
-    public function getProduct(){
-        $posts = ProdukModel::select('*')->get();
+    public function  getProduct(){
+        $posts = ProdukModel::select('*')-> orderBy('id', 'desc')-> get();
         foreach ($posts as $post) {
             $post->image = url('images/' . $post->image);
         }
@@ -24,7 +24,7 @@ class PostController extends Controller
     }
 
     public function getCatalog(){
-        $posts = KatalogModel::select('*')->get();
+        $posts = KatalogModel::select('*')-> orderBy('id', 'desc')->get();
         foreach ($posts as $post) {
             $post->image = url('images/' . $post->image);
             $post->file = url('files/' . $post->file);
@@ -33,7 +33,7 @@ class PostController extends Controller
     }
 
     public function getTeam(){
-        $posts = TeamModel::select('*')->get();
+        $posts = TeamModel::select('*')-> orderBy('id', 'desc')->get();
         foreach ($posts as $post) {
             $post->image = url('images/' . $post->image);
         }

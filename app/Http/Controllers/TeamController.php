@@ -31,9 +31,6 @@ class TeamController extends Controller
             "jabatan" => "required|min:5",
             "deskripsi" => "required|min:5",
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            "linkedin" => "required|min:5",
-            "facebook" => "required|min:5",
-            "instagram" => "required|min:5",
 
         ]);
         if($request->hasFile('image')){
@@ -80,10 +77,6 @@ class TeamController extends Controller
             "jabatan" => "required|min:5",
             "deskripsi" => "required|min:5",
             'newimage' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            "linkedin" => "required|min:5",
-            "facebook" => "required|min:5",
-            "instagram" => "required|min:5",
-
         ]);
         $team_data = TeamModel::find($request->id);
         if (!$team_data) {
