@@ -12,7 +12,7 @@ class KatalogController extends Controller
     public function viewkatalog()
     {
         $data = array();
-        $katalog_data = KatalogModel::select('*')
+        $katalog_data = KatalogModel::select('*')-> orderBy('id', 'desc')
             ->get();
         $data['title'] = "List Katalog";
         $data['katalog'] = $katalog_data;
