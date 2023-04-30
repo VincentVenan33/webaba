@@ -27,9 +27,9 @@
                     </div>
                     <div class="form-group">
                         <label for="inputname">Deskripsi</label>
-                        <input type="text" name="deskripsi" class="form-control @error('deskripsi')is-invalid @enderror" value="{{old('deskripsi')}}">
-                        @error("deskripsi")
-                        <div class="invalid-feedback">{{ $message }}</div>
+                        <textarea name="deskripsi" rows="4" cols="50" class="form-control @error('deskripsi')is-invalid @enderror">{{old('deskripsi')}}</textarea>
+                        @error('deskripsi')
+                            <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="form-group">

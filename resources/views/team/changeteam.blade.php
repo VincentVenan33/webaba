@@ -39,8 +39,8 @@
                     </div>
                     <div class="form-group">
                         <label for="inputname">Deskripsi</label>
-                        <input type="text" name="deskripsi" value="{{$team->deskripsi}}" class="form-control @error('jabatan')is-invalid @enderror" value="{{old('deskripsi')}}">
-                        @error("deskripsi")
+                        <textarea name="deskripsi" rows="4" cols="50" class="form-control @error('deskripsi') is-invalid @enderror">{{ $team->deskripsi }}</textarea>
+                        @error('deskripsi')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>

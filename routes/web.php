@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\KatalogController;
 use App\Http\Controllers\TeamController;
+use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -58,4 +59,11 @@ Route::post('team/save', [TeamController::class, 'saveteam'])->name('saveteam')-
 Route::get('team/change/{id}', [TeamController::class, 'changeteam'])->name('changeteam')->middleware('auth');
 Route::post('team/update', [TeamController::class, 'updateteam'])->name('updateteam')->middleware('auth');
 Route::get('team/delete/{id}', [TeamController::class, 'deleteteam'])->name('deleteteam')->middleware('auth');
+//contact
+Route::get('contact/view', [ContactController::class, 'viewcontact'])->name('viewcontact')->middleware('auth');
+Route::get('contact/add', [ContactController::class, 'addcontact'])->name('addcontact')->middleware('auth');
+Route::post('contact/save', [ContactController::class, 'savecontact'])->name('savecontact')->middleware('auth');
+Route::get('contact/change/{id}', [ContactController::class, 'changecontact'])->name('changecontact')->middleware('auth');
+Route::post('contact/update', [ContactController::class, 'updatecontact'])->name('updatecontact')->middleware('auth');
+Route::get('contact/delete/{id}', [ContactController::class, 'deletecontact'])->name('deletecontact')->middleware('auth');
 ?>
