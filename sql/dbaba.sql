@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 25 Apr 2023 pada 17.34
+-- Waktu pembuatan: 30 Apr 2023 pada 16.54
 -- Versi server: 10.4.21-MariaDB
 -- Versi PHP: 8.0.10
 
@@ -20,6 +20,38 @@ SET time_zone = "+00:00";
 --
 -- Database: `dbaba`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `contact`
+--
+
+CREATE TABLE `contact` (
+  `id` int(11) NOT NULL,
+  `nama` varchar(225) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `pesan` varchar(255) DEFAULT NULL,
+  `status` char(255) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `created_by` int(11) DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `updated_by` int(11) DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
+  `deleted_by` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `contact`
+--
+
+INSERT INTO `contact` (`id`, `nama`, `email`, `pesan`, `status`, `created_at`, `created_by`, `updated_at`, `updated_by`, `deleted_at`, `deleted_by`) VALUES
+(2, 'coba coba', 'venan@inspiraworld.com', 'aaaaaaaaaaaacccccccccccvvvvvvvvvvv', '0', '2023-04-30 14:50:30', NULL, '2023-04-30 14:50:30', NULL, NULL, NULL),
+(3, 'aaaaaaaaaaaa', 'sdmana@mai.com', 'aaaaaaaaaaaccccccccccccddddddddd', '0', '2023-04-30 14:50:54', NULL, '2023-04-30 14:51:51', NULL, NULL, NULL),
+(4, 'bbbbbbbbbbbbbbbbbbbb', 'siapa@mail.com', 'aaaaaaaaaaaaaaccccccccsssssssss', '1', '2023-04-30 14:51:08', NULL, '2023-04-30 14:51:25', NULL, NULL, NULL),
+(5, 'Antara Zenit', '20k10001@student.unika.com', 'aaaaaaaa', '1', '2023-04-30 14:51:16', NULL, '2023-04-30 14:51:16', NULL, NULL, NULL),
+(6, 'aaaaaaaaaaaaa', '20k10001@student.unika.com', 'aaaaaaaavvvvvvv', '1', '2023-04-30 14:51:42', NULL, '2023-04-30 14:51:42', NULL, NULL, NULL),
+(7, 'aaaaaaaaaaaaa', '20k10001@student.unika.com', 'aaaaaaaavvvvvvv', '1', '2023-04-30 14:51:42', NULL, '2023-04-30 14:51:42', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -47,16 +79,16 @@ CREATE TABLE `katalog` (
 --
 
 INSERT INTO `katalog` (`id`, `nama`, `keterangan`, `image`, `file`, `status`, `created_at`, `created_by`, `updated_at`, `updated_by`, `deleted_at`, `deleted_by`) VALUES
-(20, '12 Pilar Hashira', 'Pemburu Iblis', '1682436630.jfif', '1682246779.pdf', '1', '2023-04-23 10:46:19', NULL, '2023-04-25 15:30:30', NULL, NULL, NULL),
-(21, '12 Pilar Hashira', 'Pemburu Iblis', '1682436630.jfif', '1682246779.pdf', '1', '2023-04-23 10:46:19', NULL, '2023-04-23 10:46:19', NULL, NULL, NULL),
-(22, '12 Pilar Hashira', 'Pemburu Iblis', '1682436630.jfif', '1682246779.pdf', '1', '2023-04-23 10:46:19', NULL, '2023-04-23 10:46:19', NULL, NULL, NULL),
-(23, '12 Pilar Hashira', 'Pemburu Iblis', '1682436630.jfif', '1682246779.pdf', '1', '2023-04-23 10:46:19', NULL, '2023-04-23 10:46:19', NULL, NULL, NULL),
-(24, '12 Pilar Hashira', 'Pemburu Iblis', '1682436630.jfif', '1682246779.pdf', '1', '2023-04-23 10:46:19', NULL, '2023-04-23 10:46:19', NULL, NULL, NULL),
-(25, '12 Pilar Hashira', 'Pemburu Iblis', '1682436630.jfif', '1682246779.pdf', '1', '2023-04-23 10:46:19', NULL, '2023-04-23 10:46:19', NULL, NULL, NULL),
-(26, '12 Pilar Hashira', 'Pemburu Iblis', '1682436630.jfif', '1682246779.pdf', '1', '2023-04-23 10:46:19', NULL, '2023-04-23 10:46:19', NULL, NULL, NULL),
-(27, '12 Pilar Hashira', 'Pemburu Iblis', '1682436630.jfif', '1682246779.pdf', '1', '2023-04-23 10:46:19', NULL, '2023-04-23 10:46:19', NULL, NULL, NULL),
-(28, '12 Pilar Hashira', 'Pemburu Iblis', '1682436630.jfif', '1682246779.pdf', '1', '2023-04-23 10:46:19', NULL, '2023-04-23 10:46:19', NULL, NULL, NULL),
-(29, '12 Pilar Hashira', 'Pemburu Iblis', '1682436630.jfif', '1682246779.pdf', '1', '2023-04-23 10:46:19', NULL, '2023-04-23 10:46:19', NULL, NULL, NULL);
+(20, '12 Pilar Hashira1', 'Pemburu Iblis', '1682436630.jfif', '1682246779.pdf', '1', '2023-04-23 10:46:19', NULL, '2023-04-25 15:30:30', NULL, NULL, NULL),
+(21, '12 Pilar Hashira2', 'Pemburu Iblis', '1682436630.jfif', '1682246779.pdf', '1', '2023-04-23 10:46:19', NULL, '2023-04-23 10:46:19', NULL, NULL, NULL),
+(22, '12 Pilar Hashira3', 'Pemburu Iblis', '1682436630.jfif', '1682246779.pdf', '1', '2023-04-23 10:46:19', NULL, '2023-04-23 10:46:19', NULL, NULL, NULL),
+(23, '12 Pilar Hashira4', 'Pemburu Iblis', '1682436630.jfif', '1682246779.pdf', '1', '2023-04-23 10:46:19', NULL, '2023-04-23 10:46:19', NULL, NULL, NULL),
+(24, '12 Pilar Hashira5', 'Pemburu Iblis', '1682436630.jfif', '1682246779.pdf', '1', '2023-04-23 10:46:19', NULL, '2023-04-23 10:46:19', NULL, NULL, NULL),
+(25, '12 Pilar Hashira6', 'Pemburu Iblis', '1682436630.jfif', '1682246779.pdf', '1', '2023-04-23 10:46:19', NULL, '2023-04-23 10:46:19', NULL, NULL, NULL),
+(26, '12 Pilar Hashira7', 'Pemburu Iblis', '1682436630.jfif', '1682246779.pdf', '1', '2023-04-23 10:46:19', NULL, '2023-04-23 10:46:19', NULL, NULL, NULL),
+(27, '12 Pilar Hashira8', 'Pemburu Iblis', '1682436630.jfif', '1682246779.pdf', '1', '2023-04-23 10:46:19', NULL, '2023-04-23 10:46:19', NULL, NULL, NULL),
+(28, '12 Pilar Hashira9', 'Pemburu Iblis', '1682436630.jfif', '1682246779.pdf', '0', '2023-04-23 10:46:19', NULL, '2023-04-23 10:46:19', NULL, NULL, NULL),
+(29, '12 Pilar Hashira10', 'Pemburu Iblis', '1682436630.jfif', '1682246779.pdf', '1', '2023-04-23 10:46:19', NULL, '2023-04-23 10:46:19', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -85,11 +117,13 @@ CREATE TABLE `produk` (
 --
 
 INSERT INTO `produk` (`id`, `nama`, `harga`, `image`, `whatsapp`, `keterangan`, `status`, `created_at`, `created_by`, `updated_at`, `updated_by`, `deleted_at`, `deleted_by`) VALUES
-(14, 'Antara Zenit', '500000000000', '1682246740.png', 'https://www.whatsapp.com/', 'dead or alive', '1', '2023-04-23 10:45:40', NULL, '2023-04-25 12:42:05', NULL, NULL, NULL),
-(15, 'Antara Zenit', '500000000000', '1682424750.jpg', 'https://www.whatsapp.com/', 'dead or alive', '1', '2023-04-25 12:12:30', NULL, '2023-04-25 12:42:15', NULL, NULL, NULL),
-(16, 'cobaadw', '10.000', '1682424773.jpg', 'https://www.whatsapp.com/', 'aaaaaaaaaaaaa', '0', '2023-04-25 12:12:53', NULL, '2023-04-25 12:42:19', NULL, NULL, NULL),
+(14, 'Antara Zenit', '500000000000', '1682246740.png', 'https://www.whatsapp.com/', 'dead or alive', '0', '2023-04-23 10:45:40', NULL, '2023-04-25 12:42:05', NULL, NULL, NULL),
+(15, 'Antara Zenit1', '500000000000', '1682424750.jpg', 'https://www.whatsapp.com/', 'dead or alive', '1', '2023-04-25 12:12:30', NULL, '2023-04-25 12:42:15', NULL, NULL, NULL),
+(16, 'cobaadw', '10.000', '1682424773.jpg', 'https://www.whatsapp.com/', 'aaaaaaaaaaaaa', '1', '2023-04-25 12:12:53', NULL, '2023-04-25 12:42:19', NULL, NULL, NULL),
 (17, 'coba3adwdd', '9.000', '1682424788.jpg', 'https://www.whatsapp.com/', 'adwwwwww', '1', '2023-04-25 12:13:08', NULL, '2023-04-25 12:42:24', NULL, NULL, NULL),
-(18, 'coba3', '500000000000', '1682424813.jpg', 'https://www.whatsapp.com/', 'dddddddddddddddd', '1', '2023-04-25 12:13:33', NULL, '2023-04-25 12:42:29', NULL, NULL, NULL);
+(18, 'coba3', '500000000000', '1682424813.jpg', 'https://www.whatsapp.com/', 'dddddddddddddddd', '0', '2023-04-25 12:13:33', NULL, '2023-04-25 12:42:29', NULL, NULL, NULL),
+(19, 'coba apa', '100000', '1682424813.jpg', 'https://www.whatsapp.com/', 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', '1', '2023-04-25 12:13:33', NULL, '2023-04-25 12:42:29', NULL, NULL, NULL),
+(20, 'apaa apaa', '2222222222222222', '1682424813.jpg', 'https://www.whatsapp.com/', 'asdfasfdsfsdfsdfsd', '1', '2023-04-25 12:13:33', NULL, '2023-04-25 12:42:29', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -121,10 +155,12 @@ CREATE TABLE `team` (
 --
 
 INSERT INTO `team` (`id`, `nama`, `jabatan`, `deskripsi`, `image`, `linkedin`, `facebook`, `instagram`, `keterangan`, `status`, `created_at`, `created_by`, `updated_at`, `updated_by`, `deleted_at`, `deleted_by`) VALUES
-(1, 'coba coba21', 'Pimpinan', 'CEO Materpiece', '1680658674.jpg', 'https://id.linkedin.com/', 'https://www.facebook.com/', 'https://www.instagram.com/', 'dead or alive', '1', '2023-04-04 02:55:17', NULL, '2023-04-05 01:37:54', NULL, NULL, NULL),
-(3, 'aaaaa', 'aaaaa', 'aaaaaa', '1680658693.jpg', 'https://id.linkedin.com/', 'https://www.facebook.com/', 'https://www.instagram.com/', 'aaaa', '0', '2023-04-04 02:55:55', NULL, '2023-04-05 01:38:13', NULL, NULL, NULL),
-(5, 'coba coba', 'awdawd', 'CEO Materpiece', '1682434771.png', 'https://id.linkedin.com/', 'https://www.facebook.com/', 'https://www.instagram.com/', 'dead or alive', '1', '2023-04-25 14:59:31', NULL, '2023-04-25 14:59:31', NULL, NULL, NULL),
-(6, 'coba coba', 'Pimpinan', 'aaaaaaaaaaaaaa', '1682434849.jpg', 'https://id.linkedin.com/', 'https://www.facebook.com/', 'https://www.instagram.com/', 'aaaaaaaaaaaaaaa', '1', '2023-04-25 15:00:49', NULL, '2023-04-25 15:00:49', NULL, NULL, NULL);
+(1, 'coba coba21', 'Pimpinan', 'CEO Materpiece', '1680658674.jpg', '', 'https://www.facebook.com/', 'https://www.instagram.com/', 'dead or alive', '1', '2023-04-04 02:55:17', NULL, '2023-04-05 01:37:54', NULL, NULL, NULL),
+(3, 'aaaaa', 'aaaaa', 'aaaaaa', '1680658693.jpg', 'https://id.linkedin.com/', '', 'https://www.instagram.com/', 'aaaa', '1', '2023-04-04 02:55:55', NULL, '2023-04-05 01:38:13', NULL, NULL, NULL),
+(5, 'coba coba', 'awdawd', 'CEO Materpiece', '1682434771.png', 'https://id.linkedin.com/', 'https://www.facebook.com/', '', 'dead or alive', '1', '2023-04-25 14:59:31', NULL, '2023-04-25 14:59:31', NULL, NULL, NULL),
+(6, 'coba coba', 'Pimpinan', 'aaaaaaaaaaaaaa', '1682434849.jpg', 'https://id.linkedin.com/', 'https://www.facebook.com/', 'https://www.instagram.com/', 'aaaaaaaaaaaaaaa', '0', '2023-04-25 15:00:49', NULL, '2023-04-25 15:00:49', NULL, NULL, NULL),
+(7, 'Antara Zenit', 'Pimpinan', 'CEO Materpiece', '1682599324.jpg', NULL, NULL, NULL, 'adwwwwww', '1', '2023-04-27 12:42:04', NULL, '2023-04-27 12:42:04', NULL, NULL, NULL),
+(8, 'Antara Zenit', 'awdawd', 'aaaaaaaaaaaaaaa', '1682863483.jpg', 'https://id.linkedin.com/', 'https://www.facebook.com/', 'https://www.instagram.com/', 'aaaaaaaaaaaaa', '1', '2023-04-30 14:04:43', NULL, '2023-04-30 14:15:56', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -172,6 +208,12 @@ INSERT INTO `user` (`id`, `nama`, `username`, `password`, `email`, `permission`,
 --
 
 --
+-- Indeks untuk tabel `contact`
+--
+ALTER TABLE `contact`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indeks untuk tabel `katalog`
 --
 ALTER TABLE `katalog`
@@ -200,6 +242,12 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT untuk tabel `contact`
+--
+ALTER TABLE `contact`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
 -- AUTO_INCREMENT untuk tabel `katalog`
 --
 ALTER TABLE `katalog`
@@ -209,13 +257,13 @@ ALTER TABLE `katalog`
 -- AUTO_INCREMENT untuk tabel `produk`
 --
 ALTER TABLE `produk`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT untuk tabel `team`
 --
 ALTER TABLE `team`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`
