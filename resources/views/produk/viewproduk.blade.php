@@ -29,7 +29,7 @@
                     <tbody>
                         @foreach($produk as $pdk)
                             <tr>
-                                <th>{{ $no++ }}</th>
+                                <th>{{ ( $produk->currentPage() - 1 ) * $produk->perPage() + $loop->iteration }}</th>
                                 <td>{{$pdk->nama}}</td>
                                 <td>{{$pdk->harga}}</td>
                                 <td><img src="{{url('').'/images/'.$pdk->image}}" alt="{{$pdk->nama}}" width="50"></td>
@@ -43,6 +43,27 @@
                         @endforeach
                     </tbody>
                   </table>
+                  <nav aria-label="Table Paging" class="mb-0 text-muted">
+                    <ul class="pagination justify-content-center mb-0">
+                        <li class="page-item{{ ($produk->currentPage() == 1) ? ' disabled' : '' }}">
+                            <a class="page-link" href="{{ $produk->previousPageUrl() }}" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                        </li>
+                        @for ($i = 1; $i <= $produk->lastPage(); $i++)
+                            <li class="page-item{{ ($produk->currentPage() == $i) ? ' active' : '' }}">
+                                <a class="page-link" href="{{ $produk->url($i) }}">{{ $i }}</a>
+                            </li>
+                        @endfor
+                        <li class="page-item{{ ($produk->currentPage() == $produk->lastPage()) ? ' disabled' : '' }}">
+                            <a class="page-link" href="{{ $produk->nextPageUrl() }}" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
                 </div>
               </div>
             </div> <!-- simple table -->

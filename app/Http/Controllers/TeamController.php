@@ -11,8 +11,7 @@ class TeamController extends Controller
     public function viewteam()
     {
         $data = array();
-        $team_data = TeamModel::select('*')-> orderBy('id', 'desc')
-            ->get();
+        $team_data = TeamModel::select('*')-> orderBy('id', 'desc')->paginate(10);
         $data['title'] = "List Team";
         $data['team'] = $team_data;
         return view('team/viewteam', $data);

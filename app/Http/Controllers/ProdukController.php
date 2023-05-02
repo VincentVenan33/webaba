@@ -11,8 +11,7 @@ class ProdukController extends Controller
 {
     public function viewproduk()
     {   $data = array();
-        $produk_data = ProdukModel::select('*')-> orderBy('id', 'desc')
-             ->get();
+        $produk_data = ProdukModel::select('*')-> orderBy('id', 'desc')->paginate(10);
         $data['title'] = "List Produk";
         $data['produk'] = $produk_data;
         return view('produk/viewproduk', $data);

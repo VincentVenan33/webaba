@@ -10,8 +10,7 @@ class ContactController extends Controller
     public function viewcontact()
     {
         $data = array();
-        $contact_data = ContactModel::select('*')-> orderBy('id', 'desc')
-            ->get();
+        $contact_data = ContactModel::select('*')->orderBy('id', 'desc')->paginate(10); //menampilkan 10 data per halaman
         $data['title'] = "List Contact";
         $data['contact'] = $contact_data;
         return view('contact/viewcontact', $data);

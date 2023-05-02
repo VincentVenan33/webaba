@@ -29,7 +29,7 @@
                     <tbody>
                         @foreach($katalog as $ktg)
                             <tr>
-                                <th>{{ $no++ }}</th>
+                                <th>{{ ( $katalog->currentPage() - 1 ) * $katalog->perPage() + $loop->iteration }}</th>
                                 <td>{{$ktg->nama}}</td>
                                 <td>{{ strlen($ktg->keterangan) <= 15 ? $ktg->keterangan : substr($ktg->keterangan, 0, 15) . '...' }}</td>
                                 <td><img src="{{url('').'/images/'.$ktg->image}}" alt="{{$ktg->nama}}" width="50"></td>
@@ -43,6 +43,27 @@
                         @endforeach
                     </tbody>
                   </table>
+                  <nav aria-label="Table Paging" class="mb-0 text-muted">
+                    <ul class="pagination justify-content-center mb-0">
+                        <li class="page-item{{ ($katalog->currentPage() == 1) ? ' disabled' : '' }}">
+                            <a class="page-link" href="{{ $katalog->previousPageUrl() }}" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                        </li>
+                        @for ($i = 1; $i <= $katalog->lastPage(); $i++)
+                            <li class="page-item{{ ($katalog->currentPage() == $i) ? ' active' : '' }}">
+                                <a class="page-link" href="{{ $katalog->url($i) }}">{{ $i }}</a>
+                            </li>
+                        @endfor
+                        <li class="page-item{{ ($katalog->currentPage() == $katalog->lastPage()) ? ' disabled' : '' }}">
+                            <a class="page-link" href="{{ $katalog->nextPageUrl() }}" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
                 </div>
               </div>
             </div> <!-- simple table -->

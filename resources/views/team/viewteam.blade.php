@@ -27,22 +27,43 @@
                     @php $no = 1; @endphp
 
                     <tbody>
-                        @foreach($team as $team)
+                        @foreach($team as $tm)
                             <tr>
-                                <th>{{ $no++ }}</th>
-                                <td>{{$team->nama}}</td>
-                                <td>{{$team->jabatan}}</td>
-                                <td>{{ strlen($team->deskripsi) <= 15 ? $team->deskripsi : substr($team->deskripsi, 0, 15) . '...' }}</td>
-                                <td><img src="{{url('').'/images/'.$team->image}}" alt="{{$team->nama}}" width="50"></td>
-                                <td>{{($team->status ==1 ? "AKTIF" : "NON AKTIF")}}</td>
+                                <th>{{ ( $team->currentPage() - 1 ) * $team->perPage() + $loop->iteration }}</th>
+                                <td>{{$tm->nama}}</td>
+                                <td>{{$tm->jabatan}}</td>
+                                <td>{{ strlen($tm->deskripsi) <= 15 ? $tm->deskripsi : substr($tm->deskripsi, 0, 15) . '...' }}</td>
+                                <td><img src="{{url('').'/images/'.$tm->image}}" alt="{{$tm->nama}}" width="50"></td>
+                                <td>{{($tm->status ==1 ? "AKTIF" : "NON AKTIF")}}</td>
                                 <td>
-                                <a href="{{route('changeteam', $team->id)}}" class="btn btn-warning btn-sm"><i class="fa fa-pencil"></i></a>
-                                <a href="{{route('deleteteam', $team->id)}}" onclick="return confirm('Apakah Anda Yakin Menghapus Data?');" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                                <a href="{{route('changeteam', $tm->id)}}" class="btn btn-warning btn-sm"><i class="fa fa-pencil"></i></a>
+                                <a href="{{route('deleteteam', $tm->id)}}" onclick="return confirm('Apakah Anda Yakin Menghapus Data?');" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
                                 </td>
                             </tr>
                         @endforeach
                     </tbody>
                   </table>
+                  <nav aria-label="Table Paging" class="mb-0 text-muted">
+                    <ul class="pagination justify-content-center mb-0">
+                        <li class="page-item{{ ($team->currentPage() == 1) ? ' disabled' : '' }}">
+                            <a class="page-link" href="{{ $team->previousPageUrl() }}" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                        </li>
+                        @for ($i = 1; $i <= $team->lastPage(); $i++)
+                            <li class="page-item{{ ($team->currentPage() == $i) ? ' active' : '' }}">
+                                <a class="page-link" href="{{ $team->url($i) }}">{{ $i }}</a>
+                            </li>
+                        @endfor
+                        <li class="page-item{{ ($team->currentPage() == $team->lastPage()) ? ' disabled' : '' }}">
+                            <a class="page-link" href="{{ $team->nextPageUrl() }}" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
                 </div>
               </div>
             </div> <!-- simple table -->

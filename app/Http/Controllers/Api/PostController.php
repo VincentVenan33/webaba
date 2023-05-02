@@ -59,28 +59,31 @@ class PostController extends Controller
      */
     public function postContact(Request $request)
     {
-        //define validation rules
+        // Define validation rules
         $validator = Validator::make($request->all(), [
             "nama" => "required|min:5",
-            "email" => "required|min:5",
+            "email" => "required|min:5|email",
             "pesan" => "required|min:5",
         ]);
 
-        //check if validation fails
+        // Check if validation fails
         if ($validator->fails()) {
             return response()->json($validator->errors(), 422);
         }
 
-        //create post
+        // Create post
         $post = ContactModel::create([
             "nama" => $request->input('nama'),
             "email" => $request->input('email'),
             "pesan" => $request->input('pesan'),
         ]);
 
-
-        //return response
-        return new PostResource(true, 'Data Contact Berhasil Ditambahkan!', $post);
+        // Return response
+        return response()->json([
+            'success' => true,
+            'message' => 'Terima kasih telah mengirimkan pesan. Kami akan segera merespon permintaan Anda.',
+            'data' => $post
+        ], 200);
     }
 }
 ?>

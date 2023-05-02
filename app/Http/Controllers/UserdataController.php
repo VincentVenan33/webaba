@@ -10,8 +10,7 @@ class UserdataController extends Controller
 {
     public function viewuserdata()
     {   $data = array();
-        $user_data = UserdataModel::select('*')-> orderBy('id', 'desc')
-             ->get();
+        $user_data = UserdataModel::select('*')-> orderBy('id', 'desc')->paginate(10);
         $data['title'] = "List User";
         $data['user'] = $user_data;
         return view('user/viewuserdata', $data);

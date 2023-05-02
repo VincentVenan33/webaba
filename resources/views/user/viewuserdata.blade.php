@@ -29,7 +29,7 @@
                     <tbody>
                         @foreach($user as $usr)
                             <tr>
-                                <th>{{ $no++ }}</th>
+                                <th>{{ ( $user->currentPage() - 1 ) * $user->perPage() + $loop->iteration }}</th>
                                 <td>{{$usr->nama}}</td>
                                 <td>{{$usr->username}}</td>
                                 <td>{{$usr->email}}</td>
@@ -43,6 +43,27 @@
                         @endforeach
                     </tbody>
                   </table>
+                  <nav aria-label="Table Paging" class="mb-0 text-muted">
+                    <ul class="pagination justify-content-center mb-0">
+                        <li class="page-item{{ ($user->currentPage() == 1) ? ' disabled' : '' }}">
+                            <a class="page-link" href="{{ $user->previousPageUrl() }}" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                        </li>
+                        @for ($i = 1; $i <= $user->lastPage(); $i++)
+                            <li class="page-item{{ ($user->currentPage() == $i) ? ' active' : '' }}">
+                                <a class="page-link" href="{{ $user->url($i) }}">{{ $i }}</a>
+                            </li>
+                        @endfor
+                        <li class="page-item{{ ($user->currentPage() == $user->lastPage()) ? ' disabled' : '' }}">
+                            <a class="page-link" href="{{ $user->nextPageUrl() }}" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
                 </div>
               </div>
             </div> <!-- simple table -->

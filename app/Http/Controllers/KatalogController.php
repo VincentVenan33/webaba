@@ -13,7 +13,7 @@ class KatalogController extends Controller
     {
         $data = array();
         $katalog_data = KatalogModel::select('*')-> orderBy('id', 'desc')
-            ->get();
+        ->paginate(10);
         $data['title'] = "List Katalog";
         $data['katalog'] = $katalog_data;
         return view('katalog/viewkatalog', $data);
