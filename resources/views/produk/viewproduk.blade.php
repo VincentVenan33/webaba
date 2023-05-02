@@ -33,7 +33,7 @@
                                 <td>{{$pdk->nama}}</td>
                                 <td>{{$pdk->harga}}</td>
                                 <td><img src="{{url('').'/images/'.$pdk->image}}" alt="{{$pdk->nama}}" width="50"></td>
-                                <td>{{$pdk->keterangan}}</td>
+                                <td>{{ strlen($pdk->keterangan) <= 15 ? $pdk->keterangan : substr($pdk->keterangan, 0, 15) . '...' }}</td>
                                 <td>{{($pdk->status ==1 ? "AKTIF" : "NON AKTIF")}}</td>
                                 <td>
                                 <a href="{{route('changeproduk', $pdk->id)}}" class="btn btn-warning btn-sm"><i class="fa fa-pencil"></i></a>

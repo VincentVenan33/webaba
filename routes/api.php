@@ -22,4 +22,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('product',[PostController::class,'getProduct']);
 Route::get('catalog',[PostController::class,'getCatalog']);
 Route::get('team',[PostController::class,'getTeam']);
+Route::get('contact',[PostController::class,'getContact']);
+Route::post('contact',[PostController::class,'postContact']);
 ?>

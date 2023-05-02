@@ -31,7 +31,7 @@
                                 <th>{{ $no++ }}</th>
                                 <td>{{$ctc->nama}}</td>
                                 <td>{{$ctc->email}}</td>
-                                <td>{{$ctc->pesan}}</td>
+                                <td>{{ strlen($ctc->pesan) <= 15 ? $ctc->pesan : substr($ctc->pesan, 0, 15) . '...' }}</td>
                                 <td>{{($ctc->status ==1 ? "AKTIF" : "NON AKTIF")}}</td>
                                 <td>
                                 <a href="{{route('changecontact', $ctc->id)}}" class="btn btn-warning btn-sm"><i class="fa fa-pencil"></i></a>

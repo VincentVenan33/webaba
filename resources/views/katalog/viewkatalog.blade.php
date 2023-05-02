@@ -31,7 +31,7 @@
                             <tr>
                                 <th>{{ $no++ }}</th>
                                 <td>{{$ktg->nama}}</td>
-                                <td>{{$ktg->keterangan}}</td>
+                                <td>{{ strlen($ktg->keterangan) <= 15 ? $ktg->keterangan : substr($ktg->keterangan, 0, 15) . '...' }}</td>
                                 <td><img src="{{url('').'/images/'.$ktg->image}}" alt="{{$ktg->nama}}" width="50"></td>
                                 <td><a href="{{url('').'/files/'.$ktg->file }}" download="{{ $ktg->file }}">{{ $ktg->file }}</a></td>
                                 <td>{{($ktg->status ==1 ? "AKTIF" : "NON AKTIF")}}</td>

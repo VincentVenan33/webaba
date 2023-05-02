@@ -32,7 +32,7 @@
                                 <th>{{ $no++ }}</th>
                                 <td>{{$team->nama}}</td>
                                 <td>{{$team->jabatan}}</td>
-                                <td>{{$team->deskripsi}}</td>
+                                <td>{{ strlen($team->deskripsi) <= 15 ? $team->deskripsi : substr($team->deskripsi, 0, 15) . '...' }}</td>
                                 <td><img src="{{url('').'/images/'.$team->image}}" alt="{{$team->nama}}" width="50"></td>
                                 <td>{{($team->status ==1 ? "AKTIF" : "NON AKTIF")}}</td>
                                 <td>
