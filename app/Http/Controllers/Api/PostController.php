@@ -61,9 +61,9 @@ class PostController extends Controller
     {
         // Define validation rules
         $validator = Validator::make($request->all(), [
-            "nama" => "required|min:5",
+            "nama" => "required|min:3",
             "email" => "required|min:5|email",
-            "pesan" => "required|min:5",
+            "pesan" => "required",
         ]);
 
         // Check if validation fails
