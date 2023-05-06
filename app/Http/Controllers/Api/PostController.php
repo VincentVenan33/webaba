@@ -68,7 +68,11 @@ class PostController extends Controller
 
         // Check if validation fails
         if ($validator->fails()) {
-            return response()->json($validator->errors(), 422);
+            return response()->json([
+                'success' => false,
+                'message' => 'Maaf pesan tidak dapat kami terima coba lagi',
+                'errors' => $validator->errors()
+            ], 422);
         }
 
         // Create post
