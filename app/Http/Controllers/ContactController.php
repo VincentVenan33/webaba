@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\ContactModel;
 use Illuminate\Http\Request;
 use illuminate\validation;
@@ -8,13 +9,19 @@ use illuminate\validation;
 class ContactController extends Controller
 {
     public function viewcontact()
-    {
-        $data = array();
-        $contact_data = ContactModel::select('*')->orderBy('id', 'desc')->paginate(10); //menampilkan 10 data per halaman
-        $data['title'] = "List Contact";
-        $data['contact'] = $contact_data;
-        return view('contact/viewcontact', $data);
-    }
+{
+    $data = array();
+    $contact_data = ContactModel::select('*')->orderBy('id', 'desc')->paginate(10); //menampilkan 10 data per halaman
+    // Menghitung jumlah pesan masuk yang belum terbaca
+    $unread_count = ContactModel::where('status', 0)->count();
+
+    $data['title'] = "Inbox";
+    $data['contact'] = $contact_data;
+    $data['unread_count'] = $unread_count;
+
+    return view('contact/viewcontact', $data);
+}
+
     public function addcontact()
     {
         $data = array();
@@ -41,6 +48,31 @@ class ContactController extends Controller
             return redirect()->route('viewcontact')->with('error', 'Data added Error');
         }
     }
+    public function detailcontact($id)
+{
+    $data = array();
+    $contact_data = ContactModel::findOrFail($id);
+
+    // Update status pesan menjadi sudah dibaca
+    ContactModel::where('id', $id)->update(['status' => 1]);
+
+    // Menghitung jumlah pesan masuk yang belum terbaca
+    $unread_count = ContactModel::where('status', 0)->count();
+
+    $data['title'] = "Detail Pesan";
+    $data['contact'] = $contact_data;
+    $data['unread_count'] = $unread_count;
+
+    return view('contact/detailcontact', $data);
+}
+
+
+    public function readAll()
+    {
+        ContactModel::where('status', 0)->update(['status' => 1]);
+
+        return redirect()->back();
+    }
     public function changecontact($id)
     {
         $data = array();
@@ -60,7 +92,7 @@ class ContactController extends Controller
             "email" => "required|min:5",
             "pesan" => "required|min:5",
         ]);
-        $contact_data = COntactModel::where('id', $request->id)
+        $contact_data = ContactModel::where('id', $request->id)
             ->update([
                 'nama' => $request->nama,
                 'email' => $request->email,
@@ -77,4 +109,3 @@ class ContactController extends Controller
         return redirect()->route('viewcontact')->with('error', 'Data Deleted');
     }
 }
-?>

@@ -4,7 +4,7 @@
     <div class="container-fluid">
       <div class="row justify-content-center">
         <div class="col-12">
-          <h2 class="page-title">Edit Contact</h2>
+          <h2 class="page-title">Edit Inbox</h2>
           <div class="row">
             <div class="col-md-6">
               <div class="card shadow mb-4">

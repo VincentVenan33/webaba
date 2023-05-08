@@ -63,7 +63,10 @@ Route::get('team/delete/{id}', [TeamController::class, 'deleteteam'])->name('del
 Route::get('contact/view', [ContactController::class, 'viewcontact'])->name('viewcontact')->middleware('auth');
 Route::get('contact/add', [ContactController::class, 'addcontact'])->name('addcontact')->middleware('auth');
 Route::post('contact/save', [ContactController::class, 'savecontact'])->name('savecontact')->middleware('auth');
+Route::get('contact/detail/{id}', [ContactController::class, 'detailcontact'])->name('detailcontact')->middleware('auth');
 Route::get('contact/change/{id}', [ContactController::class, 'changecontact'])->name('changecontact')->middleware('auth');
 Route::post('contact/update', [ContactController::class, 'updatecontact'])->name('updatecontact')->middleware('auth');
 Route::get('contact/delete/{id}', [ContactController::class, 'deletecontact'])->name('deletecontact')->middleware('auth');
+Route::get('contact/readAll', [ContactController::class, 'readAll'])->name('readAllcontact')->middleware('auth');
+
 ?>

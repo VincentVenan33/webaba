@@ -114,8 +114,11 @@
                 <ul class="navbar-nav flex-fill w-100 mb-2">
                     <li class="nav-item dropdown">
                         <a href="{{route('viewcontact')}}" class="nav-link">
-                            <i class="fe fe-book fe-16"></i>
-                            <span class="ml-3 item-text">Contact</span>
+                            <i class="fe fe-inbox fe-16"></i>
+                            <span class="ml-3 item-text">Inbox</span>
+                            @isset($unread_count)
+                                <span class="badge badge-danger">{{$unread_count}}</span>
+                            @endisset
                         </a>
                     </li>
                 </ul>

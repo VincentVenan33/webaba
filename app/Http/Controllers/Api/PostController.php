@@ -80,6 +80,7 @@ class PostController extends Controller
             "nama" => $request->input('nama'),
             "email" => $request->input('email'),
             "pesan" => $request->input('pesan'),
+            "status" => 0,
         ]);
 
         // Return response

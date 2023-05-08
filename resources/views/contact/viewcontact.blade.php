@@ -2,45 +2,49 @@
 @section('main')
 <main role="main" class="main-content">
     <div class="container-fluid">
-      <div class="row justify-content-center">
-        <div class="col-12">
-          <h2 class="mb-2 page-title">Contact Data</h2>
-          <div class="row my-4">
-            <!-- Small table -->
-            <div class="col-md-12">
-              <div class="card shadow">
-                <div class="card-body">
-                    <a class="btn btn-success" href="{{route('addcontact')}}"><i class="fa-solid fa-square-plus"></i> Add Contact</a><br><br>
-                  <!-- table -->
-                  <table class="table datatables" id="dataTable-1">
-                    <thead>
-                      <tr>
-                        <th>No.</th>
-                        <th>Nama</th>
-                        <th>E-mail</th>
-                        <th>Pesan</th>
-                        <th>Status</th>
-                        <th>Action</th>
-                      </tr>
-                    </thead>
-                    @php $no = 1; @endphp
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <h2 class="mb-2 page-title">Inbox</h2>
+                <div class="row my-4">
+                    <!-- Small table -->
+                    <div class="col-md-12">
+                        <div class="card shadow">
+                            <div class="card-body">
+                                <a class="btn btn-primary" href="{{ route('readAllcontact') }}"><i class="fa-solid fa-check-circle"></i> Mark All as Read</a><br><br>
+                                <!-- table -->
+                                <table class="table datatables" id="dataTable-1">
+                                    <thead>
+                                        <tr>
+                                            <th>No.</th>
+                                            <th>Nama</th>
+                                            <th>E-mail</th>
+                                            <th>Pesan</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    @php $no = 1; @endphp
+                                    <tbody>
+                                        @foreach($contact as $ctc)
+                                            <tr class="{{ $ctc->status == 0 ? 'table-secondary' : '' }}">
+                                                <td>{{ ( $contact->currentPage() - 1 ) * $contact->perPage() + $loop->iteration }}</td>
+                                                <td>{{$ctc->nama}}</td>
+                                                <td>{{$ctc->email}}</td>
+                                                <td>
+                                                    {{$ctc->pesan}}
+                                                </td>
+                                                <td>
+                                                    <a href="{{route('detailcontact', $ctc->id)}}" class="btn btn-{{ $ctc->status == 0 ? 'warning' : 'secondary' }} btn-sm">
+                                                        <i class="fa {{ $ctc->status == 0 ? 'fa-envelope' : 'fa-envelope-open' }}"></i>
+                                                    </a>
+                                                    <a href="{{route('deletecontact', $ctc->id)}}" onclick="return confirm('Apakah Anda Yakin Menghapus Data?');" class="btn btn-danger btn-sm">
+                                                        <i class="fa fa-trash"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        @endforeach
 
-                    <tbody>
-                        @foreach($contact as $ctc)
-                            <tr>
-                                <th>{{ ( $contact->currentPage() - 1 ) * $contact->perPage() + $loop->iteration }}</th>
-                                <td>{{$ctc->nama}}</td>
-                                <td>{{$ctc->email}}</td>
-                                <td>{{ strlen($ctc->pesan) <= 15 ? $ctc->pesan : substr($ctc->pesan, 0, 15) . '...' }}</td>
-                                <td>{{($ctc->status ==1 ? "AKTIF" : "NON AKTIF")}}</td>
-                                <td>
-                                <a href="{{route('changecontact', $ctc->id)}}" class="btn btn-warning btn-sm"><i class="fa fa-pencil"></i></a>
-                                <a href="{{route('deletecontact', $ctc->id)}}" onclick="return confirm('Apakah Anda Yakin Menghapus Data?');" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
-                                </td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                  </table>
+                                    </tbody>
+                                </table>
                   <nav aria-label="Table Paging" class="mb-0 text-muted">
                     <ul class="pagination justify-content-center mb-0">
                         <li class="page-item{{ ($contact->currentPage() == 1) ? ' disabled' : '' }}">
