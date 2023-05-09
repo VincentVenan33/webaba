@@ -117,7 +117,7 @@
                             <i class="fe fe-inbox fe-16"></i>
                             <span class="ml-3 item-text">Inbox</span>
                             @isset($unread_count)
-                                <span class="badge badge-danger">{{$unread_count}}</span>
+                                <span class="badge badge-danger" style="padding: 5px; font-weight: 500">{{$unread_count}}</span>
                             @endisset
                         </a>
                     </li>

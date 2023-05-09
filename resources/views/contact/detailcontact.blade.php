@@ -24,7 +24,7 @@
                     </div>
                     <div class="form-group">
                         <label for="inputpesan">Pesan</label>
-                        <input type="text" name="pesan" value="{{$contact->pesan}}" class="form-control" readonly>
+                        <textarea name="pesan" class="form-control" readonly>{{$contact->pesan}}</textarea>
                     </div>
                     <div class="form-group col">
                         <div class="row mt-4">
