@@ -117,7 +117,7 @@
                             <i class="fe fe-inbox fe-16"></i>
                             <span class="ml-3 item-text">Inbox</span>
                             <?php if(isset($unread_count)): ?>
-                                <span class="badge badge-danger" style="padding: 5px; font-weight: 500"><?php echo e($unread_count); ?></span>
+                                <span class="badge badge-danger" style="padding: 7px; font-weight: 500"><?php echo e($unread_count); ?></span>
                             <?php endif; ?>
                         </a>
                     </li>
