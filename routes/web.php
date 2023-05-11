@@ -7,6 +7,7 @@ use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\KatalogController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\PengunjungController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -68,5 +69,11 @@ Route::get('contact/change/{id}', [ContactController::class, 'changecontact'])->
 Route::post('contact/update', [ContactController::class, 'updatecontact'])->name('updatecontact')->middleware('auth');
 Route::get('contact/delete/{id}', [ContactController::class, 'deletecontact'])->name('deletecontact')->middleware('auth');
 Route::get('contact/readAll', [ContactController::class, 'readAll'])->name('readAllcontact')->middleware('auth');
-
+//pengunjung
+Route::get('pengunjung/view', [PengunjungController::class, 'viewpengunjung'])->name('viewpengunjung')->middleware('auth');
+Route::get('pengunjung/add', [PengunjungController::class, 'addpengunjung'])->name('addpengunjung')->middleware('auth');
+Route::post('pengunjung/save', [PengunjungController::class, 'savepengunjung'])->name('savepengunjung')->middleware('auth');
+Route::get('pengunjung/change/{id}', [PengunjungController::class, 'changepengunjung'])->name('changepengunjung')->middleware('auth');
+Route::post('pengunjung/update', [PengunjungController::class, 'updatepengunjung'])->name('updatepengunjung')->middleware('auth');
+Route::get('pengunjung/delete/{id}', [PengunjungController::class, 'deletepengunjung'])->name('deletepengunjung')->middleware('auth');
 ?>

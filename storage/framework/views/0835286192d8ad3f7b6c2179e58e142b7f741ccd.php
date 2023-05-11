@@ -73,9 +73,9 @@
                 </ul>
                 <ul class="navbar-nav flex-fill w-100 mb-2">
                     <li class="nav-item dropdown">
-                        <a href="<?php echo e(route('dashboard')); ?>" class="nav-link">
-                            <i class="fe fe-file fe-16"></i>
-                            <span class="ml-3 item-text">Home Pages</span>
+                        <a href="<?php echo e(route('viewpengunjung')); ?>" class="nav-link">
+                            <i class="fe fe-trending-up fe-16"></i>
+                            <span class="ml-3 item-text">Pengunjung</span>
                         </a>
                     </li>
                 </ul>
