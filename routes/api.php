@@ -24,4 +24,6 @@ Route::get('catalog',[PostController::class,'getCatalog']);
 Route::get('team',[PostController::class,'getTeam']);
 Route::get('contact',[PostController::class,'getContact']);
 Route::post('contact',[PostController::class,'postContact']);
+Route::get('pengunjung', [PostController::class, 'getpengunjung']);
+Route::post('pengunjung', [PostController::class, 'getpengunjung']);
 ?>

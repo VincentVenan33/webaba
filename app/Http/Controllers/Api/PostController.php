@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\PostResource;
+use App\Models\PengunjungModel;
 use Illuminate\Support\Facades\Validator;
 
 class PostController extends Controller
@@ -89,6 +90,18 @@ class PostController extends Controller
             'message' => 'Terima kasih telah mengirimkan pesan. Kami akan segera merespon permintaan Anda.',
             'data' => $post
         ], 200);
+    }
+
+    public function getpengunjung(Request $request)
+    {
+        PengunjungModel::create([
+            'page' => $request->pageURL,
+            'ip' => $request->ipAddress
+        ]);
+
+        return response()->json(['success' => true]);
+
+
     }
 }
 ?>
