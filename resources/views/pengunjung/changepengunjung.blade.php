@@ -28,21 +28,6 @@
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
-                    <div class="form-group col">
-                        <div class="row mt-4">
-                            <div class="col">
-                                <label for="status">Status</label>
-                            </div>
-                            <div class="col col-xl"></div>
-                            <div class="col status-swith">
-                                <label class="form-control switch">
-                                    <input name="status" value="{{$pengunjung->status}}" type="checkbox" {{ ($pengunjung->status == 1 ? 'checked' : '') }}>
-                                    <span class="slider round"></span>
-                                </label>
-                                {{-- <td> <input data-id="{{$s->id}}" class="toggle-class" type="checkbox" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-on="Active" data-off="InActive" {{ $s->status ? 'checked' : '' }}> --}}
-                            </div>
-                        </div>
-                    </div>
                     <div class="container">
                         <div class="row">
                             <div class="col col-6">

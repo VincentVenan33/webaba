@@ -31,7 +31,6 @@ class PengunjungController extends Controller
         $pengunjung_data = PengunjungModel::create([
             'page' => $request->page,
             'ip' => $request->ip,
-            'status' => ($request->status != "" ? "1" : "0"),
         ]);
         if($pengunjung_data){
             return redirect()->route('viewpengunjung')->with('message','Data added Successfully');
@@ -61,7 +60,6 @@ class PengunjungController extends Controller
                     ->update([
                         'ip' => $request->ip,
                         'page' => $request->page,
-                        'status' => ($request->status != "" ? "1" : "0"),
                     ]);
 
         return redirect()->route('viewpengunjung')->with('message','Data update succeesfully');

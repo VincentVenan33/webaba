@@ -18,7 +18,6 @@
                         <th>No.</th>
                         <th>Ip</th>
                         <th>Page</th>
-                        <th>Status</th>
                         <th>Action</th>
                       </tr>
                     </thead>
@@ -30,7 +29,6 @@
                                 <th>{{ ( $pengunjung->currentPage() - 1 ) * $pengunjung->perPage() + $loop->iteration }}</th>
                                 <td>{{$pgg->ip}}</td>
                                 <td>{{$pgg->page}}</td>
-                                <td>{{($pgg->status ==1 ? "AKTIF" : "NON AKTIF")}}</td>
                                 <td>
                                 <a href="{{route('changepengunjung', $pgg->id)}}" class="btn btn-warning btn-sm"><i class="fa fa-pencil"></i></a>
                                 <a href="{{route('deletepengunjung', $pgg->id)}}" onclick="return confirm('Apakah Anda Yakin Menghapus Data?');" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
