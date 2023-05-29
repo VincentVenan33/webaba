@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\PengunjungModel;
 use App\Models\ProdukModel;
 use App\Models\TeamModel;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 use Illuminate\Http\Request;
@@ -58,6 +59,7 @@ class HomeController extends Controller
                     $totalOnline = PengunjungModel::whereDate('created_at', '=', date('Y-m-d'))->count();
 
                     // dd($totalOnline);
+                    $username = Auth::user()->username;
                     $title = "Home";
                     return view('index', [
                         'index' => $result,
@@ -65,6 +67,7 @@ class HomeController extends Controller
                         'totalOnline' => $totalOnline,
                         'pengunjung_data' => $pengunjung_data,
                         'title' => $title,
+                        'username' => $username,
                     ]);
                 }
 }

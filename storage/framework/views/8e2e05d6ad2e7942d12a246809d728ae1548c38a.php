@@ -5,7 +5,7 @@
                     <div class="col-12">
                         <div class="row align-items-center mb-2">
                             <div class="col">
-                                <h2 class="h5 page-title">Welcome!</h2>
+                                <h2 class="h5 page-title">Welcome, <?php echo e($username); ?>!</h2>
                             </div>
                             <div class="col-auto">
                                 <form class="form-inline">
@@ -27,28 +27,47 @@
                         <div class="mb-2 align-items-center">
                             <div class="card shadow mb-4">
                                 <div class="card-body">
-                                    <div class="row mt-1 align-items-center">
-                                        <div class="col-12 col-lg-2 text-left pl-4">
-                                            <span class="h3"><?php echo e($totalOnline); ?></span>
+                                    <div class="row mt-1 d-flex align-items-center">
+                                        <div class="col-12 col-lg-2 text-left pl-4 card-wifi">
+                                            <div class="d-flex align-items-center">
+                                                <div
+                                                    class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                                    <i class="fe fe-wifi"></i>
+                                                </div>
+                                                <div class="ml-3 ps-3">
+                                                    <span class="h3"><?php echo e($totalOnline); ?></span>
+                                                </div>
+                                            </div>
                                             <p class="text-muted mt-2"> Online Visitor </p>
                                         </div>
-                                        <div class="col-6 col-lg-2 text-center py-4">
-                                            <span class="h3"><?php echo e($totalMonthlyVisitors[0]->totalMonthlyVisitors); ?></span><br />
-                                            <span class="small text-muted">Monthly Visitor </span>
-                                        </div>
-                                        <div class="col-6 col-lg-2 text-center py-4">
-                                            <div class="filter">
-                                                <a class="icon" href="#" data-bs-toggle="dropdown"><i
-                                                        class="bi bi-three-dots"></i></a>
-                                                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                                                    <li class="dropdown-header text-start">
-                                                        <h6>Filter</h6>
-                                                    </li>
-                                                    <li><a class="dropdown-item" href="#">Today</a></li>
-                                                    <li><a class="dropdown-item" href="#">This Month</a></li>
-                                                    <li><a class="dropdown-item" href="#">This Year</a></li>
-                                                </ul>
+                                        <div class="col-12 col-lg-3 text-left pl-4 card-user">
+                                            <div class="d-flex align-items-center">
+                                                <div
+                                                    class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                                    <i class="fe fe-user"></i>
+                                                </div>
+                                                <div class="ml-3 ps-3">
+                                                    <span class="h3"><?php echo e($totalMonthlyVisitors[0]->totalMonthlyVisitors); ?></span>
+                                                </div>
                                             </div>
+                                            <p class="text-muted mt-2"> Monthly Visitor </p>
+                                        </div>
+                                        <div class="col-6 col-lg-4 text-right py-4">
+                                            <nav class="topnav navbar navbar-light">
+                                                <ul class="nav">
+                                                <li class="nav-item dropdown">
+                                                    <a class="nav-link text-muted pl-5 ml-5" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <i class="fe fe-list"></i>
+                                                    </a>
+                                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                                                        <div class="dropdown-header text-start"><h6>Filter</h6></div>
+                                                    <a class="dropdown-item" href="#">Today</a>
+                                                    <a class="dropdown-item" href="#">This Month</a>
+                                                    <a class="dropdown-item" href="#">This Year</a>
+                                                    </div>
+                                                </li>
+                                                </ul>
+                                            </nav>
                                         </div>
                                     </div>
                                     <div class="col-12">
@@ -94,7 +113,7 @@
                                                             markers: {
                                                                 size: 4
                                                             },
-                                                            colors: ['#4154f1', '#2eca6a', '#ff771d'],
+                                                            colors: ['#008ffb', '#2eca6a', '#ff771d'],
                                                             fill: {
                                                                 type: "gradient",
                                                                 gradient: {
