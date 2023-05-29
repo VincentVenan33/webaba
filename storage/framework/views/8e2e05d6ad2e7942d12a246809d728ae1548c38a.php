@@ -28,41 +28,104 @@
                             <div class="card shadow mb-4">
                                 <div class="card-body">
                                     <div class="row mt-1 align-items-center">
-                                        <div class="col-12 col-lg-4 text-left pl-4">
-                                            <p class="mb-1 small text-muted">Balance</p>
-                                            <span class="h3">$12,600</span>
-                                            <span class="small text-muted">+20%</span>
-                                            <span class="fe fe-arrow-up text-success fe-12"></span>
-                                            <p class="text-muted mt-2"> Etiam ultricies nisi vel augue. Curabitur
-                                                ullamcorper ultricies nisi. Nam eget dui </p>
+                                        <div class="col-12 col-lg-2 text-left pl-4">
+                                            <span class="h3"><?php echo e($totalOnline); ?></span>
+                                            <p class="text-muted mt-2"> Online Visitor </p>
                                         </div>
                                         <div class="col-6 col-lg-2 text-center py-4">
-                                            <p class="mb-1 small text-muted">Today</p>
-                                            <span class="h3">$2600</span><br />
-                                            <span class="small text-muted">+20%</span>
-                                            <span class="fe fe-arrow-up text-success fe-12"></span>
-                                        </div>
-                                        <div class="col-6 col-lg-2 text-center py-4 mb-2">
-                                            <p class="mb-1 small text-muted">Goal Value</p>
-                                            <span class="h3">$260</span><br />
-                                            <span class="small text-muted">+6%</span>
-                                            <span class="fe fe-arrow-up text-success fe-12"></span>
+                                            <span class="h3"><?php echo e($totalMonthlyVisitors[0]->totalMonthlyVisitors); ?></span><br />
+                                            <span class="small text-muted">Monthly Visitor </span>
                                         </div>
                                         <div class="col-6 col-lg-2 text-center py-4">
-                                            <p class="mb-1 small text-muted">Completions</p>
-                                            <span class="h3">26</span><br />
-                                            <span class="small text-muted">+20%</span>
-                                            <span class="fe fe-arrow-up text-success fe-12"></span>
-                                        </div>
-                                        <div class="col-6 col-lg-2 text-center py-4">
-                                            <p class="mb-1 small text-muted">Conversion</p>
-                                            <span class="h3">6%</span><br />
-                                            <span class="small text-muted">-2%</span>
-                                            <span class="fe fe-arrow-down text-danger fe-12"></span>
+                                            <div class="filter">
+                                                <a class="icon" href="#" data-bs-toggle="dropdown"><i
+                                                        class="bi bi-three-dots"></i></a>
+                                                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                                                    <li class="dropdown-header text-start">
+                                                        <h6>Filter</h6>
+                                                    </li>
+                                                    <li><a class="dropdown-item" href="#">Today</a></li>
+                                                    <li><a class="dropdown-item" href="#">This Month</a></li>
+                                                    <li><a class="dropdown-item" href="#">This Year</a></li>
+                                                </ul>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="chartbox mr-4">
-                                        <div id="areaChart"></div>
+                                    <div class="col-12">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Reports</h5>
+                                                <div id="reportsChart"></div>
+                                                <script>
+                                                </script>
+
+                                                <script>
+                                                    document.addEventListener("DOMContentLoaded", () => {
+                                                        const today = new Date();
+                                                        const dates = [];
+                                                        for (let i = 6; i >= 0; i--) {
+                                                            const date = new Date(today);
+                                                            date.setDate(today.getDate() - i);
+                                                            const formattedDate = date.toISOString().split('T')[0];
+                                                            dates.push(formattedDate);
+                                                        }
+                                                        console.log(dates)
+                                                        const pengunjung_data = <?php echo json_encode($pengunjung_data, 15, 512) ?>;
+                                                        const arrayVisitor = [];
+                                                        pengunjung_data.forEach((pengunjung_data) => {
+
+                                                            arrayVisitor.push(pengunjung_data.total_users);
+
+                                                        });
+                                                        console.log(arrayVisitor);
+                                                        const visitors = arrayVisitor;
+                                                        new ApexCharts(document.querySelector("#reportsChart"), {
+                                                            series: [{
+                                                                name: 'Page',
+                                                                data: visitors
+                                                            }],
+                                                            chart: {
+                                                                height: 350,
+                                                                type: 'area',
+                                                                toolbar: {
+                                                                    show: false
+                                                                },
+                                                            },
+                                                            markers: {
+                                                                size: 4
+                                                            },
+                                                            colors: ['#4154f1', '#2eca6a', '#ff771d'],
+                                                            fill: {
+                                                                type: "gradient",
+                                                                gradient: {
+                                                                    shadeIntensity: 1,
+                                                                    opacityFrom: 0.3,
+                                                                    opacityTo: 0.4,
+                                                                    stops: [0, 90, 100]
+                                                                }
+                                                            },
+                                                            dataLabels: {
+                                                                enabled: false
+                                                            },
+                                                            stroke: {
+                                                                curve: 'smooth',
+                                                                width: 2
+                                                            },
+                                                            xaxis: {
+                                                                type: 'datetime',
+                                                                categories: dates
+
+                                                            },
+                                                            tooltip: {
+                                                                x: {
+                                                                    format: 'dd/MM/yy HH:mm'
+                                                                },
+                                                            }
+                                                        }).render();
+                                                    });
+                                                </script>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div> <!-- .card-body -->
                             </div> <!-- .card -->
@@ -540,4 +603,4 @@
 </main> <!-- main -->
 <?php $__env->stopSection(); ?>
 
-<?= $__env->make('layouts.template', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\webaba\resources\views/index.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.template', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\webaba\resources\views/index.blade.php ENDPATH**/ ?>
