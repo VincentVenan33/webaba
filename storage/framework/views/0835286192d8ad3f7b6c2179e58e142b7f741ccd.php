@@ -86,6 +86,14 @@
                 </ul>
                 <ul class="navbar-nav flex-fill w-100 mb-2">
                     <li class="nav-item dropdown">
+                        <a href="<?php echo e(route('viewteam')); ?>" class="nav-link">
+                            <i class="fe fe-users fe-16"></i>
+                            <span class="ml-3 item-text">Team</span>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav flex-fill w-100 mb-2">
+                    <li class="nav-item dropdown">
                         <a href="<?php echo e(route('viewproduk')); ?>" class="nav-link">
                             <i class="fe fe-compass fe-16"></i>
                             <span class="ml-3 item-text">Products</span>
@@ -97,14 +105,6 @@
                         <a href="<?php echo e(route('viewkatalog')); ?>" class="nav-link">
                             <i class="fe fe-grid fe-16"></i>
                             <span class="ml-3 item-text">Katalog</span>
-                        </a>
-                    </li>
-                </ul>
-                <ul class="navbar-nav flex-fill w-100 mb-2">
-                    <li class="nav-item dropdown">
-                        <a href="<?php echo e(route('viewteam')); ?>" class="nav-link">
-                            <i class="fe fe-users fe-16"></i>
-                            <span class="ml-3 item-text">Team</span>
                         </a>
                     </li>
                 </ul>
