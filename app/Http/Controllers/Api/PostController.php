@@ -14,6 +14,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\PostResource;
 use App\Models\PengunjungModel;
 use Illuminate\Support\Facades\Validator;
+use Carbon\Carbon;
 
 class PostController extends Controller
 {
@@ -92,16 +93,21 @@ class PostController extends Controller
         ], 200);
     }
 
+
+
     public function getpengunjung(Request $request)
-    {
-        PengunjungModel::create([
-            'page' => $request->pageURL,
-            'ip' => $request->ipAddress
-        ]);
+{
+    $currentTime = Carbon::now()->setTimezone('Asia/Jakarta');
 
-        return response()->json(['success' => true]);
+    PengunjungModel::create([
+        'page' => $request->pageURL,
+        'ip' => $request->ipAddress,
+        'created_at' => $currentTime,
+        'updated_at' => $currentTime
+    ]);
 
+    return response()->json(['success' => true]);
+}
 
-    }
 }
 ?>

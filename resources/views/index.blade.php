@@ -53,23 +53,6 @@
                                             </div>
                                             <p class="text-muted mt-2"> Monthly Visitor </p>
                                         </div>
-                                        <div class="col-6 col-lg-4 text-right py-4">
-                                            <nav class="topnav navbar navbar-light">
-                                                <ul class="nav">
-                                                <li class="nav-item dropdown">
-                                                    <a class="nav-link text-muted pl-5 ml-5" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                        <i class="fe fe-list"></i>
-                                                    </a>
-                                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                                                        <div class="dropdown-header text-start"><h6>Filter</h6></div>
-                                                    <a class="dropdown-item" href="#">Today</a>
-                                                    <a class="dropdown-item" href="#">This Month</a>
-                                                    <a class="dropdown-item" href="#">This Year</a>
-                                                    </div>
-                                                </li>
-                                                </ul>
-                                            </nav>
-                                        </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="card">
@@ -81,70 +64,68 @@
 
                                                 <script>
                                                    document.addEventListener("DOMContentLoaded", () => {
-const today = new Date();
-const dates = [];
-for (let i = 0; i <= 6; i++) {
-const date = new Date(today);
-date.setDate(today.getDate() + i);
-const formattedDate = date.toDateString();
-dates.push(formattedDate);
-}
-console.log(dates);
-const pengunjung_data = @json($pengunjung_data);
-const arrayVisitor = [];
-pengunjung_data.forEach((pengunjung_data) => {
-    arrayVisitor.push(pengunjung_data.total_users);
+                                                    const today = new Date();
+                                                    const dates = [];
+                                                    for (let i = 0; i <= 6; i++) {
+                                                    const date = new Date(today);
+                                                    date.setDate(today.getDate() + i);
+                                                    const formattedDate = date.toDateString();
+                                                    dates.push(formattedDate);
+                                                    }
+                                                    console.log(dates);
+                                                    const pengunjung_data = @json($pengunjung_data);
+                                                    const arrayVisitor = [];
+                                                    pengunjung_data.forEach((pengunjung_data) => {
+                                                        arrayVisitor.push(pengunjung_data.total_users);
 
-});
-console.log(arrayVisitor);
-const visitors = arrayVisitor;
-new ApexCharts(document.querySelector("#reportsChart"), {
-    series: [{
-        name: 'Page',
-        data: visitors
-    }],
-    chart: {
-        height: 350,
-        type: 'area',
-        toolbar: {
-            show: false
-        },
-        timezone: 'Asia/Jakarta'
-    },
-    markers: {
-        size: 4
-    },
-    colors: ['#008ffb', '#2eca6a', '#ff771d'],
-    fill: {
-        type: "gradient",
-        gradient: {
-            shadeIntensity: 1,
-            opacityFrom: 0.3,
-            opacityTo: 0.4,
-            stops: [0, 90, 100]
-        }
-    },
-    dataLabels: {
-        enabled: false
-    },
-    stroke: {
-        curve: 'smooth',
-        width: 2
-    },
-    xaxis: {
-        type: 'datetime',
-        categories: dates
+                                                    });
+                                                    console.log(arrayVisitor);
+                                                    const visitors = arrayVisitor;
+                                                    new ApexCharts(document.querySelector("#reportsChart"), {
+                                                        series: [{
+                                                            name: 'Page',
+                                                            data: visitors
+                                                        }],
+                                                        chart: {
+                                                            height: 350,
+                                                            type: 'area',
+                                                            toolbar: {
+                                                                show: false
+                                                            },
+                                                            timezone: 'Asia/Jakarta'
+                                                        },
+                                                        markers: {
+                                                            size: 4
+                                                        },
+                                                        colors: ['#008ffb', '#2eca6a', '#ff771d'],
+                                                        fill: {
+                                                            type: "gradient",
+                                                            gradient: {
+                                                                shadeIntensity: 1,
+                                                                opacityFrom: 0.3,
+                                                                opacityTo: 0.4,
+                                                                stops: [0, 90, 100]
+                                                            }
+                                                        },
+                                                        dataLabels: {
+                                                            enabled: false
+                                                        },
+                                                        stroke: {
+                                                            curve: 'smooth',
+                                                            width: 2
+                                                        },
+                                                        xaxis: {
+                                                            type: 'datetime',
+                                                            categories: dates
 
-    },
-    tooltip: {
-        x: {
-            format: 'dd/MM/yy HH:mm'
-        },
-    }
-}).render();
-});
-
-
+                                                        },
+                                                        tooltip: {
+                                                            x: {
+                                                                format: 'dd/MM/yy HH:mm'
+                                                            },
+                                                        }
+                                                    }).render();
+                                                    });
                                                 </script>
                                             </div>
                                         </div>

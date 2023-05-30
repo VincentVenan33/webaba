@@ -10,5 +10,5 @@ class PengunjungModel extends Model
     use HasFactory;
     protected $table = 'pengunjung';
     protected $primaryKey = 'id';
-    protected $fillable = ['page', 'ip', 'status', 'keterangan', 'status'];
+    protected $fillable = ['page', 'ip', 'status', 'keterangan', 'status', 'created_at', 'updated_at'];
 }
