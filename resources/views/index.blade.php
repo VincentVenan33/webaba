@@ -59,74 +59,6 @@
                                             <div class="card-body">
                                                 <h5 class="card-title">Reports</h5>
                                                 <div id="reportsChart"></div>
-                                                <script>
-                                                </script>
-
-                                                <script>
-                                                   document.addEventListener("DOMContentLoaded", () => {
-                                                    const today = new Date();
-                                                    const dates = [];
-                                                    for (let i = 6; i >= 0; i--) {
-                                                        const date = new Date(today);
-                                                        date.setDate(today.getDate() - i);
-                                                        const formattedDate = date.toISOString().split('T')[0];
-                                                        dates.push(formattedDate);
-                                                    }
-                                                    console.log(dates);
-                                                    const pengunjung_data = @json($index);
-                                                    const arrayVisitor = [];
-                                                    pengunjung_data.forEach((pengunjung_data) => {
-                                                        arrayVisitor.push(pengunjung_data.total_users);
-
-                                                    });
-                                                    console.log(arrayVisitor);
-                                                    const visitors = arrayVisitor;
-                                                    new ApexCharts(document.querySelector("#reportsChart"), {
-                                                series: [{
-                                                    name: 'Page',
-                                                    data: visitors
-                                                }],
-                                                chart: {
-                                                    height: 350,
-                                                    type: 'area',
-                                                    toolbar: {
-                                                        show: false
-                                                    },
-                                                    timezone: 'Asia/Jakarta'
-                                                },
-                                                markers: {
-                                                    size: 4
-                                                },
-                                                colors: ['#4154f1', '#2eca6a', '#ff771d'],
-                                                fill: {
-                                                    type: "gradient",
-                                                    gradient: {
-                                                        shadeIntensity: 1,
-                                                        opacityFrom: 0.3,
-                                                        opacityTo: 0.4,
-                                                        stops: [0, 90, 100]
-                                                    }
-                                                },
-                                                dataLabels: {
-                                                    enabled: false
-                                                },
-                                                stroke: {
-                                                    curve: 'smooth',
-                                                    width: 2
-                                                },
-                                                xaxis: {
-                                                    type: 'datetime',
-                                                    categories: dates
-
-                                                },
-                                                tooltip: {
-                                                    x: {
-                                                        format: 'dd/MM/yy HH:mm'
-                                                    },
-                                                }
-                                            }).render();
-                                                    });
-                                                </script>
                                             </div>
                                         </div>
                                     </div>
@@ -265,5 +197,55 @@
                     </div>
                 </div>
             </div>
+            <script>
+                document.addEventListener("DOMContentLoaded", () => {
+                 const today = new Date();
+                 const dates = [];
+                 new ApexCharts(document.querySelector("#reportsChart"), {
+             series: [{
+                 name: 'Page',
+                 data: @json($chartcount)
+             }],
+             chart: {
+                 height: 350,
+                 type: 'area',
+                 toolbar: {
+                     show: false
+                 },
+                 timezone: 'Asia/Jakarta'
+             },
+             markers: {
+                 size: 4
+             },
+             colors: ['#4154f1', '#2eca6a', '#ff771d'],
+             fill: {
+                 type: "gradient",
+                 gradient: {
+                     shadeIntensity: 1,
+                     opacityFrom: 0.3,
+                     opacityTo: 0.4,
+                     stops: [0, 90, 100]
+                 }
+             },
+             dataLabels: {
+                 enabled: false
+             },
+             stroke: {
+                 curve: 'smooth',
+                 width: 2
+             },
+             xaxis: {
+                 type: 'datetime',
+                 categories: @json($chartdate)
+
+             },
+             tooltip: {
+                 x: {
+                     format: 'dd/MM/yy HH:mm'
+                 },
+             }
+            }).render();
+                    });
+             </script>
 </main> <!-- main -->
 @endsection

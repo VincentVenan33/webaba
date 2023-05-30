@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 //dashboard
-Route::get('/', [HomeController::class, 'index'])->name('index')->middleware('auth');
+Route::get('/', [HomeController::class, 'pengunjung'])->name('index')->middleware('auth');
 // Route::get('dashboard', [HomeController::class, 'index'])->name('dashboard')->middleware('auth');
 Route::get('dashboard', [HomeController::class, 'pengunjung'])->name('dashboard')->middleware('auth');
 //login

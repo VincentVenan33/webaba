@@ -283,7 +283,6 @@
             inputharga.value = inputharga.value.replace(/[^0-9\.]/g, '');
         });
     </script>
-    
 </body>
 
 </html>
