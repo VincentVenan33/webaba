@@ -12122,13 +12122,6 @@ input:checked + .slider:before {
     text-align: end;
 }
 
-.fe-list{
-    color: #008ffb;
-    font-size: x-large;
-    flex-shrink: 0;
-    flex-grow: 0;
-}
-
 .card-icon {
     font-size: 25px;
     line-height: 0;
@@ -12140,6 +12133,7 @@ input:checked + .slider:before {
     background: #f6f6fe;
   }
 
-  .card-user{
-    margin-left: 25%;
+  .card-icon:hover{
+    color: #f6f6fe;
+    background: #008ffb;
   }
