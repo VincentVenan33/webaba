@@ -73,7 +73,7 @@
                                                         dates.push(formattedDate);
                                                     }
                                                     console.log(dates);
-                                                    const pengunjung_data = @json($pengunjung_data);
+                                                    const pengunjung_data = @json($index);
                                                     const arrayVisitor = [];
                                                     pengunjung_data.forEach((pengunjung_data) => {
                                                         arrayVisitor.push(pengunjung_data.total_users);
@@ -92,6 +92,7 @@
                                                     toolbar: {
                                                         show: false
                                                     },
+                                                    timezone: 'Asia/Jakarta'
                                                 },
                                                 markers: {
                                                     size: 4

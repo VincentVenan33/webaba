@@ -6,7 +6,6 @@ use App\Models\ProdukModel;
 use App\Models\TeamModel;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -51,7 +50,7 @@ class HomeController extends Controller
                     $totalMonthlyVisitors = PengunjungModel::select(DB::raw('COUNT(*) as totalMonthlyVisitors, YEAR(created_at) as year, MONTH(created_at) as month'))
                     ->whereYear('created_at', '=', date('Y'))
                     ->whereMonth('created_at', '=', date('m'))
-                    // ->groupBy('year', 'month')
+                    ->groupBy('year', 'month')
                     ->get();
 
 
@@ -66,7 +65,6 @@ class HomeController extends Controller
                         'index' => $result,
                         'totalMonthlyVisitors' => $totalMonthlyVisitors,
                         'totalOnline' => $totalOnline,
-                        'pengunjung_data' => $pengunjung_data,
                         'title' => $title,
                         'username' => $username,
                     ]);

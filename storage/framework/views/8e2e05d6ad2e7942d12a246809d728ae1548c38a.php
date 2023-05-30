@@ -72,7 +72,7 @@
                                                         dates.push(formattedDate);
                                                     }
                                                     console.log(dates);
-                                                    const pengunjung_data = <?php echo json_encode($pengunjung_data, 15, 512) ?>;
+                                                    const pengunjung_data = <?php echo json_encode($index, 15, 512) ?>;
                                                     const arrayVisitor = [];
                                                     pengunjung_data.forEach((pengunjung_data) => {
                                                         arrayVisitor.push(pengunjung_data.total_users);
@@ -91,6 +91,7 @@
                                                     toolbar: {
                                                         show: false
                                                     },
+                                                    timezone: 'Asia/Jakarta'
                                                 },
                                                 markers: {
                                                     size: 4
