@@ -21,23 +21,23 @@ class HomeController extends Controller
         ->groupBy('ip', 'day')
         ->get();
 
-                    $startDate = now()->subDays(5)->toDateString();
-                    $endDate = now()->toDateString();
+        $startDate = now()->subDays(5)->toDateString();
+        $endDate = now()->toDateString();
 
-                    $result = PengunjungModel::select('t.day', DB::raw('COUNT(s.id) as total_users'))
-                        ->from(DB::raw('(
+        $result = PengunjungModel::select('t.day', DB::raw('COUNT(s.id) as total_users'))
+        ->from(DB::raw('(
 
-                    SELECT CURDATE() - INTERVAL 6 DAY AS day UNION ALL
-                    SELECT CURDATE() - INTERVAL 5 DAY AS day UNION ALL
-                    SELECT CURDATE() - INTERVAL 4 DAY AS day UNION ALL
-                    SELECT CURDATE() - INTERVAL 3 DAY AS day UNION ALL
-                    SELECT CURDATE() - INTERVAL 2 DAY AS day UNION ALL
-                    SELECT CURDATE() - INTERVAL 1 DAY AS day UNION ALL
-                    SELECT CURDATE() AS day
-                ) AS t'))
-                        ->leftJoin('pengunjung AS s', DB::raw('t.day'), '=', DB::raw('DATE(s.created_at)'))
-                        ->groupBy('t.day')
-                        ->get();
+    SELECT CURDATE() - INTERVAL 6 DAY AS day UNION ALL
+    SELECT CURDATE() - INTERVAL 5 DAY AS day UNION ALL
+    SELECT CURDATE() - INTERVAL 4 DAY AS day UNION ALL
+    SELECT CURDATE() - INTERVAL 3 DAY AS day UNION ALL
+    SELECT CURDATE() - INTERVAL 2 DAY AS day UNION ALL
+    SELECT CURDATE() - INTERVAL 1 DAY AS day UNION ALL
+    SELECT CURDATE() AS day
+) AS t'))
+        ->leftJoin('pengunjung AS s', DB::raw('t.day'), '=', DB::raw('DATE(s.created_at)'))
+        ->groupBy('t.day')
+        ->get();
 
 
 
@@ -49,10 +49,11 @@ class HomeController extends Controller
                     $totalVisitors = PengunjungModel::count();
 
                     $totalMonthlyVisitors = PengunjungModel::select(DB::raw('COUNT(*) as totalMonthlyVisitors, YEAR(created_at) as year, MONTH(created_at) as month'))
-    ->whereYear('created_at', '=', date('Y'))
-    ->whereMonth('created_at', '=', date('m'))
-    ->groupBy(DB::raw('YEAR(created_at), MONTH(created_at)'))
-    ->get();
+                    ->whereYear('created_at', '=', date('Y'))
+                    ->whereMonth('created_at', '=', date('m'))
+                    // ->groupBy('year', 'month')
+                    ->get();
+
 
 
 

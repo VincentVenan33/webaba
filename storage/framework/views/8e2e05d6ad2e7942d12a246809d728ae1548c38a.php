@@ -65,11 +65,11 @@
                                                    document.addEventListener("DOMContentLoaded", () => {
                                                     const today = new Date();
                                                     const dates = [];
-                                                    for (let i = 0; i <= 6; i++) {
-                                                    const date = new Date(today);
-                                                    date.setDate(today.getDate() + i);
-                                                    const formattedDate = date.toDateString();
-                                                    dates.push(formattedDate);
+                                                    for (let i = 6; i >= 0; i--) {
+                                                        const date = new Date(today);
+                                                        date.setDate(today.getDate() - i);
+                                                        const formattedDate = date.toISOString().split('T')[0];
+                                                        dates.push(formattedDate);
                                                     }
                                                     console.log(dates);
                                                     const pengunjung_data = <?php echo json_encode($pengunjung_data, 15, 512) ?>;
@@ -81,49 +81,48 @@
                                                     console.log(arrayVisitor);
                                                     const visitors = arrayVisitor;
                                                     new ApexCharts(document.querySelector("#reportsChart"), {
-                                                        series: [{
-                                                            name: 'Page',
-                                                            data: visitors
-                                                        }],
-                                                        chart: {
-                                                            height: 350,
-                                                            type: 'area',
-                                                            toolbar: {
-                                                                show: false
-                                                            },
-                                                            timezone: 'Asia/Jakarta'
-                                                        },
-                                                        markers: {
-                                                            size: 4
-                                                        },
-                                                        colors: ['#008ffb', '#2eca6a', '#ff771d'],
-                                                        fill: {
-                                                            type: "gradient",
-                                                            gradient: {
-                                                                shadeIntensity: 1,
-                                                                opacityFrom: 0.3,
-                                                                opacityTo: 0.4,
-                                                                stops: [0, 90, 100]
-                                                            }
-                                                        },
-                                                        dataLabels: {
-                                                            enabled: false
-                                                        },
-                                                        stroke: {
-                                                            curve: 'smooth',
-                                                            width: 2
-                                                        },
-                                                        xaxis: {
-                                                            type: 'datetime',
-                                                            categories: dates
+                                                series: [{
+                                                    name: 'Page',
+                                                    data: visitors
+                                                }],
+                                                chart: {
+                                                    height: 350,
+                                                    type: 'area',
+                                                    toolbar: {
+                                                        show: false
+                                                    },
+                                                },
+                                                markers: {
+                                                    size: 4
+                                                },
+                                                colors: ['#4154f1', '#2eca6a', '#ff771d'],
+                                                fill: {
+                                                    type: "gradient",
+                                                    gradient: {
+                                                        shadeIntensity: 1,
+                                                        opacityFrom: 0.3,
+                                                        opacityTo: 0.4,
+                                                        stops: [0, 90, 100]
+                                                    }
+                                                },
+                                                dataLabels: {
+                                                    enabled: false
+                                                },
+                                                stroke: {
+                                                    curve: 'smooth',
+                                                    width: 2
+                                                },
+                                                xaxis: {
+                                                    type: 'datetime',
+                                                    categories: dates
 
-                                                        },
-                                                        tooltip: {
-                                                            x: {
-                                                                format: 'dd/MM/yy HH:mm'
-                                                            },
-                                                        }
-                                                    }).render();
+                                                },
+                                                tooltip: {
+                                                    x: {
+                                                        format: 'dd/MM/yy HH:mm'
+                                                    },
+                                                }
+                                            }).render();
                                                     });
                                                 </script>
                                             </div>
