@@ -13,8 +13,8 @@ class HomeController extends Controller
 {
     public function pengunjung()
                 {
-                    $pengunjung_data = PengunjungModel::select(DB::raw('DATE(created_at) as day'), DB::raw('COUNT(id) as total_users'))
-        ->groupBy('day')
+                    $pengunjung_data = PengunjungModel::select('ip', DB::raw('DATE(created_at) as day'), DB::raw('COUNT(id) as total_users'))
+        ->groupBy('ip','day')
         ->get();
 
     $pengunjung_data_1 = PengunjungModel::select('ip', DB::raw('DATE(created_at) as day'), DB::raw('COUNT(id) as total_users'))
