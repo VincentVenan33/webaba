@@ -71,14 +71,19 @@
                         </a>
                     </li>
                 </ul>
-                {{-- <ul class="navbar-nav flex-fill w-100 mb-2">
+                <ul class="navbar-nav flex-fill w-100 mb-2">
                     <li class="nav-item dropdown">
-                        <a href="{{route('viewpengunjung')}}" class="nav-link">
-                            <i class="fe fe-trending-up fe-16"></i>
-                            <span class="ml-3 item-text">Pengunjung</span>
+                        <a href="{{route('viewcontact')}}" class="nav-link">
+                            <i class="fe fe-inbox fe-16"></i>
+                            <span class="ml-3 item-text">Inbox</span>
+                            @isset($unread_count)
+                                @section('notifications')
+                                    <span class="badge badge-danger" style="padding: 4px 8px; font-weight: bold; line-height: 14px; font-size: 12px;">{{ $unread_count }}</span>
+                                @show
+                            @endisset
                         </a>
                     </li>
-                </ul> --}}
+                </ul>
                 <ul class="navbar-nav flex-fill w-100 mb-2">
                     <li class="nav-item dropdown">
                         <a href="{{route('viewproduk')}}" class="nav-link">
@@ -108,19 +113,6 @@
                         <a href="{{route('viewuserdata')}}" class="nav-link">
                             <i class="fe fe-user fe-16"></i>
                             <span class="ml-3 item-text">User</span>
-                        </a>
-                    </li>
-                </ul>
-                <ul class="navbar-nav flex-fill w-100 mb-2">
-                    <li class="nav-item dropdown">
-                        <a href="{{route('viewcontact')}}" class="nav-link">
-                            <i class="fe fe-inbox fe-16"></i>
-                            <span class="ml-3 item-text">Inbox</span>
-                            @isset($unread_count)
-                                @section('notifications')
-                                    <span class="badge badge-danger" style="padding: 4px 8px; font-weight: bold; line-height: 14px; font-size: 12px;">{{ $unread_count }}</span>
-                                @show
-                            @endisset
                         </a>
                     </li>
                 </ul>
