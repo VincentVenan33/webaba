@@ -31,7 +31,7 @@
                                                     <i class="fe fe-user"></i>
                                                 </div>
                                                 <div class="ml-3 ps-3">
-                                                    <span class="h3"><?php echo e($totalMonthlyVisitors[0]->totalMonthlyVisitors); ?></span>
+                                                    <span class="h3"><?php echo e((isset($totalMonthlyVisitors[0]->totalMonthlyVisitors) ? $totalMonthlyVisitors[0]->totalMonthlyVisitors : 0 )); ?></span>
                                                 </div>
                                             </div>
                                             <p class="text-muted mt-2"> Monthly Visitor </p>
@@ -218,14 +218,21 @@
                  width: 2
              },
              xaxis: {
-                 type: 'datetime',
-                 categories: <?php echo json_encode($chartdate, 15, 512) ?>
-
-             },
-             tooltip: {
+                    type: 'datetime',
+                    categories: <?php echo json_encode($chartdate, 15, 512) ?>,
+                    labels: {
+                        style: {
+                            fontSize: '15px' // Ukuran font yang ingin Anda gunakan
+                        }
+                    }
+                },
+                tooltip: {
                  x: {
                      format: 'dd/MM/yy HH:mm'
                  },
+                 style: {
+            fontSize: '15px' // Ukuran font yang ingin Anda gunakan
+        }
              }
             }).render();
                     });

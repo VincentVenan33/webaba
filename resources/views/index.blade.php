@@ -32,7 +32,7 @@
                                                     <i class="fe fe-user"></i>
                                                 </div>
                                                 <div class="ml-3 ps-3">
-                                                    <span class="h3">{{ $totalMonthlyVisitors[0]->totalMonthlyVisitors }}</span>
+                                                    <span class="h3">{{ (isset($totalMonthlyVisitors[0]->totalMonthlyVisitors) ? $totalMonthlyVisitors[0]->totalMonthlyVisitors : 0 ) }}</span>
                                                 </div>
                                             </div>
                                             <p class="text-muted mt-2"> Monthly Visitor </p>
@@ -219,14 +219,21 @@
                  width: 2
              },
              xaxis: {
-                 type: 'datetime',
-                 categories: @json($chartdate)
-
-             },
-             tooltip: {
+                    type: 'datetime',
+                    categories: @json($chartdate),
+                    labels: {
+                        style: {
+                            fontSize: '15px' // Ukuran font yang ingin Anda gunakan
+                        }
+                    }
+                },
+                tooltip: {
                  x: {
                      format: 'dd/MM/yy HH:mm'
                  },
+                 style: {
+            fontSize: '15px' // Ukuran font yang ingin Anda gunakan
+        }
              }
             }).render();
                     });
